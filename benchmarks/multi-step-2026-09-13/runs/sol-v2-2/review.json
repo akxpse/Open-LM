@@ -1,0 +1,4 @@
+{
+  "sameModel": "REWORK — `planJobs` accepts entries with unknown extra fields, although R2 requires normalized jobs as defined by R1, whose job objects contain exactly the five specified fields. `isNormalizedJob` does not verify exact keys, and `{...job}` would also leak extra fields into returned jobs.\n\nThe recorded test execution genuinely passed all 10 tests, but this requirement is untested and the implementation is not contract-complete.",
+  "hostDecision": "See study report: same-model verdicts are not independent host acceptance."
+}

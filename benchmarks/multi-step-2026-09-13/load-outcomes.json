@@ -1,0 +1,74 @@
+[
+  {
+    "label": "ornith-1",
+    "key": "ornith-1.0-35b",
+    "id": "open-lm-ornith",
+    "load": {
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false
+    },
+    "loadSeconds": 12.005,
+    "run": {
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false
+    }
+  },
+  {
+    "label": "gemma-1",
+    "key": "gemma4-8b",
+    "id": "open-lm-gemma",
+    "load": {
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    "loadSeconds": 0.607,
+    "outcome": "load-failed"
+  },
+  {
+    "label": "qwen36-1",
+    "key": "qwen3.6-35b",
+    "id": "open-lm-qwen36",
+    "load": {
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    "loadSeconds": 0.389,
+    "outcome": "load-failed"
+  },
+  {
+    "label": "qwen14-1",
+    "key": "qwen3-14b",
+    "id": "open-lm-qwen14",
+    "load": {
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false
+    },
+    "loadSeconds": 3.226,
+    "run": {
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false
+    }
+  },
+  {
+    "label": "deepseek-1",
+    "key": "deepseek-r1-14b",
+    "id": "open-lm-deepseek",
+    "load": {
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false
+    },
+    "loadSeconds": 3.035,
+    "run": {
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false
+    }
+  }
+]

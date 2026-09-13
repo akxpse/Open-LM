@@ -1,0 +1,4 @@
+{
+  "sameModel": "REWORK\n\nConfirmed cause: all three source files remain TODO stubs; each exported function throws `Error('TODO')`.\n\n- R1: No parsing, validation, normalization, or per-line error handling exists.\n- R2: No validation, deduplication, filtering, ordering, batching, counting, or output copying exists.\n- R3: `cli.mjs` imports neither module. Neither `processText` nor the actual CLI behavior is implemented.\n- R4: Recorded evidence confirms successful `get_contract` and `get_examples` calls, but contains no stub/test inspection, implementation writes, or execution of `node --test verify.test.mjs`. `HANDOFF.md` is absent.\n\nThe recorded `exitCode: 0` and `testIntegrity: true` do not establish actual test execution or passing tests. The implementation is incomplete, and no passing test evidence is provided.",
+  "hostDecision": "See study report: same-model verdicts are not independent host acceptance."
+}

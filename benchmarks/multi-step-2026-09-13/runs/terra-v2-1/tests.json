@@ -1,0 +1,15 @@
+[
+  {
+    "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+    "exitCode": 1,
+    "output": "# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.095125\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.140875\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.25625\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.261167\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.085458\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.153167\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.057375\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.059709\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nnot ok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 41.883084\n  type: 'test'\n  location: '<STUDY_ROOT>/terra-v2-1/work/verify.test.mjs:55:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    INTERNAL_ERROR\n    \n    \n    1 !== 0\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 0\n  actual: 1\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/terra-v2-1/work/verify.test.mjs:58:33)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 454.110375\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 9\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 562.346167\n",
+    "source": "implementation.evidence",
+    "status": "failed",
+    "ordinal": 1,
+    "counts": {
+      "tests": 10,
+      "pass": 9,
+      "fail": 1
+    }
+  }
+]

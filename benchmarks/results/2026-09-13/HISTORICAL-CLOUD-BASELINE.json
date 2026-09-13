@@ -1,0 +1,143 @@
+{
+  "status": "historical_separate_cloud_arms_only",
+  "date": "2026-09-13",
+  "cloudModel": "Terra",
+  "notMatchedToGlm": true,
+  "results": [
+    {
+      "case": "normalize",
+      "arm": "cloud",
+      "passed": true,
+      "seconds": 23.051,
+      "cloud": {
+        "input_tokens": 84750,
+        "cached_input_tokens": 71424,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 523,
+        "reasoning_output_tokens": 12
+      },
+      "cloudPhases": 2,
+      "local": [],
+      "work": "<mixed-root>/normalize-cloud"
+    },
+    {
+      "case": "ttl-cache",
+      "arm": "cloud",
+      "passed": true,
+      "seconds": 35.825,
+      "cloud": {
+        "input_tokens": 86777,
+        "cached_input_tokens": 77568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1188,
+        "reasoning_output_tokens": 318
+      },
+      "cloudPhases": 2,
+      "local": [],
+      "work": "<mixed-root>/ttl-cache-cloud"
+    },
+    {
+      "case": "concurrency-map",
+      "arm": "cloud",
+      "passed": true,
+      "seconds": 41.864,
+      "cloud": {
+        "input_tokens": 87261,
+        "cached_input_tokens": 69376,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1551,
+        "reasoning_output_tokens": 553
+      },
+      "cloudPhases": 2,
+      "local": [],
+      "work": "<mixed-root>/concurrency-map-cloud"
+    }
+  ],
+  "phases": [
+    {
+      "label": "normalize-cloud-0-implement",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "seconds": 18.456,
+      "usage": {
+        "input_tokens": 68207,
+        "cached_input_tokens": 61440,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 517,
+        "reasoning_output_tokens": 12
+      }
+    },
+    {
+      "label": "normalize-cloud-0-review",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "seconds": 4.483,
+      "usage": {
+        "input_tokens": 16543,
+        "cached_input_tokens": 9984,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "label": "ttl-cache-cloud-0-implement",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "seconds": 31.319,
+      "usage": {
+        "input_tokens": 69932,
+        "cached_input_tokens": 62464,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1182,
+        "reasoning_output_tokens": 318
+      }
+    },
+    {
+      "label": "ttl-cache-cloud-0-review",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "seconds": 4.395,
+      "usage": {
+        "input_tokens": 16845,
+        "cached_input_tokens": 15104,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "label": "concurrency-map-cloud-0-implement",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "seconds": 36.511,
+      "usage": {
+        "input_tokens": 70396,
+        "cached_input_tokens": 59392,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1545,
+        "reasoning_output_tokens": 553
+      }
+    },
+    {
+      "label": "concurrency-map-cloud-0-review",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "seconds": 5.242,
+      "usage": {
+        "input_tokens": 16865,
+        "cached_input_tokens": 9984,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "scope": "Original pilot cloud-only arms; hidden tests harness-executed, separate Terra review. Not matched to GLM. Supervising conversation/setup excluded."
+}

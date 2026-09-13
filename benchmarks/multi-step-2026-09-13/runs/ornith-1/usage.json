@@ -1,0 +1,19 @@
+{
+  "worker": {
+    "input": 184719,
+    "output": 5351,
+    "reasoning": 2087,
+    "cacheRead": 0,
+    "cacheWrite": 0
+  },
+  "serverCompletedRequestTotals": {
+    "prompt": 184719,
+    "completion": 7438,
+    "reasoning": 2087,
+    "total": 192157
+  },
+  "requestCount": 15,
+  "requestsWithUsage": 15,
+  "complete": true,
+  "semantics": "Server completion includes reasoning. OpenCode output and reasoning are separate counters. Missing request usage is unknown, not zero."
+}

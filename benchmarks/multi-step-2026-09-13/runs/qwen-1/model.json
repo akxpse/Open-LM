@@ -1,0 +1,19 @@
+[
+  {
+    "identifier": "open-lm-qwen",
+    "modelKey": "qwen3-coder-30b",
+    "type": "llm",
+    "format": "gguf",
+    "architecture": "qwen3moe",
+    "paramsString": "30B-A3B",
+    "quantization": {
+      "name": "Q4_K_M",
+      "bits": 4
+    },
+    "sizeBytes": 18556688736,
+    "contextLength": 32768,
+    "parallel": 1,
+    "status": "idle",
+    "trainedForToolUse": true
+  }
+]

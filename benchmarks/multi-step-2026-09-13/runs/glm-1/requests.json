@@ -1,0 +1,245 @@
+[
+  {
+    "id": 1,
+    "startedAt": "2026-09-13T22:49:24.053Z",
+    "usage": {
+      "prompt_tokens": 3694,
+      "completion_tokens": 222,
+      "total_tokens": 3916,
+      "completion_tokens_details": {
+        "reasoning_tokens": 180
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-glm",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 2,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "fae2cf4769baece1deb842467c79798f2ed7fe49d98304226517848fdcb8489e",
+    "httpStatus": 200,
+    "firstChunkMs": 11274,
+    "done": true,
+    "elapsedMs": 35571
+  },
+  {
+    "id": 2,
+    "startedAt": "2026-09-13T22:49:59.765Z",
+    "usage": {
+      "prompt_tokens": 4857,
+      "completion_tokens": 147,
+      "total_tokens": 5004,
+      "completion_tokens_details": {
+        "reasoning_tokens": 22
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-glm",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 5,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "6d8d5c4c99db3e13ff536f6f3c846432c3e162522b61656f3b25c9cc47fb2552",
+    "httpStatus": 200,
+    "firstChunkMs": 4495,
+    "done": true,
+    "elapsedMs": 9511
+  },
+  {
+    "id": 3,
+    "startedAt": "2026-09-13T22:50:09.403Z",
+    "usage": {
+      "prompt_tokens": 7105,
+      "completion_tokens": 2284,
+      "total_tokens": 9389,
+      "completion_tokens_details": {
+        "reasoning_tokens": 507
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-glm",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 10,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "b8bd45b502854234e9c5cf79184819624c63a93c069f6408af827a89191c4994",
+    "httpStatus": 200,
+    "firstChunkMs": 11703,
+    "done": true,
+    "elapsedMs": 115005
+  },
+  {
+    "id": 4,
+    "startedAt": "2026-09-13T22:52:04.589Z",
+    "usage": {
+      "prompt_tokens": 9412,
+      "completion_tokens": 35,
+      "total_tokens": 9447,
+      "completion_tokens_details": {
+        "reasoning_tokens": 11
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-glm",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 14,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "efdfe09efb3901d66ea2eaabcb2ecbd974dd7eae601a4e8d2c003c0b001fa68c",
+    "httpStatus": 200,
+    "firstChunkMs": 9875,
+    "done": true,
+    "elapsedMs": 11252
+  },
+  {
+    "id": 5,
+    "startedAt": "2026-09-13T22:52:16.086Z",
+    "usage": {
+      "prompt_tokens": 9787,
+      "completion_tokens": 132,
+      "total_tokens": 9919,
+      "completion_tokens_details": {
+        "reasoning_tokens": 32
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-glm",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 16,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "f51dac15304a1fc6decb902355a41cb42f8286a3c1621fbdf23373d61bdb99c3",
+    "httpStatus": 200,
+    "firstChunkMs": 3116,
+    "done": true,
+    "elapsedMs": 9316
+  },
+  {
+    "id": 6,
+    "startedAt": "2026-09-13T22:52:25.580Z",
+    "usage": {
+      "prompt_tokens": 9927,
+      "completion_tokens": 32,
+      "total_tokens": 9959,
+      "completion_tokens_details": {
+        "reasoning_tokens": 8
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-glm",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 18,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "3f0f346694c4cca58f47994cd7943cda410922016bcda5b7f28c47c23d01fcf6",
+    "httpStatus": 200,
+    "firstChunkMs": 729,
+    "done": true,
+    "elapsedMs": 2009
+  },
+  {
+    "id": 7,
+    "startedAt": "2026-09-13T22:52:27.902Z",
+    "usage": null,
+    "finishReasons": [],
+    "model": "open-lm-glm",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 20,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "5a9b0595e05d2f2c5dc8650f42c3d730fdc24b866e19342d7e797d483ae75eeb",
+    "httpStatus": 200,
+    "firstChunkMs": 35297,
+    "error": "TimeoutError: The operation was aborted due to timeout",
+    "elapsedMs": 300004
+  }
+]

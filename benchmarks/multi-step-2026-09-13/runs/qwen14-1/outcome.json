@@ -1,0 +1,26 @@
+{
+  "label": "qwen14-1",
+  "model": "open-lm-qwen14",
+  "condition": "local-implementation-with-frontier-supervision",
+  "parentLabel": null,
+  "seconds": 600.031,
+  "terminalState": "stopped-or-failed",
+  "stopReason": "wall-time-limit",
+  "exitCode": null,
+  "signal": "SIGTERM",
+  "testIntegrity": true,
+  "hostAccepted": false,
+  "errors": [],
+  "testRuns": [
+    {
+      "ordinal": 1,
+      "command": "node --test verify.test.mjs",
+      "status": "completed",
+      "exitCode": 1,
+      "tests": 10,
+      "pass": 0,
+      "fail": 10
+    }
+  ],
+  "completeUsage": false
+}

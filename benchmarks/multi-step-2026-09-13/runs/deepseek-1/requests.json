@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "startedAt": "2026-09-13T23:14:31.393Z",
+    "usage": {
+      "prompt_tokens": 4041,
+      "completion_tokens": 804,
+      "total_tokens": 4845,
+      "completion_tokens_details": {
+        "reasoning_tokens": 693
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-deepseek",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 2,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "763798152f93b30cd739e913461e59c467cf5be5e97b692efe3ee93f2dce67c2",
+    "httpStatus": 200,
+    "firstChunkMs": 16660,
+    "done": true,
+    "elapsedMs": 81797
+  },
+  {
+    "id": 2,
+    "startedAt": "2026-09-13T23:15:53.336Z",
+    "usage": null,
+    "finishReasons": [],
+    "model": "open-lm-deepseek",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 5,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "6a893a295935a65b4d6f1b34620998f510bb6c263b16a2f12e6c01b497d6c48e",
+    "httpStatus": 200,
+    "firstChunkMs": 5152,
+    "elapsedMs": 6075
+  }
+]

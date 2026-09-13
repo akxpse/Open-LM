@@ -1,0 +1,48 @@
+node_modules/
+.DS_Store
+.env
+.env.*
+!.env.example
+.local-loop/
+events.jsonl
+stderr.log
+summary.json
+*.log
+
+# Credentials and machine-local configuration.
+*.pem
+*.key
+*.p12
+*.pfx
+*-api-token
+auth.json
+.opencode/
+.lmstudio/
+.ollama/
+.codex/
+.claude/settings.local.json
+
+# Private run artifacts; curated benchmark JSON stays publishable.
+.private/
+.bench-private/
+benchmarks/private/
+benchmarks/raw/
+*.jsonl
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Downloaded weights and generated artifacts.
+*.gguf
+*.safetensors
+coverage/
+dist/
+.cache/
+*.tmp
+*.swp
+
+# Raw inference/config packets are private wherever accidentally saved.
+request-*.json
+response-*.txt
+effective-config.json
+packet.json

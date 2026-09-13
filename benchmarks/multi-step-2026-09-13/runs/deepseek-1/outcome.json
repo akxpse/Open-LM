@@ -1,0 +1,23 @@
+{
+  "label": "deepseek-1",
+  "model": "open-lm-deepseek",
+  "condition": "local-implementation-with-frontier-supervision",
+  "parentLabel": null,
+  "seconds": 90.039,
+  "terminalState": "stopped-or-failed",
+  "stopReason": null,
+  "exitCode": 1,
+  "signal": null,
+  "testIntegrity": true,
+  "hostAccepted": false,
+  "errors": [
+    {
+      "name": "UnknownError",
+      "data": {
+        "message": "\"got exception: Unexpected empty grammar stack after accepting piece: >\\n (397)\""
+      }
+    }
+  ],
+  "testRuns": [],
+  "completeUsage": false
+}

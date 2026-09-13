@@ -1,0 +1,845 @@
+{
+  "kind": "post-hoc common verification; not a fresh benchmark attempt or hidden predeclared holdout",
+  "node": "v22.23.2",
+  "regexControl": {
+    "digitsAcceptsNewline": false,
+    "dAcceptsNewline": false
+  },
+  "packagedRegression": {
+    "status": 0,
+    "signal": null,
+    "error": null,
+    "stdout": "TAP version 13\n# Subtest: normalize: visible and hidden checks accept reference\nok 1 - normalize: visible and hidden checks accept reference\n  ---\n  duration_ms: 1.054417\n  type: 'test'\n  ...\n# Subtest: normalize: hidden checks reject seeded starter defect\nok 2 - normalize: hidden checks reject seeded starter defect\n  ---\n  duration_ms: 1.072416\n  type: 'test'\n  ...\n# Subtest: ttl-cache: visible and hidden checks accept reference\nok 3 - ttl-cache: visible and hidden checks accept reference\n  ---\n  duration_ms: 0.14525\n  type: 'test'\n  ...\n# Subtest: ttl-cache: hidden checks reject seeded starter defect\nok 4 - ttl-cache: hidden checks reject seeded starter defect\n  ---\n  duration_ms: 0.068792\n  type: 'test'\n  ...\n# Subtest: concurrency-map: visible and hidden checks accept reference\nok 5 - concurrency-map: visible and hidden checks accept reference\n  ---\n  duration_ms: 14.777625\n  type: 'test'\n  ...\n# Subtest: concurrency-map: hidden checks reject seeded starter defect\nok 6 - concurrency-map: hidden checks reject seeded starter defect\n  ---\n  duration_ms: 16.870625\n  type: 'test'\n  ...\n# Subtest: LM Studio validation tests\nok 7 - LM Studio validation tests\n  ---\n  duration_ms: 0.739625\n  type: 'test'\n  ...\n# Subtest: LM Studio configuration tests\nok 8 - LM Studio configuration tests\n  ---\n  duration_ms: 0.270083\n  type: 'test'\n  ...\n# Subtest: LM Studio mocked run test\nok 9 - LM Studio mocked run test\n  ---\n  duration_ms: 247.856708\n  type: 'test'\n  ...\n# Subtest: LM Studio catalog rejection test\nok 10 - LM Studio catalog rejection test\n  ---\n  duration_ms: 32.236125\n  type: 'test'\n  ...\n# Subtest: remote endpoints, cloud models, traversal and missing attestation rejected\nok 11 - remote endpoints, cloud models, traversal and missing attestation rejected\n  ---\n  duration_ms: 0.695917\n  type: 'test'\n  ...\n# Subtest: permissions and model routing are local and narrowly scoped\nok 12 - permissions and model routing are local and narrowly scoped\n  ---\n  duration_ms: 0.581083\n  type: 'test'\n  ...\n# Subtest: evidence preserves failed and unknown exits and deduplicates calls\nok 13 - evidence preserves failed and unknown exits and deduplicates calls\n  ---\n  duration_ms: 0.077459\n  type: 'test'\n  ...\n# Subtest: runner handles completion, timeout, event budget, log budget and missing binary\nok 14 - runner handles completion, timeout, event budget, log budget and missing binary\n  ---\n  duration_ms: 2023.147833\n  type: 'test'\n  ...\n1..14\n# tests 14\n# suites 0\n# pass 14\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 2084.54725\n",
+    "stderr": "",
+    "counts": {
+      "tests": 14,
+      "pass": 14,
+      "fail": 0
+    }
+  },
+  "candidates": [
+    {
+      "label": "astra-1",
+      "visible": {
+        "status": 1,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nnot ok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 0.804458\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:8:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    The error is expected to be an instance of \"TypeError\". Received \"Error\"\n    \n    Error message:\n    \n    TODO\n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:9:9)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.start (node:internal/test_runner/test:944:17)\n    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nnot ok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.050167\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:13:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    parseJobs (file://<STUDY_ROOT>/verification/work/candidates/astra-1/parser.mjs:1:41)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:15:19)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)\n  ...\n# Subtest: parser: field types and boundaries\nnot ok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.048958\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:17:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    parseJobs (file://<STUDY_ROOT>/verification/work/candidates/astra-1/parser.mjs:1:41)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:19:45)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nnot ok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.067833\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:23:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    The error is expected to be an instance of \"TypeError\". Received \"Error\"\n    \n    Error message:\n    \n    TODO\n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:24:42)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nnot ok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.0435\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:31:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    planJobs (file://<STUDY_ROOT>/verification/work/candidates/astra-1/planner.mjs:1:54)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:33:15)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nnot ok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.078417\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:38:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    planJobs (file://<STUDY_ROOT>/verification/work/candidates/astra-1/planner.mjs:1:54)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:41:10)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nnot ok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.036125\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:44:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    planJobs (file://<STUDY_ROOT>/verification/work/candidates/astra-1/planner.mjs:1:54)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:46:10)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nnot ok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.029958\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:50:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    processText (file://<STUDY_ROOT>/verification/work/candidates/astra-1/cli.mjs:1:57)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:52:19)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nnot ok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 37.99175\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:55:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    The expression evaluated to a falsy value:\n    \n      assert.ok(r.stdout.endsWith('\\n'))\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: true\n  actual: false\n  operator: '=='\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:58:93)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: CLI: strict errors and no import side effects\nnot ok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 34.559625\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:63:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    [\"--oops\"]\n    \n    0 !== 2\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 2\n  actual: 0\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/astra-1/verify.test.mjs:65:27)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 0\n# fail 10\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 129.421042\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 0,
+          "fail": 10
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "",
+          "passed": false
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":false,\"negativeAttempts\":false,\"extraEnumerableKey\":false,\"explicitUndefinedDefaults\":false}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": false,
+            "negativeAttempts": false,
+            "extraEnumerableKey": false,
+            "explicitUndefinedDefaults": false
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "astra-v2-1",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.055334\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.145792\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.241833\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.259125\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.109084\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.142542\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.057083\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.055167\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 158.489333\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 414.091583\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 629.020458\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":true,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": true,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/astra-v2-1/[eval1]:1\nimport path from 'node:path';import {pathToFileURL} from 'node:url';process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                           ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/astra-v2-1/[eval1]:1:188\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/astra-v2-1/[eval1]:1:175\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "astra-v2-2",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.054125\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.150458\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.244625\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.259167\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.111416\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.145291\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.05625\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.054709\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 157.574083\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 419.82\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 635.632875\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":true,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": true,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/astra-v2-2/[eval1]:1\nimport path from 'node:path';import {pathToFileURL} from 'node:url';process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                           ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/astra-v2-2/[eval1]:1:188\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/astra-v2-2/[eval1]:1:175\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "astra-v2-3",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.0525\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.146959\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.243708\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.258667\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.113084\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.143333\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.058625\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.055625\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 157.610125\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 425.328\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 640.416459\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":true,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": true,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INTERNAL_ERROR\n",
+          "passed": true
+        }
+      }
+    },
+    {
+      "label": "deepseek-1",
+      "visible": {
+        "status": 1,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nnot ok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 0.803333\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:8:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    The error is expected to be an instance of \"TypeError\". Received \"Error\"\n    \n    Error message:\n    \n    TODO\n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:9:9)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.start (node:internal/test_runner/test:944:17)\n    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nnot ok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.049583\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:13:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    parseJobs (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/parser.mjs:1:41)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:15:19)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)\n  ...\n# Subtest: parser: field types and boundaries\nnot ok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.049375\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:17:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    parseJobs (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/parser.mjs:1:41)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:19:45)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nnot ok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.067791\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:23:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    The error is expected to be an instance of \"TypeError\". Received \"Error\"\n    \n    Error message:\n    \n    TODO\n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:24:42)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nnot ok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.042583\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:31:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    planJobs (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/planner.mjs:1:54)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:33:15)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nnot ok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.094958\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:38:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    planJobs (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/planner.mjs:1:54)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:41:10)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nnot ok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.035292\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:44:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    planJobs (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/planner.mjs:1:54)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:46:10)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nnot ok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.029541\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:50:1'\n  failureType: 'testCodeFailure'\n  error: 'TODO'\n  code: 'ERR_TEST_FAILURE'\n  stack: |-\n    processText (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/cli.mjs:1:57)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:52:19)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nnot ok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 38.837041\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:55:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    The expression evaluated to a falsy value:\n    \n      assert.ok(r.stdout.endsWith('\\n'))\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: true\n  actual: false\n  operator: '=='\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:58:93)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: CLI: strict errors and no import side effects\nnot ok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 35.387625\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:63:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    [\"--oops\"]\n    \n    0 !== 2\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 2\n  actual: 0\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/deepseek-1/verify.test.mjs:65:27)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 0\n# fail 10\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 131.272542\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 0,
+          "fail": 10
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "",
+          "passed": false
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":false,\"negativeAttempts\":false,\"extraEnumerableKey\":false,\"explicitUndefinedDefaults\":false}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": false,
+            "negativeAttempts": false,
+            "extraEnumerableKey": false,
+            "explicitUndefinedDefaults": false
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "glm-1",
+      "visible": {
+        "status": 1,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nnot ok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 2.062125\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:8:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   errors: [\n    -   errors: [],\n    -   jobs: [\n          {\n    +       code: 'INVALID_JOB',\n    +       line: 1\n    -       attempts: 0,\n    -       createdAt: 0,\n    -       id: 'a',\n    -       priority: 2,\n    -       tenant: 'T'\n          }\n        ],\n    +   jobs: []\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    jobs:\n      0:\n        id: 'a'\n        tenant: 'T'\n        priority: 2\n        createdAt: 0\n        attempts: 0\n    errors:\n  actual:\n    jobs:\n    errors:\n      0:\n        line: 1\n        code: 'INVALID_JOB'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:11:9)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.start (node:internal/test_runner/test:944:17)\n    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nnot ok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.396334\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:13:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    ... Skipped lines\n    \n      {\n        errors: [\n          {\n            code: 'INVALID_JSON',\n            line: 2\n    ...\n            code: 'INVALID_JOB',\n    +       line: 5\n    -       line: 6\n          },\n    -   ],\n    -   jobs: [\n          {\n    +       code: 'INVALID_JOB',\n    +       line: 6\n    -       attempts: 0,\n    -       createdAt: 0,\n    -       id: 'a',\n    -       priority: 2,\n    -       tenant: 'T'\n          }\n        ],\n    +   jobs: []\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    jobs:\n      0:\n        id: 'a'\n        tenant: 'T'\n        priority: 2\n        createdAt: 0\n        attempts: 0\n    errors:\n      0:\n        line: 2\n        code: 'INVALID_JSON'\n      1:\n        line: 3\n        code: 'INVALID_JOB'\n      2:\n        line: 4\n        code: 'INVALID_JOB'\n      3:\n        line: 6\n        code: 'INVALID_JOB'\n  actual:\n    jobs:\n    errors:\n      0:\n        line: 2\n        code: 'INVALID_JSON'\n      1:\n        line: 3\n        code: 'INVALID_JOB'\n      2:\n        line: 4\n        code: 'INVALID_JOB'\n      3:\n        line: 5\n        code: 'INVALID_JOB'\n      4:\n        line: 6\n        code: 'INVALID_JOB'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:15:9)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)\n  ...\n# Subtest: parser: field types and boundaries\nnot ok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.342125\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:17:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    0 !== 1\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 1\n  actual: 0\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:21:9)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.2695\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nnot ok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.044709\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:31:1'\n  failureType: 'testCodeFailure'\n  error: 'each job must be a non-array object'\n  code: 'ERR_TEST_FAILURE'\n  name: 'TypeError'\n  stack: |-\n    planJobs (file://<STUDY_ROOT>/verification/work/candidates/glm-1/planner.mjs:24:13)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:33:15)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nnot ok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.040417\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:38:1'\n  failureType: 'testCodeFailure'\n  error: 'each job must be a non-array object'\n  code: 'ERR_TEST_FAILURE'\n  name: 'TypeError'\n  stack: |-\n    planJobs (file://<STUDY_ROOT>/verification/work/candidates/glm-1/planner.mjs:24:13)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:41:10)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nnot ok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.034542\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:44:1'\n  failureType: 'testCodeFailure'\n  error: 'each job must be a non-array object'\n  code: 'ERR_TEST_FAILURE'\n  name: 'TypeError'\n  stack: |-\n    planJobs (file://<STUDY_ROOT>/verification/work/candidates/glm-1/planner.mjs:24:13)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:46:10)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nnot ok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.045375\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:50:1'\n  failureType: 'testCodeFailure'\n  error: 'jobs must be an array'\n  code: 'ERR_TEST_FAILURE'\n  name: 'TypeError'\n  stack: |-\n    planJobs (file://<STUDY_ROOT>/verification/work/candidates/glm-1/planner.mjs:3:11)\n    processText (file://<STUDY_ROOT>/verification/work/candidates/glm-1/cli.mjs:7:18)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:52:19)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nnot ok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 40.250334\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:55:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    file://<STUDY_ROOT>/verification/work/candidates/glm-1/cli.mjs:41\n      const stdin = require('fs').readFileSync(0, 'utf-8');\n                    ^\n    \n    ReferenceError: require is not defined in ES module scope, you can use import instead\n        at file://<STUDY_ROOT>/verification/work/candidates/glm-1/cli.mjs:41:17\n        at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n        at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n        at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n    \n    Node.js v22.23.2\n    \n    \n    1 !== 0\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 0\n  actual: 1\n  operator: 'strictEqual'\n  stack: |-\n    file://<STUDY_ROOT>/verification/work/candidates/glm-1/cli.mjs:41:17\n    ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:58:33)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: CLI: strict errors and no import side effects\nnot ok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 39.296125\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:63:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    + actual - expected\n    \n    + 'INVALID_ARGUMENTS\\n\\n'\n    - 'INVALID_ARGUMENTS\\n'\n                          ^\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: |-\n    INVALID_ARGUMENTS\n    \n  actual: |-\n    INVALID_ARGUMENTS\n    \n    \n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/glm-1/verify.test.mjs:65:99)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 1\n# fail 9\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 139.207541\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 1,
+          "fail": 9
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n\n",
+          "passed": false
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":true,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": true,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/glm-1/cli.mjs:41\n  const stdin = require('fs').readFileSync(0, 'utf-8');\n                ^\n\nReferenceError: require is not defined in ES module scope, you can use import instead\n    at file://<STUDY_ROOT>/verification/work/candidates/glm-1/cli.mjs:41:17\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    at async file://<STUDY_ROOT>/verification/work/candidates/glm-1/[eval1]:1:239\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "ornith-1",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.092459\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.153833\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.240375\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.261875\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.084584\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.1915\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.053417\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.057375\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 157.718833\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 418.969166\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 635.153791\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":false,\"negativeAttempts\":false,\"extraEnumerableKey\":false,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": false,
+            "negativeAttempts": false,
+            "extraEnumerableKey": false,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/ornith-1/[eval1]:1\nimport path from 'node:path';import {pathToFileURL} from 'node:url';process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                           ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/ornith-1/[eval1]:1:188\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/ornith-1/[eval1]:1:175\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "ornith-2",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.108917\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.1575\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.252542\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.280208\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.189541\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.092625\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.096083\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.060834\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 157.766667\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 420.513167\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 636.817291\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":true,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": true,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INTERNAL_ERROR\n",
+          "passed": true
+        }
+      }
+    },
+    {
+      "label": "qwen-1",
+      "visible": {
+        "status": 1,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.079833\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.157458\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.247166\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nnot ok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 7.916417\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/qwen-1/verify.test.mjs:23:1'\n  failureType: 'testCodeFailure'\n  error: 'Missing expected exception (TypeError).'\n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/qwen-1/verify.test.mjs:28:132)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nnot ok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.276708\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/qwen-1/verify.test.mjs:31:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    0 !== 2\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 2\n  actual: 0\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/qwen-1/verify.test.mjs:34:9)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nnot ok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 1.06675\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/qwen-1/verify.test.mjs:38:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    ... Skipped lines\n    \n      [\n        [\n          '!',\n          1,\n          [\n    ...\n        [\n    +     'a',\n    +     1,\n    +     [\n    +       'last'\n    +     ]\n    +   ],\n    +   [\n          'T',\n          1,\n          [\n            'old',\n            'new'\n    ...\n            '!',\n    +       'a'\n    -       'A'\n          ]\n        ],\n        [\n          'T',\n          3,\n          [\n    +       'A',\n    -       'a',\n            'z'\n          ]\n        ],\n        [\n          'T',\n    ...\n        ],\n    -   [\n    -     'a',\n    -     1,\n    -     [\n    -       'last'\n    -     ]\n    -   ]\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      0: '!'\n      1: 1\n      2:\n        0: 'first'\n    1:\n      0: 'T'\n      1: 1\n      2:\n        0: 'old'\n        1: 'new'\n    2:\n      0: 'T'\n      1: 2\n      2:\n        0: '!'\n        1: 'A'\n    3:\n      0: 'T'\n      1: 3\n      2:\n        0: 'a'\n        1: 'z'\n    4:\n      0: 'T'\n      1: 4\n      2:\n        0: 'low'\n    5:\n      0: 'a'\n      1: 1\n      2:\n        0: 'last'\n  actual:\n    0:\n      0: '!'\n      1: 1\n      2:\n        0: 'first'\n    1:\n      0: 'a'\n      1: 1\n      2:\n        0: 'last'\n    2:\n      0: 'T'\n      1: 1\n      2:\n        0: 'old'\n        1: 'new'\n    3:\n      0: 'T'\n      1: 2\n      2:\n        0: '!'\n        1: 'a'\n    4:\n      0: 'T'\n      1: 3\n      2:\n        0: 'A'\n        1: 'z'\n    5:\n      0: 'T'\n      1: 4\n      2:\n        0: 'low'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/qwen-1/verify.test.mjs:42:9)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.077958\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.070834\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 168.4985\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nnot ok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 37.628792\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/qwen-1/verify.test.mjs:63:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    [\"--oops\"]\n    \n    1 !== 2\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 2\n  actual: 1\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/qwen-1/verify.test.mjs:65:27)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 6\n# fail 4\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 274.436541\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 6,
+          "fail": 4
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"accepted\":0,\"errors\":[],\"batches\":[],\"duplicates\":0,\"filtered\":0}\n",
+          "stderr": "",
+          "passed": false
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":false,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": false,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "qwen14-1",
+      "visible": {
+        "status": 1,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# file://<STUDY_ROOT>/verification/work/candidates/qwen14-1/planner.mjs:10\n#   if (maxAttempts < 1 || max错误: 'Invalid JSON' at line 1\n#                               ^\n# SyntaxError: Unexpected token ':'\n#     at compileSourceTextModule (node:internal/modules/esm/utils:346:16)\n#     at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:110:18)\n#     at \\#translate (node:internal/modules/esm/loader:559:20)\n#     at afterLoad (node:internal/modules/esm/loader:612:29)\n#     at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:617:12)\n#     at \\#createModuleJob (node:internal/modules/esm/loader:640:36)\n#     at \\#getJobFromResolveResult (node:internal/modules/esm/loader:353:34)\n#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:321:41)\n# Node.js v22.23.2\n# Subtest: verify.test.mjs\nnot ok 1 - verify.test.mjs\n  ---\n  duration_ms: 47.011167\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/qwen14-1/verify.test.mjs:1:1'\n  failureType: 'testCodeFailure'\n  exitCode: 1\n  signal: ~\n  error: 'test failed'\n  code: 'ERR_TEST_FAILURE'\n  ...\n1..1\n# tests 1\n# suites 0\n# pass 0\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 50.547\n",
+        "stderr": "",
+        "counts": {
+          "tests": 1,
+          "pass": 0,
+          "fail": 1
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/qwen14-1/planner.mjs:10\n  if (maxAttempts < 1 || max错误: 'Invalid JSON' at line 1\n                              ^\n\nSyntaxError: Unexpected token ':'\n    at compileSourceTextModule (node:internal/modules/esm/utils:346:16)\n    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:110:18)\n    at #translate (node:internal/modules/esm/loader:559:20)\n    at afterLoad (node:internal/modules/esm/loader:612:29)\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:617:12)\n    at #createModuleJob (node:internal/modules/esm/loader:640:36)\n    at #getJobFromResolveResult (node:internal/modules/esm/loader:353:34)\n    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:321:41)\n\nNode.js v22.23.2\n",
+          "passed": false
+        },
+        "plannerBoundary": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/qwen14-1/planner.mjs:10\n  if (maxAttempts < 1 || max错误: 'Invalid JSON' at line 1\n                              ^\n\nSyntaxError: Unexpected token ':'\n    at compileSourceTextModule (node:internal/modules/esm/utils:346:16)\n    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:110:18)\n    at #translate (node:internal/modules/esm/loader:559:20)\n    at afterLoad (node:internal/modules/esm/loader:612:29)\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:617:12)\n    at #createModuleJob (node:internal/modules/esm/loader:640:36)\n    at #getJobFromResolveResult (node:internal/modules/esm/loader:353:34)\n    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:321:41)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:680:25)\n\nNode.js v22.23.2\n",
+          "checks": null
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/qwen14-1/planner.mjs:10\n  if (maxAttempts < 1 || max错误: 'Invalid JSON' at line 1\n                              ^\n\nSyntaxError: Unexpected token ':'\n    at compileSourceTextModule (node:internal/modules/esm/utils:346:16)\n    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:110:18)\n    at #translate (node:internal/modules/esm/loader:559:20)\n    at afterLoad (node:internal/modules/esm/loader:612:29)\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:617:12)\n    at #createModuleJob (node:internal/modules/esm/loader:640:36)\n    at #getJobFromResolveResult (node:internal/modules/esm/loader:353:34)\n    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:321:41)\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "sol-1",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.066583\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.146916\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.26725\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.246\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.079459\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.132708\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.052667\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.059292\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 160.095375\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 420.27575\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 637.105083\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":false,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": false,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/sol-1/[eval1]:1\nimport path from 'node:path';import {pathToFileURL} from 'node:url';process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                           ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-1/[eval1]:1:188\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-1/[eval1]:1:175\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "sol-v2-1",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.057125\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.150042\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.252625\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.273167\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.077458\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.135583\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.053791\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.060334\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 161.31275\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 419.928542\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 639.480375\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":false,\"explicitUndefinedDefaults\":false}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": false,
+            "explicitUndefinedDefaults": false
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/sol-v2-1/[eval1]:1\nimport path from 'node:path';import {pathToFileURL} from 'node:url';process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                           ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-1/[eval1]:1:188\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-1/[eval1]:1:175\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "sol-v2-2",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.075375\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.139459\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.258125\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.276917\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.077958\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.131917\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.053333\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.058375\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 161.098417\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 422.439083\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 641.263041\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":false,\"explicitUndefinedDefaults\":false}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": false,
+            "explicitUndefinedDefaults": false
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/sol-v2-2/[eval1]:1\nimport path from 'node:path';import {pathToFileURL} from 'node:url';process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                           ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-2/[eval1]:1:188\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-2/[eval1]:1:175\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "sol-v2-3",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.047875\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.1395\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.254041\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.281375\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.087167\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.143\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.058958\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.059625\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 157.8815\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 423.14525\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 637.576333\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":true,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": true,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/sol-v2-3/[eval1]:1\nimport path from 'node:path';import {pathToFileURL} from 'node:url';process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                           ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-3/[eval1]:1:188\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-3/[eval1]:1:175\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "terra-1",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.089292\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.144625\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.253708\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.258125\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.11525\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.134333\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.055084\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.0595\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 161.838458\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 418.762417\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 637.788959\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":true,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": true,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/terra-1/[eval1]:1\nimport path from 'node:path';import {pathToFileURL} from 'node:url';process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                           ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-1/[eval1]:1:188\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-1/[eval1]:1:175\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "terra-v2-1",
+      "visible": {
+        "status": 1,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.0675\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.145541\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.254375\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.254875\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.082459\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.151583\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.056917\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.059875\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nnot ok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 40.860541\n  type: 'test'\n  location: '<STUDY_ROOT>/verification/work/candidates/terra-v2-1/verify.test.mjs:55:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    INTERNAL_ERROR\n    \n    \n    1 !== 0\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 0\n  actual: 1\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/verification/work/candidates/terra-v2-1/verify.test.mjs:58:33)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 434.3925\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 9\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 532.032458\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 9,
+          "fail": 1
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":false,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": false,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INTERNAL_ERROR\n",
+          "passed": true
+        }
+      }
+    },
+    {
+      "label": "terra-v2-2",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.057375\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.1415\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.271459\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.2485\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.082708\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.163875\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.055125\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.058708\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 162.768125\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 422.795333\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 642.134792\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":false,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": false,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/terra-v2-2/[eval1]:1\nimport path from 'node:path';import {pathToFileURL} from 'node:url';process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                           ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-v2-2/[eval1]:1:188\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-v2-2/[eval1]:1:175\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    },
+    {
+      "label": "terra-v2-3",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.047125\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.140375\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.253375\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.252625\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.095292\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.164416\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.058375\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.05825\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 157.897334\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 421.427416\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 636.660916\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":true,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": true,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "file://<STUDY_ROOT>/verification/work/candidates/terra-v2-3/[eval1]:1\nimport path from 'node:path';import {pathToFileURL} from 'node:url';process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                           ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-v2-3/[eval1]:1:188\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-v2-3/[eval1]:1:175\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+          "passed": false
+        }
+      }
+    }
+  ]
+}

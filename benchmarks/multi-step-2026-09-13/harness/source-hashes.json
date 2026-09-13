@@ -1,0 +1,42 @@
+{
+  "fixture.mjs": {
+    "sha256": "c2599f3b3b4f04f0cc0dce37481324a13e82c73290fd68c75ae27bf15fba05af",
+    "snapshot": "latest harness source at export; earlier adapters changed as described in report"
+  },
+  "verify.test.mjs": {
+    "sha256": "da20d166025b0c00c0431a8d688d9130acf2a518d9cc6c4a019206836f48e0b6",
+    "snapshot": "latest harness source at export; earlier adapters changed as described in report"
+  },
+  "mcp-server.mjs": {
+    "sha256": "4d50fb8e6df2de3f08f1cd836d033b7fa4e1bf000414af14c9816f536f70a3b2",
+    "snapshot": "latest harness source at export; earlier adapters changed as described in report"
+  },
+  "run.mjs": {
+    "sha256": "04e3bd51f9d18071420efe8843691a86da116c7f92e9e745d3121332c005783d",
+    "snapshot": "latest harness source at export; earlier adapters changed as described in report"
+  },
+  "opencode-wrapper.mjs": {
+    "sha256": "8683f343de5070bc7cfa048371e81b3ed4ca633ae528ddf1abd0802cf76c9c7f",
+    "snapshot": "latest harness source at export; earlier adapters changed as described in report"
+  },
+  "cloud-run.mjs": {
+    "sha256": "866b741ddab0c3243f9edada170c0103400858ca6cf2f5d633f92293f9fa884e",
+    "snapshot": "latest harness source at export; earlier adapters changed as described in report"
+  },
+  "cloud-run-v4.mjs": {
+    "sha256": "799030013f1bec455044960248b05209ceba797dbb16bd633a0e942044d24a6f",
+    "snapshot": "latest harness source at export; earlier adapters changed as described in report"
+  },
+  "queue-local.mjs": {
+    "sha256": "44511ed1281f0354c07ffdff265fa79534945b8be2880fdba032a1ced2f39950",
+    "snapshot": "latest harness source at export; earlier adapters changed as described in report"
+  },
+  "run-repair.mjs": {
+    "sha256": "c160c1a6bde1d13e2dc5d399ee9d9d3456cbd665c6fcdc326f5ebf0154d285d3",
+    "snapshot": "latest harness source at export; earlier adapters changed as described in report"
+  },
+  "run-repair-2.mjs": {
+    "sha256": "94e14a263fb8bcdc4ffe7c22d48f45dc6c18673025e8c7bf59fac1cc441c194b",
+    "snapshot": "latest harness source at export; earlier adapters changed as described in report"
+  }
+}

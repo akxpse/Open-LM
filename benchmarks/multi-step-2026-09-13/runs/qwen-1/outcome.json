@@ -1,0 +1,35 @@
+{
+  "label": "qwen-1",
+  "model": "open-lm-qwen",
+  "condition": "local-implementation-with-frontier-supervision",
+  "parentLabel": null,
+  "seconds": 283.277,
+  "terminalState": "stopped-or-failed",
+  "stopReason": "interrupted",
+  "exitCode": null,
+  "signal": "SIGTERM",
+  "testIntegrity": true,
+  "hostAccepted": false,
+  "errors": [],
+  "testRuns": [
+    {
+      "ordinal": 1,
+      "command": "node --test verify.test.mjs",
+      "status": "completed",
+      "exitCode": 1,
+      "tests": 10,
+      "pass": 5,
+      "fail": 5
+    },
+    {
+      "ordinal": 2,
+      "command": "node --test verify.test.mjs",
+      "status": "completed",
+      "exitCode": 1,
+      "tests": 10,
+      "pass": 6,
+      "fail": 4
+    }
+  ],
+  "completeUsage": false
+}

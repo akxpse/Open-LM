@@ -1,0 +1,43 @@
+{
+  "scope": "One synthetic calibration task; functional gate/source review, not a production guarantee or full savings validation",
+  "complete": true,
+  "protectedSuiteUnchanged": true,
+  "postHoc": true,
+  "verifierExecution": "Local Ornith through OpenCode; frontier-authored checks and source review; no frontier candidate implementation",
+  "outcomes": [
+    {
+      "label": "astra-v2-3",
+      "functionalGate": "PASS",
+      "hostDecision": "ACCEPT for tested domain",
+      "returns": 1
+    },
+    {
+      "label": "sol-v2-4",
+      "functionalGate": "PASS",
+      "hostDecision": "ACCEPT for tested domain",
+      "returns": 2
+    },
+    {
+      "label": "terra-v2-3",
+      "functionalGate": "FAIL",
+      "hostDecision": "REWORK; repair limit reached",
+      "returns": 2,
+      "cause": "Unhandled asynchronous stdout error discloses stack"
+    },
+    {
+      "label": "ornith-3",
+      "functionalGate": "PASS",
+      "hostDecision": "Functional artifact passes; full workflow compliance qualified",
+      "returns": 2,
+      "handoffWhitespaceTokens": 190,
+      "requestedHandoffWords": 180,
+      "caveat": "No word-count convention preregistered; initial attempt violated stop rules and repeated checks"
+    }
+  ],
+  "packagedChecks": {
+    "passed": 14,
+    "failed": 0
+  },
+  "skillValidation": "PASS",
+  "fullEndToEndSavings": null
+}

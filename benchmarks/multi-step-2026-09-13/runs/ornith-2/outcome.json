@@ -1,0 +1,26 @@
+{
+  "label": "ornith-2",
+  "model": "open-lm-ornith",
+  "condition": "local-implementation-with-frontier-supervision",
+  "parentLabel": "ornith-1",
+  "seconds": 126.558,
+  "terminalState": "review-ready",
+  "stopReason": null,
+  "exitCode": 0,
+  "signal": null,
+  "testIntegrity": true,
+  "hostAccepted": false,
+  "errors": [],
+  "testRuns": [
+    {
+      "ordinal": 1,
+      "command": "node --test verify.test.mjs",
+      "status": "completed",
+      "exitCode": 0,
+      "tests": 10,
+      "pass": 10,
+      "fail": 0
+    }
+  ],
+  "completeUsage": true
+}

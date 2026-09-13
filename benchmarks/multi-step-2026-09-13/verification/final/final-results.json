@@ -1,0 +1,55 @@
+{
+  "kind": "Final changed-candidate verification; same earlier post-hoc criteria; no implementation",
+  "packagedRegression": {
+    "tests": 14,
+    "pass": 14,
+    "fail": 0
+  },
+  "candidates": [
+    {
+      "label": "ornith-3",
+      "visible": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0
+      },
+      "strictLF": true,
+      "boundaries": {
+        "negativeCreatedAt": true,
+        "negativeAttempts": true,
+        "extraEnumerableKey": true,
+        "explicitUndefinedDefaults": true
+      },
+      "faultReached": true,
+      "faultPassed": true,
+      "undefinedOptions": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "label": "sol-v2-4",
+      "visible": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0
+      },
+      "strictLF": true,
+      "boundaries": {
+        "negativeCreatedAt": true,
+        "negativeAttempts": true,
+        "extraEnumerableKey": true,
+        "explicitUndefinedDefaults": true
+      },
+      "faultReached": true,
+      "faultPassed": true,
+      "undefinedOptions": [
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,39 @@
+{
+  "skillVersion": "0.0.0",
+  "state": "review-ready",
+  "accepted": false,
+  "model": "open-lm-ornith",
+  "workspace": "<STUDY_ROOT>/verification/work",
+  "elapsedSeconds": 32.061,
+  "stopReason": null,
+  "exitCode": 0,
+  "signal": null,
+  "toolEvents": 2,
+  "tools": [
+    {
+      "tool": "read",
+      "command": null,
+      "status": "completed",
+      "exitCode": null,
+      "error": null
+    },
+    {
+      "tool": "bash",
+      "command": "node verification.mjs",
+      "status": "completed",
+      "exitCode": 0,
+      "error": null
+    }
+  ],
+  "errors": [],
+  "tokens": {
+    "input": 14294,
+    "output": 224,
+    "reasoning": 63,
+    "cacheRead": 0,
+    "cacheWrite": 0
+  },
+  "logs": "<STUDY_ROOT>/verification/run",
+  "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof.",
+  "runtime": "lmstudio"
+}

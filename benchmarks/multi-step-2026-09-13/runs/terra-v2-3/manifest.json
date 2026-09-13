@@ -1,0 +1,43 @@
+{
+  "label": "terra-v2-3",
+  "model": "gpt-5.6-terra",
+  "condition": "cloud-only-cli",
+  "contractHash": "857ae1a4a3aa560de446e0bd24879848ac90c3e3c9b0756d9f60ef4fdf9353af",
+  "examplesHash": "3f117806e840c2a07c0613ac4f662bf26bf519a20d05a29d41a837b2f876d661",
+  "testHash": "da20d166025b0c00c0431a8d688d9130acf2a518d9cc6c4a019206836f48e0b6",
+  "starterHashes": {
+    "parser.mjs": "d25da8b6d17762b62487e69ec96df5dc07f5afee9a937ab0515eebf43ac0029b",
+    "planner.mjs": "04126d59421ca3536a69e4cfa607a97f392466ecd042ae1783982e5ae7df200b",
+    "cli.mjs": "8abec0b687d05baff10254f746297801fc3191a9496739965f5ad870655055bc"
+  },
+  "reasoningEffort": "low",
+  "wallLimitSeconds": 600,
+  "toolsLimit": 24,
+  "reviewLimitSeconds": 120,
+  "unmatched": [
+    "Codex versus OpenCode harness/system tools",
+    "cloud context/output allocation",
+    "native model reasoning/sampling",
+    "supervisory agent and root overhead separately unallocated"
+  ],
+  "parentLabel": "terra-v2-2",
+  "parentStartingHashes": {
+    "parser.mjs": "4f1d398d23b8fd20214f27afca76b1b5840dc5cfd329897bd913a122c7ab39f0",
+    "planner.mjs": "9fe80e0470c0ec846d67fb2d87deb9e8cd17cef70cd179db14292cab713eb08d",
+    "cli.mjs": "ac8654cf92700d5b8fd1ac7cba83fe2fa1f61e85b6887a84595006448a08bea7",
+    "HANDOFF.md": "cd4c8aab2cd4d3597e39a4b4b4ed44c1c4ab0ba9883862476b8096e4fc450485"
+  },
+  "attemptType": "frontier-targeted-repair",
+  "independentRepetitions": null,
+  "originalManifestRepetitionsField": 3,
+  "finalCandidateHashes": {
+    "parser.mjs": "4f1d398d23b8fd20214f27afca76b1b5840dc5cfd329897bd913a122c7ab39f0",
+    "planner.mjs": "217dc3c39a974bed6b378a78494130b0dd5ca47d709ce277a88a27f9e068b331",
+    "cli.mjs": "ac8654cf92700d5b8fd1ac7cba83fe2fa1f61e85b6887a84595006448a08bea7",
+    "HANDOFF.md": "063df65f5039cf53d05e90809119f8cc0109eb40a6dc0245e2b4a187e8776a98"
+  },
+  "handoffWhitespaceTokens": 98,
+  "missingCandidateFiles": [],
+  "initialState": "parent candidate; original starterHashes are not this repair starting state",
+  "finalSnapshotCaveat": null
+}

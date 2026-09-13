@@ -1,0 +1,45 @@
+{
+  "usage": {
+    "input_tokens": 168044,
+    "cached_input_tokens": 124928,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5011,
+    "reasoning_output_tokens": 766
+  },
+  "phases": [
+    {
+      "phase": "implementation",
+      "exitCode": 0,
+      "signal": null,
+      "stopReason": null,
+      "seconds": 99.217,
+      "usage": {
+        "input_tokens": 150511,
+        "cached_input_tokens": 124928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4641,
+        "reasoning_output_tokens": 481
+      },
+      "toolEvents": 6,
+      "errors": []
+    },
+    {
+      "phase": "review",
+      "exitCode": 0,
+      "signal": null,
+      "stopReason": null,
+      "seconds": 9.715,
+      "usage": {
+        "input_tokens": 17533,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 370,
+        "reasoning_output_tokens": 285
+      },
+      "toolEvents": 0,
+      "errors": [],
+      "reviewText": "ACCEPT\n\nAll stated requirements are satisfied by the recorded implementation. Evidence shows required MCP contract/example retrieval, a single actual execution of `node --test verify.test.mjs`, and all 10 tests passed with exit 0—including validation boundaries, dedup/filter ordering, tuple safety, immutability, grouping, CLI behavior, and import side effects. HANDOFF.md was written as required."
+    }
+  ],
+  "scope": "CLI implementation and independent same-model review; supervising subagent/root/setup attribution separate, not an invoice or full workflow savings"
+}

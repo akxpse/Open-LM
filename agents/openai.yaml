@@ -1,0 +1,4 @@
+interface:
+  display_name: "Open LM"
+  short_description: "Local development with independent cloud verification"
+  default_prompt: "Use $open-lm to delegate a bounded development task locally and independently verify the result."

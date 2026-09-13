@@ -1,0 +1,16 @@
+{
+  "label": "astra-1",
+  "model": "gpt-6-astra",
+  "condition": "cloud-only-cli",
+  "parentLabel": null,
+  "seconds": 33.838,
+  "terminalState": "CLI phases ended",
+  "stopReason": null,
+  "exitCode": null,
+  "signal": null,
+  "testIntegrity": true,
+  "hostAccepted": false,
+  "errors": [],
+  "testRuns": [],
+  "completeUsage": true
+}

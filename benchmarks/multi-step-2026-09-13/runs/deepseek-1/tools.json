@@ -1,0 +1,16 @@
+[
+  {
+    "type": "tool_use",
+    "tool": "benchdata_get_contract",
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  },
+  {
+    "type": "tool_use",
+    "tool": "benchdata_get_examples",
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  }
+]

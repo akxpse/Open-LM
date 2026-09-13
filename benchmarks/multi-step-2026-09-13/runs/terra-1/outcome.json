@@ -1,0 +1,26 @@
+{
+  "label": "terra-1",
+  "model": "gpt-5.6-terra",
+  "condition": "cloud-only-cli",
+  "parentLabel": null,
+  "seconds": 108.932,
+  "terminalState": "CLI phases ended",
+  "stopReason": null,
+  "exitCode": null,
+  "signal": null,
+  "testIntegrity": true,
+  "hostAccepted": false,
+  "errors": [],
+  "testRuns": [
+    {
+      "ordinal": 1,
+      "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+      "status": "completed",
+      "exitCode": 0,
+      "tests": 10,
+      "pass": 10,
+      "fail": 0
+    }
+  ],
+  "completeUsage": true
+}

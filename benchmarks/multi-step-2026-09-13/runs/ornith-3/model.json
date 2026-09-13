@@ -1,0 +1,19 @@
+[
+  {
+    "identifier": "open-lm-ornith",
+    "modelKey": "ornith-1.0-35b",
+    "type": "llm",
+    "format": "gguf",
+    "architecture": "qwen35moe",
+    "paramsString": "35B",
+    "quantization": {
+      "name": "Q4_K_M",
+      "bits": 4
+    },
+    "sizeBytes": 21166757760,
+    "contextLength": 32768,
+    "parallel": 1,
+    "status": "idle",
+    "trainedForToolUse": true
+  }
+]

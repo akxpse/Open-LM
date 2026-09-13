@@ -1,0 +1,16 @@
+{
+  "label": "sol-1",
+  "model": "gpt-5.6-sol",
+  "condition": "cloud-only-cli",
+  "parentLabel": null,
+  "seconds": 121.406,
+  "terminalState": "CLI phases ended",
+  "stopReason": null,
+  "exitCode": null,
+  "signal": null,
+  "testIntegrity": true,
+  "hostAccepted": false,
+  "errors": [],
+  "testRuns": [],
+  "completeUsage": true
+}

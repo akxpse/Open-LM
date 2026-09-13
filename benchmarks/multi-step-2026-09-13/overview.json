@@ -1,0 +1,569 @@
+{
+  "study": "JOBS-MCP-001",
+  "date": "2026-09-13",
+  "kind": "single synthetic task; exploratory calibration, not confirmatory benchmark",
+  "fullEndToEndSavings": null,
+  "cloudSupervisorAttribution": null,
+  "runs": [
+    {
+      "label": "astra-1",
+      "model": "gpt-6-astra",
+      "condition": "cloud-only-cli",
+      "parentLabel": null,
+      "seconds": 33.838,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [],
+      "completeUsage": true
+    },
+    {
+      "label": "sol-1",
+      "model": "gpt-5.6-sol",
+      "condition": "cloud-only-cli",
+      "parentLabel": null,
+      "seconds": 121.406,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [],
+      "completeUsage": true
+    },
+    {
+      "label": "terra-1",
+      "model": "gpt-5.6-terra",
+      "condition": "cloud-only-cli",
+      "parentLabel": null,
+      "seconds": 108.932,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "astra-v2-1",
+      "model": "gpt-6-astra",
+      "condition": "cloud-only-cli",
+      "parentLabel": null,
+      "seconds": 117.96199999999999,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "astra-v2-2",
+      "model": "gpt-6-astra",
+      "condition": "cloud-only-cli",
+      "parentLabel": null,
+      "seconds": 123.178,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "astra-v2-3",
+      "model": "gpt-6-astra",
+      "condition": "cloud-only-cli",
+      "parentLabel": "astra-v2-2",
+      "seconds": 89.953,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "sol-v2-1",
+      "model": "gpt-5.6-sol",
+      "condition": "cloud-only-cli",
+      "parentLabel": null,
+      "seconds": 90.40899999999999,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "sol-v2-2",
+      "model": "gpt-5.6-sol",
+      "condition": "cloud-only-cli",
+      "parentLabel": null,
+      "seconds": 97.494,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "sol-v2-3",
+      "model": "gpt-5.6-sol",
+      "condition": "cloud-only-cli",
+      "parentLabel": "sol-v2-2",
+      "seconds": 84.49000000000001,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "sol-v2-4",
+      "model": "gpt-5.6-sol",
+      "condition": "cloud-only-cli",
+      "parentLabel": "sol-v2-3",
+      "seconds": 73.594,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "terra-v2-1",
+      "model": "gpt-5.6-terra",
+      "condition": "cloud-only-cli",
+      "parentLabel": null,
+      "seconds": 82.146,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+          "status": "failed",
+          "exitCode": 1,
+          "tests": 10,
+          "pass": 9,
+          "fail": 1
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "terra-v2-2",
+      "model": "gpt-5.6-terra",
+      "condition": "cloud-only-cli",
+      "parentLabel": "terra-v2-1",
+      "seconds": 72.083,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "terra-v2-3",
+      "model": "gpt-5.6-terra",
+      "condition": "cloud-only-cli",
+      "parentLabel": "terra-v2-2",
+      "seconds": 64.319,
+      "terminalState": "CLI phases ended",
+      "stopReason": null,
+      "exitCode": null,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "qwen-1",
+      "model": "open-lm-qwen",
+      "condition": "local-implementation-with-frontier-supervision",
+      "parentLabel": null,
+      "seconds": 283.277,
+      "terminalState": "stopped-or-failed",
+      "stopReason": "interrupted",
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 1,
+          "tests": 10,
+          "pass": 5,
+          "fail": 5
+        },
+        {
+          "ordinal": 2,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 1,
+          "tests": 10,
+          "pass": 6,
+          "fail": 4
+        }
+      ],
+      "completeUsage": false
+    },
+    {
+      "label": "glm-1",
+      "model": "open-lm-glm",
+      "condition": "local-implementation-with-frontier-supervision",
+      "parentLabel": null,
+      "seconds": 486.215,
+      "terminalState": "stopped-or-failed",
+      "stopReason": null,
+      "exitCode": 0,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 1,
+          "tests": 1,
+          "pass": 0,
+          "fail": 1
+        },
+        {
+          "ordinal": 2,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 1,
+          "tests": 10,
+          "pass": 1,
+          "fail": 9
+        }
+      ],
+      "completeUsage": false
+    },
+    {
+      "label": "ornith-1",
+      "model": "open-lm-ornith",
+      "condition": "local-implementation-with-frontier-supervision",
+      "parentLabel": null,
+      "seconds": 219.741,
+      "terminalState": "review-ready",
+      "stopReason": null,
+      "exitCode": 0,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "node --test verify.test.mjs 2>&1; echo \"EXIT=$?\"",
+          "status": "error",
+          "exitCode": null,
+          "tests": null,
+          "pass": null,
+          "fail": null
+        },
+        {
+          "ordinal": 2,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 1,
+          "tests": 10,
+          "pass": 9,
+          "fail": 1
+        },
+        {
+          "ordinal": 3,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 1,
+          "tests": 10,
+          "pass": 9,
+          "fail": 1
+        },
+        {
+          "ordinal": 4,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 1,
+          "tests": 10,
+          "pass": 9,
+          "fail": 1
+        },
+        {
+          "ordinal": 5,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        },
+        {
+          "ordinal": 6,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "ornith-2",
+      "model": "open-lm-ornith",
+      "condition": "local-implementation-with-frontier-supervision",
+      "parentLabel": "ornith-1",
+      "seconds": 126.558,
+      "terminalState": "review-ready",
+      "stopReason": null,
+      "exitCode": 0,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "ornith-3",
+      "model": "open-lm-ornith",
+      "condition": "local-implementation-with-frontier-supervision",
+      "parentLabel": "ornith-2",
+      "seconds": 91.974,
+      "terminalState": "review-ready",
+      "stopReason": null,
+      "exitCode": 0,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 0,
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      ],
+      "completeUsage": true
+    },
+    {
+      "label": "qwen14-1",
+      "model": "open-lm-qwen14",
+      "condition": "local-implementation-with-frontier-supervision",
+      "parentLabel": null,
+      "seconds": 600.031,
+      "terminalState": "stopped-or-failed",
+      "stopReason": "wall-time-limit",
+      "exitCode": null,
+      "signal": "SIGTERM",
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [],
+      "testRuns": [
+        {
+          "ordinal": 1,
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 1,
+          "tests": 10,
+          "pass": 0,
+          "fail": 10
+        }
+      ],
+      "completeUsage": false
+    },
+    {
+      "label": "deepseek-1",
+      "model": "open-lm-deepseek",
+      "condition": "local-implementation-with-frontier-supervision",
+      "parentLabel": null,
+      "seconds": 90.039,
+      "terminalState": "stopped-or-failed",
+      "stopReason": null,
+      "exitCode": 1,
+      "signal": null,
+      "testIntegrity": true,
+      "hostAccepted": false,
+      "errors": [
+        {
+          "name": "UnknownError",
+          "data": {
+            "message": "\"got exception: Unexpected empty grammar stack after accepting piece: >\\n (397)\""
+          }
+        }
+      ],
+      "testRuns": [],
+      "completeUsage": false
+    }
+  ]
+}

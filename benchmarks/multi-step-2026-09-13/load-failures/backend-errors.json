@@ -1,0 +1,17 @@
+{
+  "source": "LM Studio server log, 2026-09-13; private paths redacted",
+  "timezone": "America/Chicago",
+  "errors": [
+    {
+      "label": "gemma-1",
+      "time": "2026-09-13 18:04:21",
+      "message": "llama_model_load: done_getting_tensors: wrong number of tensors; expected 2131, got 720"
+    },
+    {
+      "label": "qwen36-1",
+      "time": "2026-09-13 18:04:22",
+      "message": "llama_model_load: qwen35moe.rope.dimension_sections has wrong array length; expected 4, got 3"
+    }
+  ],
+  "underlyingRemedy": "UNKNOWN; not tested"
+}

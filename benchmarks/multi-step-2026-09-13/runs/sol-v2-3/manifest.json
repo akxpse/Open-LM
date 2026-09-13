@@ -1,0 +1,43 @@
+{
+  "label": "sol-v2-3",
+  "model": "gpt-5.6-sol",
+  "condition": "cloud-only-cli",
+  "contractHash": "857ae1a4a3aa560de446e0bd24879848ac90c3e3c9b0756d9f60ef4fdf9353af",
+  "examplesHash": "3f117806e840c2a07c0613ac4f662bf26bf519a20d05a29d41a837b2f876d661",
+  "testHash": "da20d166025b0c00c0431a8d688d9130acf2a518d9cc6c4a019206836f48e0b6",
+  "starterHashes": {
+    "parser.mjs": "d25da8b6d17762b62487e69ec96df5dc07f5afee9a937ab0515eebf43ac0029b",
+    "planner.mjs": "04126d59421ca3536a69e4cfa607a97f392466ecd042ae1783982e5ae7df200b",
+    "cli.mjs": "8abec0b687d05baff10254f746297801fc3191a9496739965f5ad870655055bc"
+  },
+  "reasoningEffort": "low",
+  "wallLimitSeconds": 600,
+  "toolsLimit": 24,
+  "reviewLimitSeconds": 120,
+  "unmatched": [
+    "Codex versus OpenCode harness/system tools",
+    "cloud context/output allocation",
+    "native model reasoning/sampling",
+    "supervisory agent and root overhead separately unallocated"
+  ],
+  "parentLabel": "sol-v2-2",
+  "parentStartingHashes": {
+    "parser.mjs": "03de071fce27fd0b3b7e2f487fde3339b37ee9de3bbdc92e4d024b69d277b5d6",
+    "planner.mjs": "a49feb9afcea60c5f9190b3f471d18c03e1603f6b458f37b98079cf06a083717",
+    "cli.mjs": "5871201c3dce800143cc01bc3e86b3912beda67cb9d7dcbbfdce363eb1e32a73",
+    "HANDOFF.md": "213b40458a4a4bcb2961c63a2efd68df9afa5f0274efeb2ed40a05b07a350754"
+  },
+  "attemptType": "frontier-targeted-repair",
+  "independentRepetitions": null,
+  "originalManifestRepetitionsField": 3,
+  "finalCandidateHashes": {
+    "parser.mjs": "03de071fce27fd0b3b7e2f487fde3339b37ee9de3bbdc92e4d024b69d277b5d6",
+    "planner.mjs": "f95ed0dc75b1c5dd1d88c23190fb5c74cc9bb6f647cd39875b4776af923a8486",
+    "cli.mjs": "5871201c3dce800143cc01bc3e86b3912beda67cb9d7dcbbfdce363eb1e32a73",
+    "HANDOFF.md": "2f9daece622146ee35b54370c66c808dd92882a4bcc4a133223143a12fff537c"
+  },
+  "handoffWhitespaceTokens": 133,
+  "missingCandidateFiles": [],
+  "initialState": "parent candidate; original starterHashes are not this repair starting state",
+  "finalSnapshotCaveat": null
+}

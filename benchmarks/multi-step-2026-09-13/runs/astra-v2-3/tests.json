@@ -1,0 +1,15 @@
+[
+  {
+    "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+    "exitCode": 0,
+    "output": "# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.107333\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.152\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.267833\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.269417\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.113375\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.147209\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.059083\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.05725\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 200.969292\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 507.403709\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 772.841417\n",
+    "source": "implementation.evidence",
+    "status": "completed",
+    "ordinal": 1,
+    "counts": {
+      "tests": 10,
+      "pass": 10,
+      "fail": 0
+    }
+  }
+]

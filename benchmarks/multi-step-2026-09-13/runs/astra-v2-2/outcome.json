@@ -1,0 +1,26 @@
+{
+  "label": "astra-v2-2",
+  "model": "gpt-6-astra",
+  "condition": "cloud-only-cli",
+  "parentLabel": null,
+  "seconds": 123.178,
+  "terminalState": "CLI phases ended",
+  "stopReason": null,
+  "exitCode": null,
+  "signal": null,
+  "testIntegrity": true,
+  "hostAccepted": false,
+  "errors": [],
+  "testRuns": [
+    {
+      "ordinal": 1,
+      "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+      "status": "completed",
+      "exitCode": 0,
+      "tests": 10,
+      "pass": 10,
+      "fail": 0
+    }
+  ],
+  "completeUsage": true
+}

@@ -1,0 +1,110 @@
+{
+  "date": "2026-09-13",
+  "source": "LM Studio server performance log, local timezone America/Chicago",
+  "windows": {
+    "qwen": [
+      "16:22:54",
+      "16:23:15"
+    ],
+    "glm": [
+      "16:56:11",
+      "16:57:31"
+    ]
+  },
+  "requests": {
+    "qwen": [
+      {
+        "taskId": 16001,
+        "role": "auxiliary-title",
+        "promptMs": 1003.25,
+        "promptEvaluatedTokens": 172,
+        "decodeMs": 225.68,
+        "decodedTokens": 9,
+        "totalMs": 1228.92
+      },
+      {
+        "taskId": 16011,
+        "role": "worker-read",
+        "promptMs": 7460.24,
+        "promptEvaluatedTokens": 3519,
+        "decodeMs": 1257.79,
+        "decodedTokens": 40,
+        "totalMs": 8718.02
+      },
+      {
+        "taskId": 16053,
+        "role": "worker-edit",
+        "promptMs": 428.94,
+        "promptEvaluatedTokens": 93,
+        "decodeMs": 4734.46,
+        "decodedTokens": 149,
+        "totalMs": 5163.4
+      },
+      {
+        "taskId": 16203,
+        "role": "worker-test-command",
+        "promptMs": 493.14,
+        "promptEvaluatedTokens": 18,
+        "decodeMs": 924.4,
+        "decodedTokens": 28,
+        "totalMs": 1417.53
+      },
+      {
+        "taskId": 16232,
+        "role": "worker-final",
+        "promptMs": 596.49,
+        "promptEvaluatedTokens": 160,
+        "decodeMs": 1218.17,
+        "decodedTokens": 38,
+        "totalMs": 1814.66
+      }
+    ],
+    "glm": [
+      {
+        "taskId": 0,
+        "role": "auxiliary-title",
+        "promptMs": 1584.1,
+        "promptEvaluatedTokens": 700,
+        "decodeMs": 25820.01,
+        "decodedTokens": 949,
+        "totalMs": 27404.11
+      },
+      {
+        "taskId": 950,
+        "role": "worker-read",
+        "promptMs": 8056.45,
+        "promptEvaluatedTokens": 3346,
+        "decodeMs": 5183.25,
+        "decodedTokens": 155,
+        "totalMs": 13239.69
+      },
+      {
+        "taskId": 1107,
+        "role": "worker-edit",
+        "promptMs": 574.27,
+        "promptEvaluatedTokens": 85,
+        "decodeMs": 11931.52,
+        "decodedTokens": 257,
+        "totalMs": 12505.78
+      },
+      {
+        "taskId": 1365,
+        "role": "worker-test-command",
+        "promptMs": 336.34,
+        "promptEvaluatedTokens": 9,
+        "decodeMs": 16054.22,
+        "decodedTokens": 50,
+        "totalMs": 16390.57
+      },
+      {
+        "taskId": 1416,
+        "role": "worker-final",
+        "promptMs": 886.53,
+        "promptEvaluatedTokens": 142,
+        "decodeMs": 7476,
+        "decodedTokens": 23,
+        "totalMs": 8362.53
+      }
+    ]
+  }
+}

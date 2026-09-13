@@ -1,0 +1,4 @@
+{
+  "sameModel": "REWORK\n\nActual test execution did not pass: 9/10 subtests passed; the CLI stdin test failed with exit status 1 and `INTERNAL_ERROR\\n`.\n\nConfirmed cause: `cli.mjs` uses `readFile(0, 'utf8')` from `node:fs/promises`. That API does not accept numeric file descriptors as a stdin source, so valid CLI input throws and is converted to the generic internal-error response.\n\nThe parser, planner, `processText`, argument validation, ordering, deduplication/filtering, immutability, and import-side-effect evidence all passed their recorded checks. However, R3 requires a functioning stdin CLI that exits 0 for valid input and row-level parse errors; that requirement is not met.",
+  "hostDecision": "See study report: same-model verdicts are not independent host acceptance."
+}

@@ -1,0 +1,28 @@
+// Sequential local-model coverage; no automatic same-model retries or cloud implementation.
+import fs from 'node:fs';
+import path from 'node:path';
+import {execFileSync,spawn} from 'node:child_process';
+const root=path.dirname(new URL(import.meta.url).pathname),lms='<USER_HOME>/.lmstudio/bin/lms';
+const models=[['ornith-1','ornith-1.0-35b','open-lm-ornith'],['gemma-1','gemma4-8b','open-lm-gemma'],['qwen36-1','qwen3.6-35b','open-lm-qwen36'],['qwen14-1','qwen3-14b','open-lm-qwen14'],['deepseek-1','deepseek-r1-14b','open-lm-deepseek']];
+const save=(name,value)=>fs.writeFileSync(path.join(root,name),JSON.stringify(value,null,2)+'\n',{mode:0o600});
+const ledger=[];const ps=()=>JSON.parse(execFileSync(lms,['ps','--json'],{encoding:'utf8'})).filter(m=>m.type==='llm');
+const pressure=()=>Number(execFileSync('sysctl',['-n','kern.memorystatus_vm_pressure_level'],{encoding:'utf8'}));
+async function launch(command,args,log,timeout){
+ const fd=fs.openSync(path.join(root,log),'wx',0o600);const child=spawn(command,args,{cwd:'/private/tmp',stdio:['ignore',fd,fd],detached:true});let stopped=false;const timer=setTimeout(()=>{stopped=true;try{process.kill(-child.pid,'SIGTERM')}catch{}},timeout);const result=await new Promise(resolve=>{child.on('error',e=>resolve({error:e.message}));child.on('close',(exitCode,signal)=>resolve({exitCode,signal}))});clearTimeout(timer);fs.closeSync(fd);return{...result,timedOut:stopped};
+}
+// Root starts this only after GLM's owned runner has completely exited.
+const previous=ps();if(previous.some(m=>m.identifier!=='open-lm-glm'))throw Error('Unowned local model resident');
+if(previous.length){if(previous[0].status!=='idle')throw Error('GLM inference still active');execFileSync(lms,['unload','open-lm-glm']);}
+for(const[label,key,id]of models){
+ if(ps().length)throw Error('Another model appeared; do not unload user workload');
+ if(pressure()!==1){save('queue-stopped.json',{reason:'non-normal memory pressure before load',label});break}
+ const start=Date.now();console.log(JSON.stringify({event:'loading',label,key}));const load=await launch(lms,['load',key,'--context-length','32768','--parallel','1','--gpu','max','--identifier',id,'--ttl','900','--yes'],label+'-load.log',180000);
+ const entry={label,key,id,load,loadSeconds:(Date.now()-start)/1000};ledger.push(entry);save('local-queue.json',ledger);
+ if(load.exitCode!==0){entry.outcome='load-failed';save('local-queue.json',ledger);if(ps().length)throw Error('Failed load left resident model; root review needed');continue}
+ console.log(JSON.stringify({event:'running',label,id}));entry.run=await launch(process.execPath,[path.join(root,'run.mjs'),label,id],label+'-runner.log',660000);save('local-queue.json',ledger);
+ const resident=ps();if(resident.some(m=>m.identifier!==id))throw Error('Unexpected resident model');
+ if(resident.length&&resident[0].status!=='idle')throw Error('Inference did not stop; root review required');
+ if(resident.length)execFileSync(lms,['unload',id]);
+ console.log(JSON.stringify({event:'finished',label,run:entry.run}));
+}
+console.log(JSON.stringify({event:'queue-complete',models:ledger.length}));

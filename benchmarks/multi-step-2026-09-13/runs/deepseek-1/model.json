@@ -1,0 +1,19 @@
+[
+  {
+    "identifier": "open-lm-deepseek",
+    "modelKey": "deepseek-r1-14b",
+    "type": "llm",
+    "format": "gguf",
+    "architecture": "qwen2",
+    "paramsString": "14B",
+    "quantization": {
+      "name": "Q4_K_M",
+      "bits": 4
+    },
+    "sizeBytes": 8988109952,
+    "contextLength": 32768,
+    "parallel": 1,
+    "status": "idle",
+    "trainedForToolUse": true
+  }
+]

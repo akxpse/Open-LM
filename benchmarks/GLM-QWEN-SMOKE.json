@@ -1,0 +1,284 @@
+{
+  "experiment": "positiveTotal paired local smoke",
+  "date": "2026-09-13",
+  "sampleSizePerModel": 1,
+  "host": {
+    "ramGiB": 32,
+    "hardware": "Apple M5",
+    "openCode": "1.17.15",
+    "lmStudio": "0.4.18+1"
+  },
+  "controls": {
+    "context": 32768,
+    "outputTokens": 2048,
+    "parallel": 1,
+    "timeoutSeconds": 120,
+    "maxToolEvents": 5,
+    "sameTask": true,
+    "sameInitialCode": true,
+    "testSha256": "bc6003e43698c1ef80d679a876b60e1d5b511c8694b52ae388d2b305a44d5c63",
+    "testCommand": "node --test verify.test.mjs"
+  },
+  "models": {
+    "qwen": {
+      "name": "Qwen3-Coder-30B-A3B",
+      "format": "GGUF",
+      "quantization": "Q4_K_M",
+      "source": "Ollama weights registered in LM Studio"
+    },
+    "glm": {
+      "name": "GLM-4.7-Flash",
+      "format": "GGUF",
+      "quantization": "Q4_K_M",
+      "source": "lmstudio-community/GLM-4.7-Flash-GGUF",
+      "fileBytes": 18132721120,
+      "loadSeconds": 1.9,
+      "estimatedMemoryGiB": 18.27,
+      "thinking": "model manifest default enabled; reasoning tokens observed"
+    }
+  },
+  "results": {
+    "qwen": {
+      "model": "open-lm-qwen",
+      "runtime": "lmstudio",
+      "elapsedSeconds": 20.753,
+      "exitCode": 0,
+      "stopReason": null,
+      "toolEvents": 3,
+      "tools": [
+        {
+          "tool": "read",
+          "command": null,
+          "status": "completed",
+          "exitCode": null,
+          "error": null
+        },
+        {
+          "tool": "edit",
+          "command": null,
+          "status": "completed",
+          "exitCode": null,
+          "error": null
+        },
+        {
+          "tool": "bash",
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 0,
+          "error": null
+        }
+      ],
+      "tokens": {
+        "input": 15003,
+        "output": 255,
+        "reasoning": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "reportedStepTotal": 15258,
+      "steps": [
+        {
+          "reason": "tool-calls",
+          "tokens": {
+            "total": 3562,
+            "input": 3522,
+            "output": 40,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          }
+        },
+        {
+          "reason": "tool-calls",
+          "tokens": {
+            "total": 3803,
+            "input": 3654,
+            "output": 149,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          }
+        },
+        {
+          "reason": "tool-calls",
+          "tokens": {
+            "total": 3848,
+            "input": 3820,
+            "output": 28,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          }
+        },
+        {
+          "reason": "stop",
+          "tokens": {
+            "total": 4045,
+            "input": 4007,
+            "output": 38,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          }
+        }
+      ],
+      "tests": {
+        "passed": 2,
+        "failed": 0,
+        "exitCode": 0
+      },
+      "candidate": "export function positiveTotal(values) {\n  if (!Array.isArray(values)) {\n    throw new TypeError('Input must be an array');\n  }\n  \n  return values\n    .filter(value => Number.isFinite(value) && value > 0)\n    .reduce((sum, value) => sum + value, 0);\n}\n",
+      "runtimeAccounting": {
+        "requestCount": 5,
+        "workerRequestCount": 4,
+        "auxiliaryRequestCount": 1,
+        "allRequestsDecodedTokens": 264,
+        "allRequestsPromptEvaluatedTokens": 3962,
+        "allRequestsRuntimeMs": 18342.53,
+        "titleRuntimeMs": 1228.92,
+        "completeApiInputTokens": null,
+        "completeApiOutputTokens": null,
+        "reason": "Worker step counters exclude title generation. Runtime decoding/evaluation counters are separate measurements, not complete API usage or billing."
+      }
+    },
+    "glm": {
+      "model": "open-lm-glm",
+      "runtime": "lmstudio",
+      "elapsedSeconds": 79.533,
+      "exitCode": 0,
+      "stopReason": null,
+      "toolEvents": 3,
+      "tools": [
+        {
+          "tool": "read",
+          "command": null,
+          "status": "completed",
+          "exitCode": null,
+          "error": null
+        },
+        {
+          "tool": "edit",
+          "command": null,
+          "status": "completed",
+          "exitCode": null,
+          "error": null
+        },
+        {
+          "tool": "bash",
+          "command": "node --test verify.test.mjs",
+          "status": "completed",
+          "exitCode": 0,
+          "error": null
+        }
+      ],
+      "tokens": {
+        "input": 14834,
+        "output": 232,
+        "reasoning": 253,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "reportedStepTotal": 15319,
+      "steps": [
+        {
+          "reason": "tool-calls",
+          "tokens": {
+            "total": 3504,
+            "input": 3349,
+            "output": 46,
+            "reasoning": 109,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          }
+        },
+        {
+          "reason": "tool-calls",
+          "tokens": {
+            "total": 3845,
+            "input": 3588,
+            "output": 140,
+            "reasoning": 117,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          }
+        },
+        {
+          "reason": "tool-calls",
+          "tokens": {
+            "total": 3903,
+            "input": 3853,
+            "output": 40,
+            "reasoning": 10,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          }
+        },
+        {
+          "reason": "stop",
+          "tokens": {
+            "total": 4067,
+            "input": 4044,
+            "output": 6,
+            "reasoning": 17,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          }
+        }
+      ],
+      "tests": {
+        "passed": 2,
+        "failed": 0,
+        "exitCode": 0
+      },
+      "candidate": "export function positiveTotal(values) {\n  if (!Array.isArray(values)) {\n    throw new TypeError('Input must be an array');\n  }\n  return values\n    .filter(value => typeof value === 'number' && Number.isFinite(value) && value > 0)\n    .reduce((sum, value) => sum + value, 0);\n}\n",
+      "runtimeAccounting": {
+        "requestCount": 5,
+        "workerRequestCount": 4,
+        "auxiliaryRequestCount": 1,
+        "allRequestsDecodedTokens": 1434,
+        "allRequestsPromptEvaluatedTokens": 4282,
+        "allRequestsRuntimeMs": 77902.68,
+        "titleRuntimeMs": 27404.11,
+        "completeApiInputTokens": null,
+        "completeApiOutputTokens": null,
+        "reason": "Worker step counters exclude title generation. Runtime decoding/evaluation counters are separate measurements, not complete API usage or billing."
+      }
+    }
+  },
+  "cloudOnlyBaseline": null,
+  "cloudTokenSavings": null,
+  "limitations": [
+    "Single simple task per model; not a broad quality benchmark.",
+    "Tokenizers, model templates/defaults, warm cache and machine memory state are not identical.",
+    "Counts are OpenCode step-level reporting, including repeated input; not unique context or dollar costs.",
+    "Elapsed time excludes model loading and prior setup/repair work.",
+    "No MLX inference ran; the 6-bit MLX model was guardrail-blocked and later moved to Trash.",
+    "Model workers performed implementation/tests; frontier reviewed code and evidence.",
+    "Sampling settings and model reasoning defaults were not matched. Auxiliary title traffic was discovered after the first report. Full API usage across auxiliary calls was not captured. No controlled-rerun claim."
+  ],
+  "comparisonStatus": "exploratory_confounded_not_controlled_model_ranking",
+  "tokenAccountingCorrection": "Existing tokens and reportedStepTotal fields cover the worker only. See runtimeAccounting for all five requests. The earlier nearly-equal total statement must not be used for full workflow usage.",
+  "longRunRamStability": "not_tested",
+  "verdict": {
+    "quality": "Tie on this task; Qwen marginally simpler. No broad quality ranking.",
+    "speed": "Qwen faster for this observed configuration; sampling/cache/runtime-state confounds remain.",
+    "tokenUsage": "Qwen generated fewer runtime tokens across all requests. Local token efficiency is secondary to accepted quality, RAM stability and throughput.",
+    "provisionalChoice": "Qwen for the currently observed workflow, pending controlled paired repetitions and sustained-load tests."
+  }
+}

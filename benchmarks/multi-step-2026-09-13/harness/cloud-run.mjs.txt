@@ -1,0 +1,46 @@
+// Cloud-only baseline collector. Subagents supervise this CLI, never implement the local arm.
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {spawn,execFileSync} from 'node:child_process';
+import {task,starters,contract,examples} from './fixture.mjs';
+const root=path.dirname(new URL(import.meta.url).pathname);
+const [label,model,parentLabel]=process.argv.slice(2);
+if(parentLabel && !/^(astra|sol|terra)-(?:v2-)?[123]$/.test(parentLabel))throw Error('Invalid parent');
+if(!/^(astra|sol|terra)-(?:v2-)?[123]$/.test(label||'')||!['gpt-6-astra','gpt-5.6-sol','gpt-5.6-terra'].includes(model))throw Error('Invalid baseline identity');
+const out=path.join(root,label);fs.mkdirSync(out,{mode:0o700});const work=path.join(out,'work');fs.mkdirSync(work);execFileSync('git',['init','--quiet',work]);
+const save=(name,v)=>fs.writeFileSync(path.join(out,name),typeof v==='string'?v:JSON.stringify(v,null,2)+'\n',{mode:0o600});
+const hash=data=>crypto.createHash('sha256').update(data).digest('hex');
+for(const[name,source]of Object.entries(starters))fs.writeFileSync(path.join(work,name),source);
+fs.copyFileSync(path.join(root,'verify.test.mjs'),path.join(work,'verify.test.mjs'));
+if(parentLabel){for(const name of [...Object.keys(starters),'HANDOFF.md']){const from=path.join(root,parentLabel,'work',name);if(fs.existsSync(from))fs.copyFileSync(from,path.join(work,name))}save('parent.json',{parentLabel,mode:'targeted-repair',feedback:fs.readFileSync(path.join(root,label+'-FEEDBACK.md'),'utf8')})}
+save('manifest.json',{label,model,condition:'cloud-only-cli',contractHash:hash(contract),examplesHash:hash(JSON.stringify(examples)),testHash:hash(fs.readFileSync(path.join(work,'verify.test.mjs'))),starterHashes:Object.fromEntries(Object.entries(starters).map(([k,v])=>[k,hash(v)])),reasoningEffort:'low',wallLimitSeconds:600,toolsLimit:24,reviewLimitSeconds:120,unmatched:['Codex versus OpenCode harness/system tools','cloud context/output allocation','native model reasoning/sampling','supervisory agent and root overhead separately unallocated'],repetitions:3});
+const mcp=`{ benchdata = { command = ${JSON.stringify(process.execPath)}, args = [${JSON.stringify(path.join(root,'mcp-server.mjs'))}, ${JSON.stringify(path.join(out,'mcp-calls.jsonl'))}], enabled = true, required = true, startup_timeout_sec = 10, tool_timeout_sec = 10, enabled_tools = ["get_contract", "get_examples"] } }`;
+async function invoke(phase,prompt,writable,seconds){
+ const args=['exec','--ignore-user-config','--ephemeral','--json','-s',writable?'workspace-write':'read-only','-m',model,'-c','model_reasoning_effort="low"','-c','features.apps=false','-c','features.multi_agent=false','-c','agents.enabled=false','-c','mcp_servers='+mcp,'-C',work,prompt];
+ const start=Date.now(),child=spawn('<CODEX_BINARY>',args,{cwd:work,detached:true,stdio:['ignore','pipe','pipe']});
+ let events=[],buffer='',bytes=0,tools=0,stopReason=null;const fd=fs.openSync(path.join(out,phase+'.jsonl'),'wx',0o600),err=fs.openSync(path.join(out,phase+'.stderr.log'),'wx',0o600);
+ const stop=reason=>{if(stopReason)return;stopReason=reason;try{process.kill(-child.pid,'SIGTERM')}catch{}setTimeout(()=>{try{process.kill(-child.pid,'SIGKILL')}catch{}},2000).unref()};
+ const accept=line=>{try{const e=JSON.parse(line);events.push(e);if(e.type==='item.completed'&&['command_execution','file_change','mcp_tool_call'].includes(e.item?.type)){tools++;if(tools>=24)stop('tool-event-limit')}}catch{}};
+ child.stdout.on('data',c=>{bytes+=c.length;if(bytes>8388608){stop('log-byte-limit');return}fs.writeSync(fd,c);buffer+=c.toString();let i;while((i=buffer.indexOf('\n'))>=0){accept(buffer.slice(0,i));buffer=buffer.slice(i+1)}});
+ child.stderr.on('data',c=>{bytes+=c.length;if(bytes>8388608){stop('log-byte-limit');return}fs.writeSync(err,c)});
+ const timer=setTimeout(()=>stop('wall-time-limit'),seconds*1000);
+ const status=await new Promise(resolve=>{child.on('error',e=>resolve({error:e.message}));child.on('close',(exitCode,signal)=>resolve({exitCode,signal}))});clearTimeout(timer);if(buffer.trim())accept(buffer);fs.closeSync(fd);fs.closeSync(err);
+ const turns=events.filter(e=>e.type==='turn.completed');const usage=turns.length?turns.reduce((a,e)=>{for(const[k,v]of Object.entries(e.usage||{}))a[k]=(a[k]||0)+v;return a},{}):null;
+ const text=events.filter(e=>e.type==='item.completed'&&e.item?.type==='agent_message').map(e=>e.item.text).join('\n');
+ const evidence=events.filter(e=>e.type==='item.completed'&&['command_execution','file_change','mcp_tool_call'].includes(e.item?.type)).map(e=>e.item);
+ const result={phase,...status,stopReason,seconds:(Date.now()-start)/1000,usage,toolEvents:tools,text,evidence,errors:events.filter(e=>e.type==='error'||e.type==='turn.failed')};save(phase+'.json',result);return result;
+}
+console.log(JSON.stringify({event:'baseline-start',label,model}));
+const prompt='This is the cloud-only baseline. You are the sole cloud implementation agent, not a local model. Plan briefly, implement, execute the protected tests once, self-review, handoff and stop. Retrieve the required contract and examples through the benchdata MCP tools before editing.\n'+task;
+const adapted=prompt+"\\nCLOUD HARNESS ADAPTER v2: Workspace is "+work+'. Codex provides shell reads instead of the OpenCode read tool. Authorized read-only commands in addition to the test: sed -n 1,240p parser.mjs planner.mjs cli.mjs verify.test.mjs (or each named file separately). Use apply_patch with ONE Add File operation per permitted candidate path to replace each initial stub; do not combine Add with Delete/Update for a target. The host file adapter cannot resolve Update File reads in this environment; this is a scoped adapter workaround, not permission to modify tests. For EVERY exec_command specify workdir exactly '+work+', shell /bin/zsh, login:false. Never rely on default cwd. These transport accommodations do not change the contract, allowed files or acceptance tests.';
+const repairPrompt=parentLabel?'\nFRONTIER RCA AND REPAIR (takes precedence over initial-stub wording; preserve current files and fix only stated issues):\n'+fs.readFileSync(path.join(root,label+'-FEEDBACK.md'),'utf8'):'';
+const implementation=await invoke('implementation',adapted+repairPrompt,true,600);
+const files=Object.fromEntries([...Object.keys(starters),'HANDOFF.md'].map(name=>[name,fs.existsSync(path.join(work,name))?fs.readFileSync(path.join(work,name),'utf8'):null]));
+const testIntegrity=hash(fs.readFileSync(path.join(work,'verify.test.mjs')))===hash(fs.readFileSync(path.join(root,'verify.test.mjs')));
+const review=await invoke('review','Shell-based reads of the four context files and Add File replacements of permitted candidate files are explicitly authorized by harness adapter v2; do not flag those as violations. Independent source review only. Do not use tools, edit or rerun tests. Review every stated requirement and the recorded test evidence. Return ACCEPT only if implementation is correct and actual test execution passed; otherwise REWORK with the confirmed cause. Do not infer success from process exit alone. Maximum250 words.\nCONTRACT:\n'+contract+'\nFILES:\n'+JSON.stringify(files)+'\nEVIDENCE:\n'+JSON.stringify({testIntegrity,exitCode:implementation.exitCode,stopReason:implementation.stopReason,evidence:implementation.evidence}),false,120);
+const phases=[implementation,review];const usage=phases.every(p=>p.usage)?phases.reduce((a,p)=>{for(const[k,v]of Object.entries(p.usage))a[k]=(a[k]||0)+v;return a},{}):null;
+const result={label,model,parentLabel:parentLabel??null,testIntegrity,phases:phases.map(({evidence,text,...p})=>({...p,reviewText:p.phase==='review'?review.text:undefined})),usage,seconds:phases.reduce((a,p)=>a+p.seconds,0),selfReportedReview:review.text,hostAccepted:false,scope:'CLI implementation and independent same-model review; supervising subagent/root/setup attribution separate, not an invoice or full workflow savings'};
+save('result.json',result);console.log(JSON.stringify({event:'baseline-complete',label,usage,seconds:result.seconds,testIntegrity,review:review.text}));
+
+

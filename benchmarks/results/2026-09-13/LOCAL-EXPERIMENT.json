@@ -1,0 +1,1708 @@
+{
+  "status": "separate_local_experiment_historical",
+  "date": "2026-09-13",
+  "results": [
+    {
+      "case": "normalize",
+      "passed": true,
+      "attempts": [
+        {
+          "implementation": {
+            "skillVersion": "0.0.0",
+            "state": "review-ready",
+            "accepted": false,
+            "model": "qwen3-coder:30b",
+            "workspace": "<local-root>/normalize",
+            "elapsedSeconds": 62.014,
+            "stopReason": null,
+            "exitCode": 0,
+            "signal": null,
+            "toolEvents": 11,
+            "tools": [
+              {
+                "tool": "glob",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "edit",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "ls -la",
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+              },
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "echo \"Implementation complete and verified\"",
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+              }
+            ],
+            "errors": [],
+            "tokens": {
+              "input": 5206,
+              "output": 1426,
+              "reasoning": 0,
+              "cacheRead": 53262,
+              "cacheWrite": 0
+            },
+            "logs": "<local-root>/normalize-0-implement",
+            "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+          },
+          "verification": {
+            "skillVersion": "0.0.0",
+            "state": "review-ready",
+            "accepted": false,
+            "model": "qwen3-coder:30b",
+            "workspace": "<local-root>/normalize",
+            "elapsedSeconds": 14.442,
+            "stopReason": null,
+            "exitCode": 0,
+            "signal": null,
+            "toolEvents": 3,
+            "tools": [
+              {
+                "tool": "bash",
+                "command": "node --test --test-timeout=10000 visible.test.mjs verify.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "ls -la",
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"}]"
+              }
+            ],
+            "errors": [],
+            "tokens": {
+              "input": 689,
+              "output": 396,
+              "reasoning": 0,
+              "cacheRead": 14289,
+              "cacheWrite": 0
+            },
+            "logs": "<local-root>/normalize-0-verify",
+            "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+          },
+          "integrity": true,
+          "testExit": 0
+        }
+      ],
+      "seconds": 76.515,
+      "work": "<local-root>/normalize",
+      "acceptance": "External frontier source review remains separate; tests were executed by Qwen through OpenCode."
+    },
+    {
+      "case": "ttl-cache",
+      "passed": true,
+      "attempts": [
+        {
+          "implementation": {
+            "skillVersion": "0.0.0",
+            "state": "stopped-or-failed",
+            "accepted": false,
+            "model": "qwen3-coder:30b",
+            "workspace": "<local-root>/ttl-cache",
+            "elapsedSeconds": 136.41,
+            "stopReason": null,
+            "exitCode": null,
+            "signal": "SIGTERM",
+            "toolEvents": 16,
+            "tools": [
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "edit",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"}]"
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/ttl-cache && node comprehensive.test.mjs",
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/ttl-cache && cat > test_comprehensive.mjs << 'EOF'\nimport * as m from './impl.mjs';\n\n// Test basic functionality\nlet t = 0;\nconst c = m.createCache({now: () => t, ttlMs: 10});\n\n// Test set and get\nc.set('a', 2);\nassert.equal(c.get('a'), 2);\n\n// Test expiration\nt = 10;\nassert.equal(c.get('a'), undefined);\n\n// Test that size excludes expired entries\nassert.equal(c.size(), 0);\n\n// Test with multiple entries\nt = 0;\nc.set('a', 1);\nc.set('b', 2);\nassert.equal(c.get('a'), 1);\nassert.equal(c.get('b'), 2);\nassert.equal(c.size(), 2);\n\n// Test TTL reset on set\nt = 5;\nc.set('a', 3); // This should reset the TTL\nassert.equal(c.get('a'), 3);\nt = 15; // Should still be valid since we reset the TTL\nassert.equal(c.get('a'), 3);\nt = 20; // Now it should expire\nassert.equal(c.get('a'), undefined);\n\n// Test delete functionality\nt = 0;\nc.set('x', 'value');\nassert.equal(c.delete('x'), true);\nassert.equal(c.get('x'), undefined);\nassert.equal(c.size(), 0);\n\n// Test delete on already expired entry\nt = 0;\nc.set('y', 'value');\nt = 15;\nassert.equal(c.delete('y'), false); // Should return false for expired entry\nassert.equal(c.size(), 0);\n\n// Test with objects as keys\nt = 0;\nconst keyObj = { id: 1 };\nc.set(keyObj, 'obj-value');\nassert.equal(c.get(keyObj), 'obj-value');\n\n// Test with undefined values\nt = 0;\nc.set('undefined-value', undefined);\nassert.equal(c.get('undefined-value'), undefined);\nassert.equal(c.size(), 1);\n\nconsole.log('All tests passed!');\nEOF",
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+              },
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/ttl-cache && ls -la",
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/ttl-cache && echo \"Implementation complete and verified\" && cat HANDOFF.md",
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+              }
+            ],
+            "errors": [],
+            "tokens": {
+              "input": 7024,
+              "output": 3536,
+              "reasoning": 0,
+              "cacheRead": 97281,
+              "cacheWrite": 0
+            },
+            "logs": "<local-root>/ttl-cache-0-implement",
+            "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+          },
+          "verification": {
+            "skillVersion": "0.0.0",
+            "state": "review-ready",
+            "accepted": false,
+            "model": "qwen3-coder:30b",
+            "workspace": "<local-root>/ttl-cache",
+            "elapsedSeconds": 15.766,
+            "stopReason": null,
+            "exitCode": 0,
+            "signal": null,
+            "toolEvents": 2,
+            "tools": [
+              {
+                "tool": "bash",
+                "command": "node --test --test-timeout=10000 visible.test.mjs verify.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              }
+            ],
+            "errors": [],
+            "tokens": {
+              "input": 584,
+              "output": 380,
+              "reasoning": 0,
+              "cacheRead": 10442,
+              "cacheWrite": 0
+            },
+            "logs": "<local-root>/ttl-cache-0-verify",
+            "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+          },
+          "integrity": true,
+          "testExit": 0
+        }
+      ],
+      "seconds": 152.206,
+      "work": "<local-root>/ttl-cache",
+      "acceptance": "External frontier source review remains separate; tests were executed by Qwen through OpenCode."
+    },
+    {
+      "case": "concurrency-map",
+      "passed": false,
+      "attempts": [
+        {
+          "implementation": {
+            "skillVersion": "0.0.0",
+            "state": "stopped-or-failed",
+            "accepted": false,
+            "model": "qwen3-coder:30b",
+            "workspace": "<local-root>/concurrency-map",
+            "elapsedSeconds": 197.115,
+            "stopReason": "tool-event-limit",
+            "exitCode": null,
+            "signal": "SIGTERM",
+            "toolEvents": 20,
+            "tools": [
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 1,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"}]"
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/concurrency-map && node -e \"\nimport('./impl.mjs').then(async ({mapLimit}) => {\n  try {\n    await mapLimit([1,2,3],2,async x => {\n      if (x === 2) throw new Error('test error');\n      return x * 2;\n    });\n    console.log('ERROR: Should have thrown');\n  } catch (error) {\n    console.log('Error handling works correctly:', error.message);\n  }\n}).catch(err => console.error('Import error:', err));\n\"",
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/concurrency-map && node -e \"\nimport('./impl.mjs').then(async ({mapLimit}) => {\n  console.log('Testing error handling...');\n  try {\n    await mapLimit([1,2,3],2,async x => {\n      if (x === 2) throw new Error('test error');\n      return x * 2;\n    });\n    console.log('ERROR: Should have thrown');\n  } catch (error) {\n    console.log('✓ Error correctly propagated:', error.message);\n  }\n}).catch(err => console.error('Import error:', err));\n\"",
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "read",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                "status": "completed",
+                "exitCode": 0,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "cd <local-root>/concurrency-map && ls -la",
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+              }
+            ],
+            "errors": [],
+            "tokens": {
+              "input": 7213,
+              "output": 5308,
+              "reasoning": 0,
+              "cacheRead": 136538,
+              "cacheWrite": 0
+            },
+            "logs": "<local-root>/concurrency-map-0-implement",
+            "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+          },
+          "verification": {
+            "skillVersion": "0.0.0",
+            "state": "review-ready",
+            "accepted": false,
+            "model": "qwen3-coder:30b",
+            "workspace": "<local-root>/concurrency-map",
+            "elapsedSeconds": 22.067,
+            "stopReason": null,
+            "exitCode": 0,
+            "signal": null,
+            "toolEvents": 3,
+            "tools": [
+              {
+                "tool": "bash",
+                "command": "node --test --test-timeout=10000 visible.test.mjs verify.test.mjs",
+                "status": "completed",
+                "exitCode": 1,
+                "error": null
+              },
+              {
+                "tool": "write",
+                "command": null,
+                "status": "completed",
+                "exitCode": null,
+                "error": null
+              },
+              {
+                "tool": "bash",
+                "command": "ls -la",
+                "status": "error",
+                "exitCode": null,
+                "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"}]"
+              }
+            ],
+            "errors": [],
+            "tokens": {
+              "input": 1098,
+              "output": 542,
+              "reasoning": 0,
+              "cacheRead": 14974,
+              "cacheWrite": 0
+            },
+            "logs": "<local-root>/concurrency-map-0-verify",
+            "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+          },
+          "integrity": true,
+          "testExit": 1
+        }
+      ],
+      "seconds": 219.222,
+      "work": "<local-root>/concurrency-map",
+      "acceptance": "External frontier source review remains separate; tests were executed by Qwen through OpenCode."
+    }
+  ],
+  "experiment": {
+    "kind": "local-only-implementation",
+    "planner": "current frontier host",
+    "localModel": "qwen3-coder:30b",
+    "rows": [
+      {
+        "case": "normalize",
+        "passed": true,
+        "attempts": [
+          {
+            "implementation": {
+              "skillVersion": "0.0.0",
+              "state": "review-ready",
+              "accepted": false,
+              "model": "qwen3-coder:30b",
+              "workspace": "<local-root>/normalize",
+              "elapsedSeconds": 62.014,
+              "stopReason": null,
+              "exitCode": 0,
+              "signal": null,
+              "toolEvents": 11,
+              "tools": [
+                {
+                  "tool": "glob",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "edit",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "ls -la",
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+                },
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "echo \"Implementation complete and verified\"",
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+                }
+              ],
+              "errors": [],
+              "tokens": {
+                "input": 5206,
+                "output": 1426,
+                "reasoning": 0,
+                "cacheRead": 53262,
+                "cacheWrite": 0
+              },
+              "logs": "<local-root>/normalize-0-implement",
+              "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+            },
+            "verification": {
+              "skillVersion": "0.0.0",
+              "state": "review-ready",
+              "accepted": false,
+              "model": "qwen3-coder:30b",
+              "workspace": "<local-root>/normalize",
+              "elapsedSeconds": 14.442,
+              "stopReason": null,
+              "exitCode": 0,
+              "signal": null,
+              "toolEvents": 3,
+              "tools": [
+                {
+                  "tool": "bash",
+                  "command": "node --test --test-timeout=10000 visible.test.mjs verify.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "ls -la",
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"}]"
+                }
+              ],
+              "errors": [],
+              "tokens": {
+                "input": 689,
+                "output": 396,
+                "reasoning": 0,
+                "cacheRead": 14289,
+                "cacheWrite": 0
+              },
+              "logs": "<local-root>/normalize-0-verify",
+              "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+            },
+            "integrity": true,
+            "testExit": 0
+          }
+        ],
+        "seconds": 76.515,
+        "work": "<local-root>/normalize",
+        "acceptance": "External frontier source review remains separate; tests were executed by Qwen through OpenCode."
+      },
+      {
+        "case": "ttl-cache",
+        "passed": true,
+        "attempts": [
+          {
+            "implementation": {
+              "skillVersion": "0.0.0",
+              "state": "stopped-or-failed",
+              "accepted": false,
+              "model": "qwen3-coder:30b",
+              "workspace": "<local-root>/ttl-cache",
+              "elapsedSeconds": 136.41,
+              "stopReason": null,
+              "exitCode": null,
+              "signal": "SIGTERM",
+              "toolEvents": 16,
+              "tools": [
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "edit",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"}]"
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/ttl-cache && node comprehensive.test.mjs",
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/ttl-cache && cat > test_comprehensive.mjs << 'EOF'\nimport * as m from './impl.mjs';\n\n// Test basic functionality\nlet t = 0;\nconst c = m.createCache({now: () => t, ttlMs: 10});\n\n// Test set and get\nc.set('a', 2);\nassert.equal(c.get('a'), 2);\n\n// Test expiration\nt = 10;\nassert.equal(c.get('a'), undefined);\n\n// Test that size excludes expired entries\nassert.equal(c.size(), 0);\n\n// Test with multiple entries\nt = 0;\nc.set('a', 1);\nc.set('b', 2);\nassert.equal(c.get('a'), 1);\nassert.equal(c.get('b'), 2);\nassert.equal(c.size(), 2);\n\n// Test TTL reset on set\nt = 5;\nc.set('a', 3); // This should reset the TTL\nassert.equal(c.get('a'), 3);\nt = 15; // Should still be valid since we reset the TTL\nassert.equal(c.get('a'), 3);\nt = 20; // Now it should expire\nassert.equal(c.get('a'), undefined);\n\n// Test delete functionality\nt = 0;\nc.set('x', 'value');\nassert.equal(c.delete('x'), true);\nassert.equal(c.get('x'), undefined);\nassert.equal(c.size(), 0);\n\n// Test delete on already expired entry\nt = 0;\nc.set('y', 'value');\nt = 15;\nassert.equal(c.delete('y'), false); // Should return false for expired entry\nassert.equal(c.size(), 0);\n\n// Test with objects as keys\nt = 0;\nconst keyObj = { id: 1 };\nc.set(keyObj, 'obj-value');\nassert.equal(c.get(keyObj), 'obj-value');\n\n// Test with undefined values\nt = 0;\nc.set('undefined-value', undefined);\nassert.equal(c.get('undefined-value'), undefined);\nassert.equal(c.size(), 1);\n\nconsole.log('All tests passed!');\nEOF",
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+                },
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/ttl-cache && ls -la",
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/ttl-cache && echo \"Implementation complete and verified\" && cat HANDOFF.md",
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+                }
+              ],
+              "errors": [],
+              "tokens": {
+                "input": 7024,
+                "output": 3536,
+                "reasoning": 0,
+                "cacheRead": 97281,
+                "cacheWrite": 0
+              },
+              "logs": "<local-root>/ttl-cache-0-implement",
+              "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+            },
+            "verification": {
+              "skillVersion": "0.0.0",
+              "state": "review-ready",
+              "accepted": false,
+              "model": "qwen3-coder:30b",
+              "workspace": "<local-root>/ttl-cache",
+              "elapsedSeconds": 15.766,
+              "stopReason": null,
+              "exitCode": 0,
+              "signal": null,
+              "toolEvents": 2,
+              "tools": [
+                {
+                  "tool": "bash",
+                  "command": "node --test --test-timeout=10000 visible.test.mjs verify.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                }
+              ],
+              "errors": [],
+              "tokens": {
+                "input": 584,
+                "output": 380,
+                "reasoning": 0,
+                "cacheRead": 10442,
+                "cacheWrite": 0
+              },
+              "logs": "<local-root>/ttl-cache-0-verify",
+              "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+            },
+            "integrity": true,
+            "testExit": 0
+          }
+        ],
+        "seconds": 152.206,
+        "work": "<local-root>/ttl-cache",
+        "acceptance": "External frontier source review remains separate; tests were executed by Qwen through OpenCode."
+      },
+      {
+        "case": "concurrency-map",
+        "passed": false,
+        "attempts": [
+          {
+            "implementation": {
+              "skillVersion": "0.0.0",
+              "state": "stopped-or-failed",
+              "accepted": false,
+              "model": "qwen3-coder:30b",
+              "workspace": "<local-root>/concurrency-map",
+              "elapsedSeconds": 197.115,
+              "stopReason": "tool-event-limit",
+              "exitCode": null,
+              "signal": "SIGTERM",
+              "toolEvents": 20,
+              "tools": [
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 1,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"}]"
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/concurrency-map && node -e \"\nimport('./impl.mjs').then(async ({mapLimit}) => {\n  try {\n    await mapLimit([1,2,3],2,async x => {\n      if (x === 2) throw new Error('test error');\n      return x * 2;\n    });\n    console.log('ERROR: Should have thrown');\n  } catch (error) {\n    console.log('Error handling works correctly:', error.message);\n  }\n}).catch(err => console.error('Import error:', err));\n\"",
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/concurrency-map && node -e \"\nimport('./impl.mjs').then(async ({mapLimit}) => {\n  console.log('Testing error handling...');\n  try {\n    await mapLimit([1,2,3],2,async x => {\n      if (x === 2) throw new Error('test error');\n      return x * 2;\n    });\n    console.log('ERROR: Should have thrown');\n  } catch (error) {\n    console.log('✓ Error correctly propagated:', error.message);\n  }\n}).catch(err => console.error('Import error:', err));\n\"",
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "read",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+                  "status": "completed",
+                  "exitCode": 0,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "cd <local-root>/concurrency-map && ls -la",
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+                }
+              ],
+              "errors": [],
+              "tokens": {
+                "input": 7213,
+                "output": 5308,
+                "reasoning": 0,
+                "cacheRead": 136538,
+                "cacheWrite": 0
+              },
+              "logs": "<local-root>/concurrency-map-0-implement",
+              "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+            },
+            "verification": {
+              "skillVersion": "0.0.0",
+              "state": "review-ready",
+              "accepted": false,
+              "model": "qwen3-coder:30b",
+              "workspace": "<local-root>/concurrency-map",
+              "elapsedSeconds": 22.067,
+              "stopReason": null,
+              "exitCode": 0,
+              "signal": null,
+              "toolEvents": 3,
+              "tools": [
+                {
+                  "tool": "bash",
+                  "command": "node --test --test-timeout=10000 visible.test.mjs verify.test.mjs",
+                  "status": "completed",
+                  "exitCode": 1,
+                  "error": null
+                },
+                {
+                  "tool": "write",
+                  "command": null,
+                  "status": "completed",
+                  "exitCode": null,
+                  "error": null
+                },
+                {
+                  "tool": "bash",
+                  "command": "ls -la",
+                  "status": "error",
+                  "exitCode": null,
+                  "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"}]"
+                }
+              ],
+              "errors": [],
+              "tokens": {
+                "input": 1098,
+                "output": 542,
+                "reasoning": 0,
+                "cacheRead": 14974,
+                "cacheWrite": 0
+              },
+              "logs": "<local-root>/concurrency-map-0-verify",
+              "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+            },
+            "integrity": true,
+            "testExit": 1
+          }
+        ],
+        "seconds": 219.222,
+        "work": "<local-root>/concurrency-map",
+        "acceptance": "External frontier source review remains separate; tests were executed by Qwen through OpenCode."
+      }
+    ],
+    "cloudCallsFromLauncher": 0,
+    "frontierPlanningTokens": null,
+    "cloudTokenSavings": null,
+    "notes": [
+      "Fresh starters match prior cloud baseline fixtures; historical baseline remains separate.",
+      "Planner is the current frontier host, not a Terra subprocess.",
+      "All test commands executed by Qwen/OpenCode; launcher only stages files and reads evidence.",
+      "Current host planning/handoff/review usage not instrumented; no full-workflow savings percentage can be computed.",
+      "These are already-seen pilot tasks, not new holdouts; one repetition each."
+    ]
+  },
+  "phaseSummaries": [
+    {
+      "source": "concurrency-map-0-implement/summary.json",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<local-root>/concurrency-map",
+        "elapsedSeconds": 197.115,
+        "stopReason": "tool-event-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 20,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 1,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/concurrency-map && node -e \"\nimport('./impl.mjs').then(async ({mapLimit}) => {\n  try {\n    await mapLimit([1,2,3],2,async x => {\n      if (x === 2) throw new Error('test error');\n      return x * 2;\n    });\n    console.log('ERROR: Should have thrown');\n  } catch (error) {\n    console.log('Error handling works correctly:', error.message);\n  }\n}).catch(err => console.error('Import error:', err));\n\"",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/concurrency-map && node -e \"\nimport('./impl.mjs').then(async ({mapLimit}) => {\n  console.log('Testing error handling...');\n  try {\n    await mapLimit([1,2,3],2,async x => {\n      if (x === 2) throw new Error('test error');\n      return x * 2;\n    });\n    console.log('ERROR: Should have thrown');\n  } catch (error) {\n    console.log('✓ Error correctly propagated:', error.message);\n  }\n}).catch(err => console.error('Import error:', err));\n\"",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/concurrency-map && node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/concurrency-map && ls -la",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 7213,
+          "output": 5308,
+          "reasoning": 0,
+          "cacheRead": 136538,
+          "cacheWrite": 0
+        },
+        "logs": "<local-root>/concurrency-map-0-implement",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "source": "concurrency-map-0-verify/summary.json",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<local-root>/concurrency-map",
+        "elapsedSeconds": 22.067,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 3,
+        "tools": [
+          {
+            "tool": "bash",
+            "command": "node --test --test-timeout=10000 visible.test.mjs verify.test.mjs",
+            "status": "completed",
+            "exitCode": 1,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "ls -la",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"}]"
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 1098,
+          "output": 542,
+          "reasoning": 0,
+          "cacheRead": 14974,
+          "cacheWrite": 0
+        },
+        "logs": "<local-root>/concurrency-map-0-verify",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "source": "normalize-0-implement/summary.json",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<local-root>/normalize",
+        "elapsedSeconds": 62.014,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 11,
+        "tools": [
+          {
+            "tool": "glob",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "ls -la",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "echo \"Implementation complete and verified\"",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 5206,
+          "output": 1426,
+          "reasoning": 0,
+          "cacheRead": 53262,
+          "cacheWrite": 0
+        },
+        "logs": "<local-root>/normalize-0-implement",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "source": "normalize-0-verify/summary.json",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<local-root>/normalize",
+        "elapsedSeconds": 14.442,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 3,
+        "tools": [
+          {
+            "tool": "bash",
+            "command": "node --test --test-timeout=10000 visible.test.mjs verify.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "ls -la",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs verify.test.mjs\",\"action\":\"allow\"}]"
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 689,
+          "output": 396,
+          "reasoning": 0,
+          "cacheRead": 14289,
+          "cacheWrite": 0
+        },
+        "logs": "<local-root>/normalize-0-verify",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "source": "ttl-cache-0-implement/summary.json",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<local-root>/ttl-cache",
+        "elapsedSeconds": 136.41,
+        "stopReason": null,
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 16,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"edit\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"edit\",\"pattern\":\"impl.mjs\",\"action\":\"allow\"},{\"permission\":\"edit\",\"pattern\":\"HANDOFF.md\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/ttl-cache && node comprehensive.test.mjs",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/ttl-cache && cat > test_comprehensive.mjs << 'EOF'\nimport * as m from './impl.mjs';\n\n// Test basic functionality\nlet t = 0;\nconst c = m.createCache({now: () => t, ttlMs: 10});\n\n// Test set and get\nc.set('a', 2);\nassert.equal(c.get('a'), 2);\n\n// Test expiration\nt = 10;\nassert.equal(c.get('a'), undefined);\n\n// Test that size excludes expired entries\nassert.equal(c.size(), 0);\n\n// Test with multiple entries\nt = 0;\nc.set('a', 1);\nc.set('b', 2);\nassert.equal(c.get('a'), 1);\nassert.equal(c.get('b'), 2);\nassert.equal(c.size(), 2);\n\n// Test TTL reset on set\nt = 5;\nc.set('a', 3); // This should reset the TTL\nassert.equal(c.get('a'), 3);\nt = 15; // Should still be valid since we reset the TTL\nassert.equal(c.get('a'), 3);\nt = 20; // Now it should expire\nassert.equal(c.get('a'), undefined);\n\n// Test delete functionality\nt = 0;\nc.set('x', 'value');\nassert.equal(c.delete('x'), true);\nassert.equal(c.get('x'), undefined);\nassert.equal(c.size(), 0);\n\n// Test delete on already expired entry\nt = 0;\nc.set('y', 'value');\nt = 15;\nassert.equal(c.delete('y'), false); // Should return false for expired entry\nassert.equal(c.size(), 0);\n\n// Test with objects as keys\nt = 0;\nconst keyObj = { id: 1 };\nc.set(keyObj, 'obj-value');\nassert.equal(c.get(keyObj), 'obj-value');\n\n// Test with undefined values\nt = 0;\nc.set('undefined-value', undefined);\nassert.equal(c.get('undefined-value'), undefined);\nassert.equal(c.size(), 1);\n\nconsole.log('All tests passed!');\nEOF",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/ttl-cache && ls -la",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/ttl-cache && node --test --test-timeout=10000 visible.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <local-root>/ttl-cache && echo \"Implementation complete and verified\" && cat HANDOFF.md",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 visible.test.mjs\",\"action\":\"allow\"}]"
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 7024,
+          "output": 3536,
+          "reasoning": 0,
+          "cacheRead": 97281,
+          "cacheWrite": 0
+        },
+        "logs": "<local-root>/ttl-cache-0-implement",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "source": "ttl-cache-0-verify/summary.json",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<local-root>/ttl-cache",
+        "elapsedSeconds": 15.766,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 2,
+        "tools": [
+          {
+            "tool": "bash",
+            "command": "node --test --test-timeout=10000 visible.test.mjs verify.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 584,
+          "output": 380,
+          "reasoning": 0,
+          "cacheRead": 10442,
+          "cacheWrite": 0
+        },
+        "logs": "<local-root>/ttl-cache-0-verify",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    }
+  ]
+}

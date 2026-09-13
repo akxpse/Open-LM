@@ -1,0 +1,70 @@
+function isNormalizedJob(value) {
+  return value !== null &&
+    typeof value === 'object' &&
+    !Array.isArray(value) &&
+    typeof value.id === 'string' && value.id.length > 0 && value.id === value.id.trim() &&
+    typeof value.tenant === 'string' && value.tenant.length > 0 && value.tenant === value.tenant.trim() &&
+    Number.isInteger(value.priority) && value.priority >= 1 && value.priority <= 5 &&
+    Number.isSafeInteger(value.createdAt) && value.createdAt >= 0 &&
+    Number.isSafeInteger(value.attempts) && value.attempts >= 0;
+}
+
+function compareStrings(left, right) {
+  return left < right ? -1 : left > right ? 1 : 0;
+}
+
+export function planJobs(jobs, {batchSize = 2, maxAttempts = 3} = {}) {
+  if (!Array.isArray(jobs)) throw new TypeError('jobs must be an array');
+  const options = arguments.length > 1 ? arguments[1] : {};
+  if (options === null || typeof options !== 'object' || Array.isArray(options)) {
+    throw new TypeError('options must be an object');
+  }
+  if (!Number.isInteger(batchSize) || batchSize < 1 || batchSize > 50 ||
+      !Number.isInteger(maxAttempts) || maxAttempts < 1 || maxAttempts > 100) {
+    throw new TypeError('invalid options');
+  }
+  for (const job of jobs) {
+    if (!isNormalizedJob(job)) throw new TypeError('invalid job');
+  }
+
+  const byTenant = new Map();
+  let duplicates = 0;
+  for (const job of jobs) {
+    let byId = byTenant.get(job.tenant);
+    if (byId === undefined) {
+      byId = new Map();
+      byTenant.set(job.tenant, byId);
+    }
+    const current = byId.get(job.id);
+    if (current === undefined) {
+      byId.set(job.id, job);
+    } else {
+      duplicates += 1;
+      if (job.createdAt >= current.createdAt) byId.set(job.id, job);
+    }
+  }
+
+  const batches = [];
+  let filtered = 0;
+  const tenants = [...byTenant.keys()].sort(compareStrings);
+  for (const tenant of tenants) {
+    const eligible = [];
+    for (const job of byTenant.get(tenant).values()) {
+      if (job.attempts >= maxAttempts) filtered += 1;
+      else eligible.push(job);
+    }
+    eligible.sort((left, right) =>
+      right.priority - left.priority ||
+      left.createdAt - right.createdAt ||
+      compareStrings(left.id, right.id));
+    for (let offset = 0; offset < eligible.length; offset += batchSize) {
+      batches.push({
+        tenant,
+        batch: offset / batchSize + 1,
+        jobs: eligible.slice(offset, offset + batchSize).map(job => ({...job})),
+      });
+    }
+  }
+
+  return {batches, duplicates, filtered};
+}

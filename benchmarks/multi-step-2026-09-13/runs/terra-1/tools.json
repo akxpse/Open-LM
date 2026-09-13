@@ -1,0 +1,44 @@
+[
+  {
+    "type": "mcp_tool_call",
+    "tool": "get_contract",
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  },
+  {
+    "type": "mcp_tool_call",
+    "tool": "get_examples",
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  },
+  {
+    "type": "file_change",
+    "tool": null,
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  },
+  {
+    "type": "file_change",
+    "tool": null,
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  },
+  {
+    "type": "command_execution",
+    "tool": null,
+    "status": "completed",
+    "command": "/bin/zsh -c 'node --test verify.test.mjs'",
+    "exitCode": 0
+  },
+  {
+    "type": "file_change",
+    "tool": null,
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  }
+]

@@ -1,0 +1,26 @@
+#!/opt/homebrew/bin/node
+import fs from 'node:fs';
+import path from 'node:path';
+import {spawn,execFileSync} from 'node:child_process';
+export function enhance(c,root,log){
+ c.mcp={...c.mcp,benchdata:{type:'local',command:[process.execPath,path.join(root,'mcp-server.mjs'),log],enabled:true,timeout:5000}};
+ const permission={...c.permission,benchdata_get_contract:'allow',benchdata_get_examples:'allow'};
+ c.permission=permission;
+ c.agent['local-worker']={...c.agent['local-worker'],permission,temperature:0,top_p:1,steps:24};
+ for(const name of ['title','summary','compaction'])c.agent[name]={...c.agent[name],disable:true};
+ return c;
+}
+if(process.argv[1]===new URL(import.meta.url).pathname){
+ const root=path.dirname(new URL(import.meta.url).pathname);
+ const c=enhance(JSON.parse(process.env.OPENCODE_CONFIG_CONTENT),root,process.env.BENCH_MCP_LOG);
+ const env={...process.env,OPENCODE_CONFIG_CONTENT:JSON.stringify(c),OPENCODE_PERMISSION:JSON.stringify(c.permission)};
+ const raw=execFileSync('<USER_HOME>/.opencode/bin/opencode',['debug','config'],{cwd:process.cwd(),env,encoding:'utf8',timeout:20000,stdio:['ignore','pipe','pipe']});
+ const e=JSON.parse(raw);
+ const safe={model:e.model,enabledProviders:e.enabled_providers,mcp:Object.fromEntries(Object.entries(e.mcp||{}).map(([k,v])=>[k,{enabled:v.enabled,command:k==='benchdata'?v.command:null}])),plugin:e.plugin,permission:e.permission,agents:Object.fromEntries(Object.entries(e.agent||{}).map(([k,v])=>[k,{model:v.model,disable:v.disable,temperature:v.temperature,top_p:v.top_p,permission:v.permission}])),endpoint:e.provider?.lmstudio?.options?.baseURL};
+ fs.writeFileSync(process.env.BENCH_EFFECTIVE_CONFIG,JSON.stringify(safe,null,2));
+ if(e.enabled_providers?.join()!=='lmstudio'||e.model!==c.model||e.mcp?.benchdata?.enabled!==true||Object.entries(e.mcp||{}).some(([k,v])=>k!=='benchdata'&&v.enabled!==false)||e.plugin?.length)throw Error('Effective configuration isolation mismatch');
+ if(e.permission?.benchdata_get_contract!=='allow'||e.permission?.benchdata_get_examples!=='allow'||e.permission?.external_directory!=='deny')throw Error('MCP permissions mismatch');
+ const child=spawn('<USER_HOME>/.opencode/bin/opencode',process.argv.slice(2),{cwd:process.cwd(),env,stdio:'inherit'});
+ child.on('exit',(code)=>{process.exitCode=code??1});
+ child.on('error',()=>{process.exitCode=1});
+}

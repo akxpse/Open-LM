@@ -1,0 +1,203 @@
+{
+  "pricingDate": "2026-09-13",
+  "currency": "USD",
+  "scope": "API-equivalent CLI implementation and review only; excludes unallocated controller/root/setup; not invoices",
+  "fullEndToEndSavings": null,
+  "perAttempt": [
+    {
+      "label": "astra-1",
+      "parent": null,
+      "usage": {
+        "input_tokens": 83080,
+        "cached_input_tokens": 47616,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 564,
+        "reasoning_output_tokens": 50
+      },
+      "seconds": 33.838,
+      "apiEquivalentUSD": 0.430456
+    },
+    {
+      "label": "sol-1",
+      "parent": null,
+      "usage": {
+        "input_tokens": 233175,
+        "cached_input_tokens": 188544,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5061,
+        "reasoning_output_tokens": 671
+      },
+      "seconds": 121.406,
+      "apiEquivalentUSD": 0.35516159999999997
+    },
+    {
+      "label": "terra-1",
+      "parent": null,
+      "usage": {
+        "input_tokens": 168044,
+        "cached_input_tokens": 124928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5011,
+        "reasoning_output_tokens": 766
+      },
+      "seconds": 108.932,
+      "apiEquivalentUSD": 0.17134960000000002
+    },
+    {
+      "label": "astra-v2-1",
+      "parent": null,
+      "usage": {
+        "input_tokens": 148001,
+        "cached_input_tokens": 115456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2947,
+        "reasoning_output_tokens": 125
+      },
+      "seconds": 117.96199999999999,
+      "apiEquivalentUSD": 0.588256
+    },
+    {
+      "label": "astra-v2-2",
+      "parent": null,
+      "usage": {
+        "input_tokens": 148569,
+        "cached_input_tokens": 105344,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3186,
+        "reasoning_output_tokens": 207
+      },
+      "seconds": 123.178,
+      "apiEquivalentUSD": 0.696894
+    },
+    {
+      "label": "astra-v2-3",
+      "parent": "astra-v2-2",
+      "usage": {
+        "input_tokens": 154381,
+        "cached_input_tokens": 87040,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2090,
+        "reasoning_output_tokens": 199
+      },
+      "seconds": 89.953,
+      "apiEquivalentUSD": 0.86495
+    },
+    {
+      "label": "sol-v2-1",
+      "parent": null,
+      "usage": {
+        "input_tokens": 193059,
+        "cached_input_tokens": 141568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3574,
+        "reasoning_output_tokens": 522
+      },
+      "seconds": 90.40899999999999,
+      "apiEquivalentUSD": 0.3340712
+    },
+    {
+      "label": "sol-v2-2",
+      "parent": null,
+      "usage": {
+        "input_tokens": 192358,
+        "cached_input_tokens": 150400,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3606,
+        "reasoning_output_tokens": 573
+      },
+      "seconds": 97.494,
+      "apiEquivalentUSD": 0.300112
+    },
+    {
+      "label": "sol-v2-3",
+      "parent": "sol-v2-2",
+      "usage": {
+        "input_tokens": 161578,
+        "cached_input_tokens": 111872,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2737,
+        "reasoning_output_tokens": 697
+      },
+      "seconds": 84.49000000000001,
+      "apiEquivalentUSD": 0.2983128
+    },
+    {
+      "label": "sol-v2-4",
+      "parent": "sol-v2-3",
+      "usage": {
+        "input_tokens": 157828,
+        "cached_input_tokens": 97920,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2906,
+        "reasoning_output_tokens": 1150
+      },
+      "seconds": 73.594,
+      "apiEquivalentUSD": 0.33692
+    },
+    {
+      "label": "terra-v2-1",
+      "parent": null,
+      "usage": {
+        "input_tokens": 191892,
+        "cached_input_tokens": 144128,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3544,
+        "reasoning_output_tokens": 598
+      },
+      "seconds": 82.146,
+      "apiEquivalentUSD": 0.16688160000000002
+    },
+    {
+      "label": "terra-v2-2",
+      "parent": "terra-v2-1",
+      "usage": {
+        "input_tokens": 143870,
+        "cached_input_tokens": 110848,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2243,
+        "reasoning_output_tokens": 605
+      },
+      "seconds": 72.083,
+      "apiEquivalentUSD": 0.11512960000000001
+    },
+    {
+      "label": "terra-v2-3",
+      "parent": "terra-v2-2",
+      "usage": {
+        "input_tokens": 160389,
+        "cached_input_tokens": 125952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2380,
+        "reasoning_output_tokens": 599
+      },
+      "seconds": 64.319,
+      "apiEquivalentUSD": 0.1226244
+    }
+  ],
+  "allRecordedAttemptTotals": {
+    "astra": {
+      "attempts": 4,
+      "input": 534031,
+      "cached": 355456,
+      "output": 8787,
+      "seconds": 364.9309999999999,
+      "apiEquivalentUSD": 2.580556
+    },
+    "sol": {
+      "attempts": 5,
+      "input": 937998,
+      "cached": 690304,
+      "output": 17884,
+      "seconds": 467.393,
+      "apiEquivalentUSD": 1.6245775999999998
+    },
+    "terra": {
+      "attempts": 4,
+      "input": 664195,
+      "cached": 505856,
+      "output": 13178,
+      "seconds": 327.48,
+      "apiEquivalentUSD": 0.5759852000000001
+    }
+  }
+}

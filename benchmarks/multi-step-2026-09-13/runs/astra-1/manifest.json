@@ -1,0 +1,39 @@
+{
+  "label": "astra-1",
+  "model": "gpt-6-astra",
+  "condition": "cloud-only-cli",
+  "contractHash": "857ae1a4a3aa560de446e0bd24879848ac90c3e3c9b0756d9f60ef4fdf9353af",
+  "examplesHash": "3f117806e840c2a07c0613ac4f662bf26bf519a20d05a29d41a837b2f876d661",
+  "testHash": "da20d166025b0c00c0431a8d688d9130acf2a518d9cc6c4a019206836f48e0b6",
+  "starterHashes": {
+    "parser.mjs": "d25da8b6d17762b62487e69ec96df5dc07f5afee9a937ab0515eebf43ac0029b",
+    "planner.mjs": "04126d59421ca3536a69e4cfa607a97f392466ecd042ae1783982e5ae7df200b",
+    "cli.mjs": "8abec0b687d05baff10254f746297801fc3191a9496739965f5ad870655055bc"
+  },
+  "reasoningEffort": "low",
+  "wallLimitSeconds": 600,
+  "toolsLimit": 24,
+  "reviewLimitSeconds": 120,
+  "unmatched": [
+    "Codex versus OpenCode harness/system tools",
+    "cloud context/output allocation",
+    "native model reasoning/sampling",
+    "supervisory agent and root overhead separately unallocated"
+  ],
+  "parentLabel": null,
+  "parentStartingHashes": null,
+  "attemptType": "fresh-start",
+  "independentRepetitions": null,
+  "originalManifestRepetitionsField": 3,
+  "finalCandidateHashes": {
+    "parser.mjs": "d25da8b6d17762b62487e69ec96df5dc07f5afee9a937ab0515eebf43ac0029b",
+    "planner.mjs": "04126d59421ca3536a69e4cfa607a97f392466ecd042ae1783982e5ae7df200b",
+    "cli.mjs": "8abec0b687d05baff10254f746297801fc3191a9496739965f5ad870655055bc"
+  },
+  "handoffWhitespaceTokens": null,
+  "missingCandidateFiles": [
+    "HANDOFF.md"
+  ],
+  "initialState": "original fixture stubs",
+  "finalSnapshotCaveat": null
+}

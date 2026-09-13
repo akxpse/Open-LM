@@ -1,0 +1,52 @@
+{
+  "label": "glm-1",
+  "model": "open-lm-glm",
+  "taskHash": "73e10c6cbab11cf49df2f1df8d17c5b49c869823ec8de506d3450de16c1f0ae6",
+  "contractHash": "857ae1a4a3aa560de446e0bd24879848ac90c3e3c9b0756d9f60ef4fdf9353af",
+  "examplesHash": "3f117806e840c2a07c0613ac4f662bf26bf519a20d05a29d41a837b2f876d661",
+  "testHash": "da20d166025b0c00c0431a8d688d9130acf2a518d9cc6c4a019206836f48e0b6",
+  "starterHashes": {
+    "parser.mjs": "d25da8b6d17762b62487e69ec96df5dc07f5afee9a937ab0515eebf43ac0029b",
+    "planner.mjs": "04126d59421ca3536a69e4cfa607a97f392466ecd042ae1783982e5ae7df200b",
+    "cli.mjs": "8abec0b687d05baff10254f746297801fc3191a9496739965f5ad870655055bc"
+  },
+  "context": 32768,
+  "outputTokens": 4096,
+  "temperature": 0,
+  "top_p": 1,
+  "concurrency": 1,
+  "timeoutSeconds": 600,
+  "toolEventLimit": 24,
+  "auxiliaries": "disabled title/summary/compaction; verify actual requests",
+  "warmup": "none; model freshly loaded, fresh conversation",
+  "runtimeDefaultsNotControlled": [
+    "seed",
+    "top_k",
+    "KV dtype",
+    "batch size",
+    "flash attention",
+    "native reasoning/template"
+  ],
+  "telemetryIntervalSeconds": 5,
+  "stopCriteria": {
+    "criticalPressure": 4,
+    "swapGrowthMiB": 1024
+  },
+  "scope": "calibration, not confirmatory savings; shared fixture/setup and historical host planning attribution incomplete",
+  "parentLabel": null,
+  "parentStartingHashes": null,
+  "attemptType": "fresh-start",
+  "independentRepetitions": null,
+  "originalManifestRepetitionsField": null,
+  "finalCandidateHashes": {
+    "parser.mjs": "2d6391f5528e2131e23144258f0819a50b19def5a79086ddc60c0c99482e12d3",
+    "planner.mjs": "38bdcb2154d18ac771ff49eee64fb6ee7d9475836d1f09b58e8a3aaef1b3a3c4",
+    "cli.mjs": "ed0bc176142e5ac884a1dd06ee298637f7567896c4c937142d79fc8e5ac3485d"
+  },
+  "handoffWhitespaceTokens": null,
+  "missingCandidateFiles": [
+    "HANDOFF.md"
+  ],
+  "initialState": "original fixture stubs",
+  "finalSnapshotCaveat": "May include unauthorized self-repairs. Earlier test results do not necessarily correspond to final snapshot."
+}

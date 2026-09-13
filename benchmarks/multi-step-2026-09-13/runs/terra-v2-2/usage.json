@@ -1,0 +1,45 @@
+{
+  "usage": {
+    "input_tokens": 143870,
+    "cached_input_tokens": 110848,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 2243,
+    "reasoning_output_tokens": 605
+  },
+  "phases": [
+    {
+      "phase": "implementation",
+      "exitCode": 0,
+      "signal": null,
+      "stopReason": null,
+      "seconds": 59.084,
+      "usage": {
+        "input_tokens": 122637,
+        "cached_input_tokens": 98816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1710,
+        "reasoning_output_tokens": 173
+      },
+      "toolEvents": 6,
+      "errors": []
+    },
+    {
+      "phase": "review",
+      "exitCode": 0,
+      "signal": null,
+      "stopReason": null,
+      "seconds": 12.999,
+      "usage": {
+        "input_tokens": 21233,
+        "cached_input_tokens": 12032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 533,
+        "reasoning_output_tokens": 432
+      },
+      "toolEvents": 0,
+      "errors": [],
+      "reviewText": "REWORK\n\n`planner.mjs` accepts jobs with unknown extra fields. R1 defines normalized parser output as objects containing exactly five fields; R2 requires planner inputs to be normalized jobs and to reject invalid entries rather than normalize them. `validateJob` checks required field values but never rejects additional own properties.\n\nRecorded test execution did pass: 10/10 tests, exit 0. However, that evidence does not cover this contract boundary, so success cannot be accepted."
+    }
+  ],
+  "scope": "CLI implementation and independent same-model review; supervising subagent/root/setup attribution separate, not an invoice or full workflow savings"
+}

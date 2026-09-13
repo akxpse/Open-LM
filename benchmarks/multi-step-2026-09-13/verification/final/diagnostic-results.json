@@ -1,0 +1,43 @@
+{
+  "kind": "post-hoc refinement: verifies fault reached; adds explicit undefined option fields equally to all snapshots",
+  "results": [
+    {
+      "label": "ornith-3",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "INTERNAL_ERROR\n",
+        "passed": true
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "sol-v2-4",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "INTERNAL_ERROR\n",
+        "passed": true
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    }
+  ]
+}

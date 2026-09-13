@@ -1,0 +1,37 @@
+[
+  {
+    "type": "mcp_tool_call",
+    "tool": "get_contract",
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  },
+  {
+    "type": "mcp_tool_call",
+    "tool": "get_examples",
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  },
+  {
+    "type": "mcp_tool_call",
+    "tool": "list_mcp_resources",
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  },
+  {
+    "type": "file_change",
+    "tool": null,
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  },
+  {
+    "type": "file_change",
+    "tool": null,
+    "status": "completed",
+    "command": null,
+    "exitCode": null
+  }
+]

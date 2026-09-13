@@ -1,0 +1,19 @@
+[
+  {
+    "identifier": "open-lm-glm",
+    "modelKey": "zai-org/glm-4.7-flash",
+    "type": "llm",
+    "format": "gguf",
+    "architecture": "deepseek2",
+    "paramsString": "30B",
+    "quantization": {
+      "name": "Q4_K_M",
+      "bits": 4
+    },
+    "sizeBytes": 18132739079,
+    "contextLength": 32768,
+    "parallel": 1,
+    "status": "idle",
+    "trainedForToolUse": true
+  }
+]

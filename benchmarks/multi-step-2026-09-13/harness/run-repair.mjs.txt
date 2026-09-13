@@ -1,0 +1,62 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import http from 'node:http';
+import crypto from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {run} from '<PROJECT_ROOT>/scripts/run-local.mjs';
+import {task as initialTask,starters,contract,examples} from './fixture.mjs';
+const root=path.dirname(new URL(import.meta.url).pathname);
+const [label,model,mode='run']=process.argv.slice(2);
+if(label!=='ornith-2'||model!=='open-lm-ornith')throw Error('This repair is scoped to Ornith attempt2');
+const parentLabel='ornith-1';
+const task=initialTask+'\n\nFRONTIER CORRECTION (takes precedence over initial-attempt wording):\n'+fs.readFileSync(path.join(root,'ornith-2-FEEDBACK.md'),'utf8');
+if(!/^[a-z0-9-]+$/.test(label||'')||!['open-lm-qwen','open-lm-glm','open-lm-ornith','open-lm-gemma','open-lm-qwen36','open-lm-qwen14','open-lm-deepseek'].includes(model))throw Error('Invalid run identity');
+const out=path.join(root,label);fs.mkdirSync(out,{mode:0o700});
+const save=(name,v)=>fs.writeFileSync(path.join(out,name),typeof v==='string'?v:JSON.stringify(v,null,2)+'\n',{mode:0o600});
+const hash=data=>crypto.createHash('sha256').update(data).digest('hex');
+const work=path.join(out,'work');fs.mkdirSync(work);execFileSync('git',['init','--quiet',work]);
+for(const [name,source]of Object.entries(starters))fs.writeFileSync(path.join(work,name),source);
+for(const name of [...Object.keys(starters),'HANDOFF.md']){const from=path.join(root,parentLabel,'work',name);if(fs.existsSync(from))fs.copyFileSync(from,path.join(work,name))}
+fs.copyFileSync(path.join(root,'verify.test.mjs'),path.join(work,'verify.test.mjs'));
+save('TASK.md',task);
+save('manifest.json',{label,model,parentLabel,taskHash:hash(task),contractHash:hash(contract),examplesHash:hash(JSON.stringify(examples)),testHash:hash(fs.readFileSync(path.join(work,'verify.test.mjs'))),starterHashes:Object.fromEntries(Object.entries(starters).map(([k,v])=>[k,hash(v)])),context:32768,outputTokens:4096,temperature:0,top_p:1,concurrency:1,timeoutSeconds:600,toolEventLimit:24,auxiliaries:'disabled title/summary/compaction; verify actual requests',warmup:'none; model freshly loaded, fresh conversation',runtimeDefaultsNotControlled:['seed','top_k','KV dtype','batch size','flash attention','native reasoning/template'],telemetryIntervalSeconds:5,stopCriteria:{criticalPressure:4,swapGrowthMiB:1024},scope:'calibration, not confirmatory savings; shared fixture/setup and historical host planning attribution incomplete'});
+if(mode==='prepare'){console.log(JSON.stringify({prepared:label,work}));process.exit(0)}
+const token=fs.readFileSync('<PRIVATE_EVIDENCE_ROOT>/lmstudio-api-token','utf8').trim();
+if(!token||/[\r\n]/.test(token))throw Error('Invalid private token file');
+const active=execFileSync('<USER_HOME>/.lmstudio/bin/lms',['ps','--json'],{encoding:'utf8'});save('residency.json',JSON.parse(active));
+const resident=JSON.parse(active).filter(m=>m.type==='llm');if(resident.length!==1||resident[0].identifier!==model||resident[0].contextLength!==32768||resident[0].parallel!==1||resident[0].status!=='idle')throw Error('Exactly one ready model at 32K/parallel1 required');
+const auth={authorization:`Bearer ${token}`,'content-type':'application/json'};
+const controllers=new Set(),records=[];let n=0;
+const sample=()=>{const pressure=Number(execFileSync('sysctl',['-n','kern.memorystatus_vm_pressure_level'],{encoding:'utf8'}).trim());const swap=execFileSync('sysctl',['vm.swapusage'],{encoding:'utf8'});return{time:new Date().toISOString(),pressureLevel:pressure,swapUsedMiB:Number(swap.match(/used = ([\d.]+)M/)[1])}};
+const samples=[sample()];save('resources.json',samples);
+if(samples[0].pressureLevel!==1)throw Error('Initial memory pressure is not normal');
+let guard=null;
+const monitoring=setInterval(()=>{try{const s=sample();samples.push(s);save('resources.json',samples);if(s.pressureLevel>=4||s.swapUsedMiB-samples[0].swapUsedMiB>1024){guard='memory-pressure-or-swap-growth';save('resource-stop.json',{guard,s});process.kill(process.pid,'SIGTERM')}}catch(e){save('telemetry-error.json',{error:e.message})}},5000);
+const server=http.createServer(async(req,res)=>{
+ if(req.method==='GET'&&req.url==='/v1/models'){res.writeHead(200,{'content-type':'application/json'});res.end(JSON.stringify({data:[{id:model,object:'model'}]}));return}
+ if(req.method!=='POST'||req.url!=='/v1/chat/completions'){res.writeHead(403);res.end();return}
+ const controller=new AbortController();controllers.add(controller);const id=++n,start=Date.now();let record={id,startedAt:new Date().toISOString(),usage:null,finishReasons:[]};
+ res.on('close',()=>{if(!res.writableEnded)controller.abort()});
+ try{
+ const chunks=[];let bytes=0;for await(const chunk of req){bytes+=chunk.length;if(bytes>4*1024*1024)throw Error('Request too large');chunks.push(chunk)}
+ const data=JSON.parse(Buffer.concat(chunks));if(data.model!==model)throw Error('Unexpected inference model');
+ // Identical declared sampling/output envelope for both local models; never repair tool syntax.
+ data.temperature=0;data.top_p=1;data.max_tokens=4096;if(data.stream)data.stream_options={...(data.stream_options||{}),include_usage:true};
+ record={...record,model:data.model,stream:data.stream,temperature:data.temperature,top_p:data.top_p,max_tokens:data.max_tokens,messageCount:data.messages?.length,toolNames:(data.tools||[]).map(t=>t.function?.name),requestHash:hash(JSON.stringify(data))};
+ save(`request-${id}.json`,data);
+ const upstream=await fetch('http://127.0.0.1:1234/v1/chat/completions',{method:'POST',headers:auth,body:JSON.stringify(data),signal:AbortSignal.any([controller.signal,AbortSignal.timeout(300000)])});
+ record.httpStatus=upstream.status;res.writeHead(upstream.status,{'content-type':upstream.headers.get('content-type')||'application/json'});
+ const fd=fs.openSync(path.join(out,`response-${id}.txt`),'wx',0o600);const decoder=new TextDecoder();let buffer='',all='';
+ const parse=line=>{if(!line.startsWith('data: '))return;const raw=line.slice(6);if(raw==='[DONE]'){record.done=true;return}try{const e=JSON.parse(raw);if(e.usage)record.usage=e.usage;for(const c of e.choices||[])if(c.finish_reason)record.finishReasons.push(c.finish_reason)}catch{record.parseErrors=(record.parseErrors||0)+1}};
+ try{for await(const chunk of upstream.body){if(record.firstChunkMs===undefined)record.firstChunkMs=Date.now()-start;fs.writeSync(fd,chunk);res.write(chunk);const s=decoder.decode(chunk,{stream:true});if(data.stream){buffer+=s;let i;while((i=buffer.indexOf('\n'))>=0){parse(buffer.slice(0,i).trimEnd());buffer=buffer.slice(i+1)}}else all+=s}}finally{fs.closeSync(fd)}
+ buffer+=decoder.decode();if(buffer.trim())parse(buffer.trim());if(!data.stream){const e=JSON.parse(all);record.usage=e.usage??null;record.finishReasons=(e.choices||[]).map(c=>c.finish_reason)}
+ res.end();
+ }catch(e){record.error=e.name+': '+e.message;if(!res.headersSent)res.writeHead(502);res.end()}
+ finally{record.elapsedMs=Date.now()-start;records.push(record);records.sort((a,b)=>a.id-b.id);save('requests.json',records);controllers.delete(controller)}
+});
+await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+const packet={workspace:work,task:path.join(out,'TASK.md'),output:path.join(out,'run'),runtime:'lmstudio',model,baseURL:`http://127.0.0.1:${server.address().port}/v1`,context:32768,outputTokens:4096,writeFiles:['planner.mjs','cli.mjs','HANDOFF.md'],commands:['node --test verify.test.mjs'],disabledMcp:['aws-mcp'],reviewedConfig:true,timeoutSeconds:600,maxToolEvents:24,maxLogBytes:8388608,executable:path.join(root,'opencode-wrapper.mjs')};
+save('packet.json',packet);process.env.BENCH_MCP_LOG=path.join(out,'mcp-calls.jsonl');process.env.BENCH_EFFECTIVE_CONFIG=path.join(out,'effective-config.json');
+console.log(JSON.stringify({event:'local-start',label,model,context:32768}));
+try{const result=await run(path.join(out,'packet.json'));const integrity=hash(fs.readFileSync(path.join(work,'verify.test.mjs')))===hash(fs.readFileSync(path.join(root,'verify.test.mjs')));save('result.json',{...result,parentLabel,testIntegrity:integrity,guard,allRequestsHaveUsage:records.length>0&&records.every(r=>r.usage!==null),requests:records.length});console.log(JSON.stringify({event:'local-complete',label,state:result.state,seconds:result.elapsedSeconds,tokens:result.tokens,tools:result.tools,testIntegrity:integrity,requests:records.length}));}
+finally{clearInterval(monitoring);for(const c of controllers)c.abort();server.closeAllConnections();await new Promise(resolve=>server.close(resolve));samples.push(sample());save('resources.json',samples)}

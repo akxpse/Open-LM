@@ -1,0 +1,1193 @@
+{
+  "status": "diagnostics_not_savings_benchmarks",
+  "date": "2026-09-13",
+  "note": "All existing summaries from tool RCA and regression roots, including failures. Older LM Studio bridge summaries label their provider ollama; actualRuntime records the actual server. Worker counters exclude unreported auxiliary calls. Missing summaries are documented in RCA, never zero-filled.",
+  "runs": [
+    {
+      "kind": "diagnostic",
+      "source": "baseline-1/run/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 16.569,
+        "stopReason": "tool-event-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 1,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/baseline-1/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "baseline-2/run/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 3.816,
+        "stopReason": "tool-event-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 1,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/baseline-2/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "baseline-3/run/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 2.509,
+        "stopReason": "tool-event-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 1,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/baseline-3/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "direct-run-1/summary.json",
+      "actualRuntime": "lmstudio",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "open-lm-qwen",
+        "workspace": "<diagnostic-root>/direct-work",
+        "elapsedSeconds": 20.753,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 3,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "node --test verify.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 15003,
+          "output": 255,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/direct-run-1",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof.",
+        "runtime": "lmstudio"
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "escaped-implementation/run/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<diagnostic-root>/fix-work",
+        "elapsedSeconds": 171.085,
+        "stopReason": "interrupted",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 3,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 5123,
+          "output": 828,
+          "reasoning": 0,
+          "cacheRead": 7854,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/escaped-implementation/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "format-1/run/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 8.512,
+        "stopReason": "tool-event-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 1,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/format-1/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "format-2/run/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 2.591,
+        "stopReason": "tool-event-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 1,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/format-2/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "format-3/run/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 2.773,
+        "stopReason": "tool-event-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 1,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/format-3/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "glm-direct-run-1/summary.json",
+      "actualRuntime": "lmstudio",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "open-lm-glm",
+        "workspace": "<diagnostic-root>/glm-direct-work",
+        "elapsedSeconds": 79.533,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 3,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "node --test verify.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 14834,
+          "output": 232,
+          "reasoning": 253,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/glm-direct-run-1",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof.",
+        "runtime": "lmstudio"
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "implementation/run/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<diagnostic-root>/fix-work",
+        "elapsedSeconds": 71.179,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 6,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "grep",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 9315,
+          "output": 401,
+          "reasoning": 0,
+          "cacheRead": 37427,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/implementation/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "lmstudio-concurrency-repair/run/summary.json",
+      "actualRuntime": "lmstudio",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "open-lm-qwen",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 98.656,
+        "stopReason": "tool-event-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 8,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <regression-root>/work && node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <regression-root>/work && ls -la",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "bash",
+            "command": "cd <regression-root>/work && git status",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "bash",
+            "command": "cd <regression-root>/work && node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <regression-root>/work && ls -la candidates/concurrency-map.mjs HANDOFF.md",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs\",\"action\":\"allow\"}]"
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 41426,
+          "output": 1962,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/lmstudio-concurrency-repair/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "lmstudio-final-verification/summary.json",
+      "actualRuntime": "lmstudio",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "open-lm-qwen",
+        "workspace": "<diagnostic-root>/review-work",
+        "elapsedSeconds": 16.992,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 1,
+        "tools": [
+          {
+            "tool": "bash",
+            "command": "node --test scripts/run-local.test.mjs scripts/run-local-lmstudio.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 6148,
+          "output": 151,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/lmstudio-final-verification",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof.",
+        "runtime": "lmstudio"
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "lmstudio-read-1/run/summary.json",
+      "actualRuntime": "lmstudio",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "open-lm-qwen",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 13.899,
+        "stopReason": "tool-event-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 1,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/lmstudio-read-1/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "lmstudio-runtime-implementation/run/summary.json",
+      "actualRuntime": "lmstudio",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "open-lm-qwen",
+        "workspace": "<diagnostic-root>/runtime-work",
+        "elapsedSeconds": 300.031,
+        "stopReason": "wall-time-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 7,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "error",
+            "exitCode": null,
+            "error": "Could not find oldString in the file. It must match exactly, including whitespace, indentation, and line endings."
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 68398,
+          "output": 5032,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/lmstudio-runtime-implementation/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "lmstudio-runtime-run/run/summary.json",
+      "actualRuntime": "lmstudio",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "open-lm-qwen",
+        "workspace": "<diagnostic-root>/runtime-work",
+        "elapsedSeconds": 69.018,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 5,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <diagnostic-root>/runtime-work && node --test --test-timeout=15000 scripts/run-local.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 43075,
+          "output": 1031,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/lmstudio-runtime-run/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "lmstudio-runtime-tests/run/summary.json",
+      "actualRuntime": "lmstudio",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "open-lm-qwen",
+        "workspace": "<diagnostic-root>/runtime-work",
+        "elapsedSeconds": 159.723,
+        "stopReason": "tool-event-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 7,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "write",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <diagnostic-root>/runtime-work && node --test --test-timeout=15000 scripts/run-local.test.mjs scripts/run-local-lmstudio.test.mjs",
+            "status": "completed",
+            "exitCode": 1,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "error",
+            "exitCode": null,
+            "error": "No changes to apply: oldString and newString are identical."
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "error",
+            "exitCode": null,
+            "error": "No changes to apply: oldString and newString are identical."
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 55482,
+          "output": 2639,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/lmstudio-runtime-tests/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "lmstudio-tests-cleanup/summary.json",
+      "actualRuntime": "lmstudio",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "open-lm-qwen",
+        "workspace": "<diagnostic-root>/runtime-work",
+        "elapsedSeconds": 106.49,
+        "stopReason": "tool-event-limit",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 7,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "node --test scripts/run-local.test.mjs scripts/run-local-lmstudio.test.mjs",
+            "status": "completed",
+            "exitCode": 1,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 43746,
+          "output": 1552,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/lmstudio-tests-cleanup",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof.",
+        "runtime": "lmstudio"
+      }
+    },
+    {
+      "kind": "diagnostic",
+      "source": "lmstudio-tests-repair/run/summary.json",
+      "actualRuntime": "lmstudio",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "open-lm-qwen",
+        "workspace": "<diagnostic-root>/runtime-work",
+        "elapsedSeconds": 236.438,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 9,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "edit",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <diagnostic-root>/runtime-work && node --test --test-timeout=15000 scripts/run-local.test.mjs scripts/run-local-lmstudio.test.mjs",
+            "status": "completed",
+            "exitCode": 0,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <diagnostic-root>/runtime-work && echo \"All corrections have been applied and verified. The test suite now passes with 8/8 tests successful.\"",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=15000 scripts/run-local.test.mjs scripts/run-local-lmstudio.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=15000 scripts/run-local.test.mjs scripts/run-local-lmstudio.test.mjs\",\"action\":\"allow\"}]"
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 247961,
+          "output": 4138,
+          "reasoning": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "logs": "<diagnostic-root>/lmstudio-tests-repair/run",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "regression",
+      "source": "run-001/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "stopped-or-failed",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 175.809,
+        "stopReason": "interrupted",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "toolEvents": 11,
+        "tools": [
+          {
+            "tool": "bash",
+            "command": "node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs",
+            "status": "completed",
+            "exitCode": 1,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "node --test --test-timeout=10000 benchmarks/candidates.test.mjs",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "bash",
+            "command": "node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs",
+            "status": "completed",
+            "exitCode": 1,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "bash",
+            "command": "cd <regression-root>/work && node -e \"\nimport('./candidates/concurrency-map.mjs').then(async m => {\n  console.log('Testing basic case');\n  const result = await m.mapLimit([1,2,3],2,async x=>x*2);\n  console.log('Result:', result);\n}).catch(console.error);\n\"",
+            "status": "error",
+            "exitCode": null,
+            "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test --test-timeout=10000 scripts/run-local.test.mjs benchmarks/validate-fixtures.test.mjs benchmarks/candidates.test.mjs\",\"action\":\"allow\"}]"
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          },
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 21522,
+          "output": 1670,
+          "reasoning": 0,
+          "cacheRead": 74592,
+          "cacheWrite": 0
+        },
+        "logs": "<regression-root>/run-001",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "regression",
+      "source": "run-002/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 5.454,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 0,
+        "tools": [],
+        "errors": [],
+        "tokens": {
+          "input": 408,
+          "output": 63,
+          "reasoning": 0,
+          "cacheRead": 3231,
+          "cacheWrite": 0
+        },
+        "logs": "<regression-root>/run-002",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "regression",
+      "source": "run-003-smoke/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 8.032,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 1,
+        "tools": [
+          {
+            "tool": "read",
+            "command": null,
+            "status": "completed",
+            "exitCode": null,
+            "error": null
+          }
+        ],
+        "errors": [],
+        "tokens": {
+          "input": 2116,
+          "output": 79,
+          "reasoning": 0,
+          "cacheRead": 1419,
+          "cacheWrite": 0
+        },
+        "logs": "<regression-root>/run-003-smoke",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    },
+    {
+      "kind": "regression",
+      "source": "run-004-native-repair/summary.json",
+      "actualRuntime": "ollama",
+      "summary": {
+        "skillVersion": "0.0.0",
+        "state": "review-ready",
+        "accepted": false,
+        "model": "qwen3-coder:30b",
+        "workspace": "<regression-root>/work",
+        "elapsedSeconds": 5.286,
+        "stopReason": null,
+        "exitCode": 0,
+        "signal": null,
+        "toolEvents": 0,
+        "tools": [],
+        "errors": [],
+        "tokens": {
+          "input": 416,
+          "output": 71,
+          "reasoning": 0,
+          "cacheRead": 3261,
+          "cacheWrite": 0
+        },
+        "logs": "<regression-root>/run-004-native-repair",
+        "verification": "Independent review and tests still required; tool evidence is not an OS sandbox or correctness proof."
+      }
+    }
+  ]
+}

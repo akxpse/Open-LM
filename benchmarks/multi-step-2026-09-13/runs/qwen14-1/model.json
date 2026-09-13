@@ -1,0 +1,19 @@
+[
+  {
+    "identifier": "open-lm-qwen14",
+    "modelKey": "qwen3-14b",
+    "type": "llm",
+    "format": "gguf",
+    "architecture": "qwen3",
+    "paramsString": "14B",
+    "quantization": {
+      "name": "Q4_K_M",
+      "bits": 4
+    },
+    "sizeBytes": 9276184896,
+    "contextLength": 32768,
+    "parallel": 1,
+    "status": "idle",
+    "trainedForToolUse": true
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "command": "node --test verify.test.mjs 2>&1; echo \"EXIT=$?\"",
+    "status": "error",
+    "exitCode": null,
+    "truncated": null,
+    "output": "",
+    "error": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test verify.test.mjs\",\"action\":\"allow\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"bash\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"bash\",\"pattern\":\"node --test verify.test.mjs\",\"action\":\"allow\"}]",
+    "source": "OpenCode tool event",
+    "ordinal": 1,
+    "counts": {
+      "tests": null,
+      "pass": null,
+      "fail": null
+    }
+  },
+  {
+    "command": "node --test verify.test.mjs",
+    "status": "completed",
+    "exitCode": 1,
+    "truncated": false,
+    "output": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.142625\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.163708\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.252083\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nnot ok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.352\n  type: 'test'\n  location: '<STUDY_ROOT>/ornith-1/work/verify.test.mjs:23:1'\n  failureType: 'testCodeFailure'\n  error: 'Missing expected exception (TypeError).'\n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/ornith-1/work/verify.test.mjs:25:40)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.090209\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.186125\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.066625\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.091958\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 190.119166\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 461.042542\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 9\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 713.69\n",
+    "error": null,
+    "source": "OpenCode tool event",
+    "ordinal": 2,
+    "counts": {
+      "tests": 10,
+      "pass": 9,
+      "fail": 1
+    }
+  },
+  {
+    "command": "node --test verify.test.mjs",
+    "status": "completed",
+    "exitCode": 1,
+    "truncated": false,
+    "output": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.109167\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.1545\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.249875\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nnot ok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.480166\n  type: 'test'\n  location: '<STUDY_ROOT>/ornith-1/work/verify.test.mjs:23:1'\n  failureType: 'testCodeFailure'\n  error: 'Missing expected exception (TypeError).'\n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/ornith-1/work/verify.test.mjs:28:132)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.152583\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.0775\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.049375\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.058584\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 185.502459\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 454.501167\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 9\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 701.575708\n",
+    "error": null,
+    "source": "OpenCode tool event",
+    "ordinal": 3,
+    "counts": {
+      "tests": 10,
+      "pass": 9,
+      "fail": 1
+    }
+  },
+  {
+    "command": "node --test verify.test.mjs",
+    "status": "completed",
+    "exitCode": 1,
+    "truncated": false,
+    "output": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.169875\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.163541\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.254375\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nnot ok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.497\n  type: 'test'\n  location: '<STUDY_ROOT>/ornith-1/work/verify.test.mjs:23:1'\n  failureType: 'testCodeFailure'\n  error: 'Missing expected exception (TypeError).'\n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  stack: |-\n    TestContext.<anonymous> (file://<STUDY_ROOT>/ornith-1/work/verify.test.mjs:28:132)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.16525\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.08025\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.051167\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.061416\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 162.86125\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 425.534917\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 9\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 653.534334\n",
+    "error": null,
+    "source": "OpenCode tool event",
+    "ordinal": 4,
+    "counts": {
+      "tests": 10,
+      "pass": 9,
+      "fail": 1
+    }
+  },
+  {
+    "command": "node --test verify.test.mjs",
+    "status": "completed",
+    "exitCode": 0,
+    "truncated": false,
+    "output": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.140875\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.16\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.25475\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.269209\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.0875\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.194417\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.059708\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.060208\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 159.953167\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 418.533791\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 638.801042\n",
+    "error": null,
+    "source": "OpenCode tool event",
+    "ordinal": 5,
+    "counts": {
+      "tests": 10,
+      "pass": 10,
+      "fail": 0
+    }
+  },
+  {
+    "command": "node --test verify.test.mjs",
+    "status": "completed",
+    "exitCode": 0,
+    "truncated": false,
+    "output": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.120042\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.158334\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.252542\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.307166\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.085542\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.189083\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.053\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.058083\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 158.919708\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 428.085792\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 651.257542\n",
+    "error": null,
+    "source": "OpenCode tool event",
+    "ordinal": 6,
+    "counts": {
+      "tests": 10,
+      "pass": 10,
+      "fail": 0
+    }
+  }
+]

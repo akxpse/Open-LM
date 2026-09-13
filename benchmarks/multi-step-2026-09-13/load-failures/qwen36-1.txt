@@ -1,0 +1,13 @@
+
+Loading qwen3.6-35b 0% ⠋
+Loading qwen3.6-35b 0% ⠙
+Loading qwen3.6-35b 2% ⠙
+Loading qwen3.6-35b 2% ⠹
+Loading qwen3.6-35b 2% ⠸
+Loading qwen3.6-35b 4% ⠸
+Error: Failed to load model. 
+
+
+   (X) CAUSE  
+
+Failed to load model

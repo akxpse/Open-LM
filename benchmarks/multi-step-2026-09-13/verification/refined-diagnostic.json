@@ -1,0 +1,343 @@
+{
+  "kind": "post-hoc refinement: verifies fault reached; adds explicit undefined option fields equally to all snapshots",
+  "results": [
+    {
+      "label": "astra-1",
+      "fault": {
+        "injected": false,
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          false,
+          false,
+          false
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "astra-v2-1",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/astra-v2-1/[eval1]:1\nimport fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';let injected=false;process.on('exit',()=>fs.writeSync(3,JSON.stringify({injected})));process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{injected=true;queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                                                                                                                                                       ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/astra-v2-1/[eval1]:1:312\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/astra-v2-1/[eval1]:1:299\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "astra-v2-2",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/astra-v2-2/[eval1]:1\nimport fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';let injected=false;process.on('exit',()=>fs.writeSync(3,JSON.stringify({injected})));process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{injected=true;queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                                                                                                                                                       ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/astra-v2-2/[eval1]:1:312\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/astra-v2-2/[eval1]:1:299\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "astra-v2-3",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "INTERNAL_ERROR\n",
+        "passed": true
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "deepseek-1",
+      "fault": {
+        "injected": false,
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          false,
+          false,
+          false
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "glm-1",
+      "fault": {
+        "injected": false,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/glm-1/cli.mjs:41\n  const stdin = require('fs').readFileSync(0, 'utf-8');\n                ^\n\nReferenceError: require is not defined in ES module scope, you can use import instead\n    at file://<STUDY_ROOT>/verification/work/candidates/glm-1/cli.mjs:41:17\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    at async file://<STUDY_ROOT>/verification/work/candidates/glm-1/[eval1]:1:363\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "ornith-1",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/ornith-1/[eval1]:1\nimport fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';let injected=false;process.on('exit',()=>fs.writeSync(3,JSON.stringify({injected})));process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{injected=true;queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                                                                                                                                                       ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/ornith-1/[eval1]:1:312\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/ornith-1/[eval1]:1:299\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          false,
+          false,
+          false
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "ornith-2",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "INTERNAL_ERROR\n",
+        "passed": true
+      },
+      "undefinedOptionFields": {
+        "values": [
+          false,
+          false,
+          false
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "qwen-1",
+      "fault": {
+        "injected": true,
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "qwen14-1",
+      "fault": {
+        "injected": false,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/qwen14-1/planner.mjs:10\n  if (maxAttempts < 1 || max错误: 'Invalid JSON' at line 1\n                              ^\n\nSyntaxError: Unexpected token ':'\n    at compileSourceTextModule (node:internal/modules/esm/utils:346:16)\n    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:110:18)\n    at #translate (node:internal/modules/esm/loader:559:20)\n    at afterLoad (node:internal/modules/esm/loader:612:29)\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:617:12)\n    at #createModuleJob (node:internal/modules/esm/loader:640:36)\n    at #getJobFromResolveResult (node:internal/modules/esm/loader:353:34)\n    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:321:41)\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": null,
+        "status": 1,
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/qwen14-1/planner.mjs:10\n  if (maxAttempts < 1 || max错误: 'Invalid JSON' at line 1\n                              ^\n\nSyntaxError: Unexpected token ':'\n    at compileSourceTextModule (node:internal/modules/esm/utils:346:16)\n    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:110:18)\n    at #translate (node:internal/modules/esm/loader:559:20)\n    at afterLoad (node:internal/modules/esm/loader:612:29)\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:617:12)\n    at #createModuleJob (node:internal/modules/esm/loader:640:36)\n    at #getJobFromResolveResult (node:internal/modules/esm/loader:353:34)\n    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:321:41)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:680:25)\n\nNode.js v22.23.2\n"
+      }
+    },
+    {
+      "label": "sol-1",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/sol-1/[eval1]:1\nimport fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';let injected=false;process.on('exit',()=>fs.writeSync(3,JSON.stringify({injected})));process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{injected=true;queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                                                                                                                                                       ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-1/[eval1]:1:312\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-1/[eval1]:1:299\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "sol-v2-1",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/sol-v2-1/[eval1]:1\nimport fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';let injected=false;process.on('exit',()=>fs.writeSync(3,JSON.stringify({injected})));process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{injected=true;queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                                                                                                                                                       ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-1/[eval1]:1:312\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-1/[eval1]:1:299\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "sol-v2-2",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/sol-v2-2/[eval1]:1\nimport fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';let injected=false;process.on('exit',()=>fs.writeSync(3,JSON.stringify({injected})));process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{injected=true;queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                                                                                                                                                       ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-2/[eval1]:1:312\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-2/[eval1]:1:299\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "sol-v2-3",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/sol-v2-3/[eval1]:1\nimport fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';let injected=false;process.on('exit',()=>fs.writeSync(3,JSON.stringify({injected})));process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{injected=true;queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                                                                                                                                                       ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-3/[eval1]:1:312\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/sol-v2-3/[eval1]:1:299\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "terra-1",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/terra-1/[eval1]:1\nimport fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';let injected=false;process.on('exit',()=>fs.writeSync(3,JSON.stringify({injected})));process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{injected=true;queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                                                                                                                                                       ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-1/[eval1]:1:312\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-1/[eval1]:1:299\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "terra-v2-1",
+      "fault": {
+        "injected": false,
+        "status": 1,
+        "stdout": "",
+        "stderr": "INTERNAL_ERROR\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "terra-v2-2",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/terra-v2-2/[eval1]:1\nimport fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';let injected=false;process.on('exit',()=>fs.writeSync(3,JSON.stringify({injected})));process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{injected=true;queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                                                                                                                                                       ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-v2-2/[eval1]:1:312\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-v2-2/[eval1]:1:299\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "label": "terra-v2-3",
+      "fault": {
+        "injected": true,
+        "status": 1,
+        "stdout": "",
+        "stderr": "file://<STUDY_ROOT>/verification/work/candidates/terra-v2-3/[eval1]:1\nimport fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';let injected=false;process.on('exit',()=>fs.writeSync(3,JSON.stringify({injected})));process.argv=['node',path.resolve('cli.mjs')];process.stdout.write=()=>{injected=true;queueMicrotask(()=>process.stdout.emit('error',new Error('SYNTHETIC_STDOUT_FAULT')));return true};await import(pathToFileURL(process.argv[1]).href);\n                                                                                                                                                                                                                                                                                                                       ^\n\nError: SYNTHETIC_STDOUT_FAULT\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-v2-3/[eval1]:1:312\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\nEmitted 'error' event on Socket instance at:\n    at file://<STUDY_ROOT>/verification/work/candidates/terra-v2-3/[eval1]:1:299\n    at node:internal/process/task_queues:149:7\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.2\n",
+        "passed": false
+      },
+      "undefinedOptionFields": {
+        "values": [
+          true,
+          true,
+          true
+        ],
+        "status": 0,
+        "stderr": ""
+      }
+    }
+  ]
+}

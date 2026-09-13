@@ -1,0 +1,114 @@
+{
+  "kind": "post-hoc common verification; not a fresh benchmark attempt or hidden predeclared holdout",
+  "node": "v22.23.2",
+  "regexControl": {
+    "digitsAcceptsNewline": false,
+    "dAcceptsNewline": false
+  },
+  "packagedRegression": {
+    "status": 0,
+    "signal": null,
+    "error": null,
+    "stdout": "TAP version 13\n# Subtest: normalize: visible and hidden checks accept reference\nok 1 - normalize: visible and hidden checks accept reference\n  ---\n  duration_ms: 1.019292\n  type: 'test'\n  ...\n# Subtest: normalize: hidden checks reject seeded starter defect\nok 2 - normalize: hidden checks reject seeded starter defect\n  ---\n  duration_ms: 1.080875\n  type: 'test'\n  ...\n# Subtest: ttl-cache: visible and hidden checks accept reference\nok 3 - ttl-cache: visible and hidden checks accept reference\n  ---\n  duration_ms: 0.147667\n  type: 'test'\n  ...\n# Subtest: ttl-cache: hidden checks reject seeded starter defect\nok 4 - ttl-cache: hidden checks reject seeded starter defect\n  ---\n  duration_ms: 0.071542\n  type: 'test'\n  ...\n# Subtest: concurrency-map: visible and hidden checks accept reference\nok 5 - concurrency-map: visible and hidden checks accept reference\n  ---\n  duration_ms: 13.438416\n  type: 'test'\n  ...\n# Subtest: concurrency-map: hidden checks reject seeded starter defect\nok 6 - concurrency-map: hidden checks reject seeded starter defect\n  ---\n  duration_ms: 16.094042\n  type: 'test'\n  ...\n# Subtest: LM Studio validation tests\nok 7 - LM Studio validation tests\n  ---\n  duration_ms: 0.735042\n  type: 'test'\n  ...\n# Subtest: LM Studio configuration tests\nok 8 - LM Studio configuration tests\n  ---\n  duration_ms: 0.266334\n  type: 'test'\n  ...\n# Subtest: LM Studio mocked run test\nok 9 - LM Studio mocked run test\n  ---\n  duration_ms: 247.574959\n  type: 'test'\n  ...\n# Subtest: LM Studio catalog rejection test\nok 10 - LM Studio catalog rejection test\n  ---\n  duration_ms: 31.727\n  type: 'test'\n  ...\n# Subtest: remote endpoints, cloud models, traversal and missing attestation rejected\nok 11 - remote endpoints, cloud models, traversal and missing attestation rejected\n  ---\n  duration_ms: 0.703666\n  type: 'test'\n  ...\n# Subtest: permissions and model routing are local and narrowly scoped\nok 12 - permissions and model routing are local and narrowly scoped\n  ---\n  duration_ms: 0.562417\n  type: 'test'\n  ...\n# Subtest: evidence preserves failed and unknown exits and deduplicates calls\nok 13 - evidence preserves failed and unknown exits and deduplicates calls\n  ---\n  duration_ms: 0.078083\n  type: 'test'\n  ...\n# Subtest: runner handles completion, timeout, event budget, log budget and missing binary\nok 14 - runner handles completion, timeout, event budget, log budget and missing binary\n  ---\n  duration_ms: 2008.98225\n  type: 'test'\n  ...\n1..14\n# tests 14\n# suites 0\n# pass 14\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 2068.243084\n",
+    "stderr": "",
+    "counts": {
+      "tests": 14,
+      "pass": 14,
+      "fail": 0
+    }
+  },
+  "candidates": [
+    {
+      "label": "ornith-3",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.078167\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.144625\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.245125\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.263125\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.190666\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.091667\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.08825\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.057375\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 153.507625\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 403.962708\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 613.545125\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":true,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": true,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INTERNAL_ERROR\n",
+          "passed": true
+        }
+      }
+    },
+    {
+      "label": "sol-v2-4",
+      "visible": {
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "stdout": "TAP version 13\n# Subtest: parser: strings, blanks, CRLF, normalization and exact fields\nok 1 - parser: strings, blanks, CRLF, normalization and exact fields\n  ---\n  duration_ms: 1.041917\n  type: 'test'\n  ...\n# Subtest: parser: line numbers, JSON errors, schema errors and recovery\nok 2 - parser: line numbers, JSON errors, schema errors and recovery\n  ---\n  duration_ms: 0.136917\n  type: 'test'\n  ...\n# Subtest: parser: field types and boundaries\nok 3 - parser: field types and boundaries\n  ---\n  duration_ms: 0.245917\n  type: 'test'\n  ...\n# Subtest: planner: input/options validation before deduplication or filtering\nok 4 - planner: input/options validation before deduplication or filtering\n  ---\n  duration_ms: 0.279417\n  type: 'test'\n  ...\n# Subtest: planner: newest wins, ties last wins, THEN filter, tuple collision safe\nok 5 - planner: newest wins, ties last wins, THEN filter, tuple collision safe\n  ---\n  duration_ms: 0.094666\n  type: 'test'\n  ...\n# Subtest: planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\nok 6 - planner: priorities, timestamps, UTF-16 IDs, per-tenant chunks\n  ---\n  duration_ms: 0.138084\n  type: 'test'\n  ...\n# Subtest: planner: immutable input and detached output, defaults and endpoints\nok 7 - planner: immutable input and detached output, defaults and endpoints\n  ---\n  duration_ms: 0.060958\n  type: 'test'\n  ...\n# Subtest: integration: accepted counts raw valid rows; parsing continues\nok 8 - integration: accepted counts raw valid rows; parsing continues\n  ---\n  duration_ms: 0.059458\n  type: 'test'\n  ...\n# Subtest: CLI: stdin pipeline, default flags and explicit options\nok 9 - CLI: stdin pipeline, default flags and explicit options\n  ---\n  duration_ms: 157.419333\n  type: 'test'\n  ...\n# Subtest: CLI: strict errors and no import side effects\nok 10 - CLI: strict errors and no import side effects\n  ---\n  duration_ms: 419.508542\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 632.280667\n",
+        "stderr": "",
+        "counts": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0
+        }
+      },
+      "postHoc": {
+        "strictTrailingLF": {
+          "status": 2,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INVALID_ARGUMENTS\n",
+          "passed": true
+        },
+        "plannerBoundary": {
+          "status": 0,
+          "signal": null,
+          "error": null,
+          "stdout": "{\"negativeCreatedAt\":true,\"negativeAttempts\":true,\"extraEnumerableKey\":true,\"explicitUndefinedDefaults\":true}\n",
+          "stderr": "",
+          "checks": {
+            "negativeCreatedAt": true,
+            "negativeAttempts": true,
+            "extraEnumerableKey": true,
+            "explicitUndefinedDefaults": true
+          }
+        },
+        "asynchronousStdoutError": {
+          "status": 1,
+          "signal": null,
+          "error": null,
+          "stdout": "",
+          "stderr": "INTERNAL_ERROR\n",
+          "passed": true
+        }
+      }
+    }
+  ]
+}

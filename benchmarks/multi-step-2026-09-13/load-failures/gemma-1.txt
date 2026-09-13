@@ -1,0 +1,16 @@
+
+Loading gemma4-8b 0% ⠋
+Loading gemma4-8b 0% ⠙
+Loading gemma4-8b 2% ⠙
+Loading gemma4-8b 2% ⠹
+Loading gemma4-8b 2% ⠸
+Loading gemma4-8b 4% ⠸
+Loading gemma4-8b 4% ⠼
+Loading gemma4-8b 6% ⠼
+Loading gemma4-8b 6% ⠴
+Error: Failed to load model. 
+
+
+   (X) CAUSE  
+
+Failed to load model

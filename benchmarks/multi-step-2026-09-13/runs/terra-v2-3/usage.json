@@ -1,0 +1,45 @@
+{
+  "usage": {
+    "input_tokens": 160389,
+    "cached_input_tokens": 125952,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 2380,
+    "reasoning_output_tokens": 599
+  },
+  "phases": [
+    {
+      "phase": "implementation",
+      "exitCode": 0,
+      "signal": null,
+      "stopReason": null,
+      "seconds": 49.428,
+      "usage": {
+        "input_tokens": 138995,
+        "cached_input_tokens": 125952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1933,
+        "reasoning_output_tokens": 160
+      },
+      "toolEvents": 6,
+      "errors": []
+    },
+    {
+      "phase": "review",
+      "exitCode": 0,
+      "signal": null,
+      "stopReason": null,
+      "seconds": 14.891,
+      "usage": {
+        "input_tokens": 21394,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 447,
+        "reasoning_output_tokens": 439
+      },
+      "toolEvents": 0,
+      "errors": [],
+      "reviewText": "ACCEPT"
+    }
+  ],
+  "scope": "CLI implementation and independent same-model review; supervising subagent/root/setup attribution separate, not an invoice or full workflow savings"
+}

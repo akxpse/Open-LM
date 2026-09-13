@@ -1,0 +1,317 @@
+[
+  {
+    "id": 1,
+    "startedAt": "2026-09-13T22:40:41.435Z",
+    "usage": {
+      "prompt_tokens": 3862,
+      "completion_tokens": 201,
+      "total_tokens": 4063,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-qwen",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 2,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "2124fb1d17163ec7b034141cb2906d561c60750753cca672ea7ea481c175ecaa",
+    "httpStatus": 200,
+    "firstChunkMs": 6774,
+    "done": true,
+    "elapsedMs": 11071
+  },
+  {
+    "id": 2,
+    "startedAt": "2026-09-13T22:40:52.644Z",
+    "usage": {
+      "prompt_tokens": 7218,
+      "completion_tokens": 549,
+      "total_tokens": 7767,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-qwen",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 9,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "14ff2f2c40ea1f67570c7c4b29f158b7adf7a21696e6585f1565cafec6241cce",
+    "httpStatus": 200,
+    "firstChunkMs": 8620,
+    "done": true,
+    "elapsedMs": 23569
+  },
+  {
+    "id": 3,
+    "startedAt": "2026-09-13T22:41:16.380Z",
+    "usage": {
+      "prompt_tokens": 7785,
+      "completion_tokens": 1059,
+      "total_tokens": 8844,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-qwen",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 11,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "babfca589d090dd1477d0e89808e5f98b3b10aee6d6707d29350b918238a9cd4",
+    "httpStatus": 200,
+    "firstChunkMs": 608,
+    "done": true,
+    "elapsedMs": 30178
+  },
+  {
+    "id": 4,
+    "startedAt": "2026-09-13T22:41:46.719Z",
+    "usage": {
+      "prompt_tokens": 8862,
+      "completion_tokens": 690,
+      "total_tokens": 9552,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-qwen",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 13,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "61a65e07c783e37008735994474c0cd15683187e0a0f7f5647d6e0819273e806",
+    "httpStatus": 200,
+    "firstChunkMs": 637,
+    "done": true,
+    "elapsedMs": 20676
+  },
+  {
+    "id": 5,
+    "startedAt": "2026-09-13T22:42:07.558Z",
+    "usage": {
+      "prompt_tokens": 9570,
+      "completion_tokens": 28,
+      "total_tokens": 9598,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-qwen",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 15,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "e737cf0160d6582c4bdeb3cce49dc77b6937e133866e904e974eba9e663f2261",
+    "httpStatus": 200,
+    "firstChunkMs": 674,
+    "done": true,
+    "elapsedMs": 1147
+  },
+  {
+    "id": 6,
+    "startedAt": "2026-09-13T22:42:09.225Z",
+    "usage": {
+      "prompt_tokens": 12091,
+      "completion_tokens": 1030,
+      "total_tokens": 13121,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-qwen",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 17,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "51fdd1c39ad532d5e5491abe79a41047cb92479abe52a1d309c4e539b74c2c0e",
+    "httpStatus": 200,
+    "firstChunkMs": 11593,
+    "done": true,
+    "elapsedMs": 45645
+  },
+  {
+    "id": 7,
+    "startedAt": "2026-09-13T22:42:55.034Z",
+    "usage": {
+      "prompt_tokens": 13138,
+      "completion_tokens": 2080,
+      "total_tokens": 15218,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-qwen",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 19,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "a3859c301e00c4e5fe48f2f153d77b52e649c9e7c2de4db72e852a59b6cfd2e8",
+    "httpStatus": 200,
+    "firstChunkMs": 735,
+    "done": true,
+    "elapsedMs": 73218
+  },
+  {
+    "id": 8,
+    "startedAt": "2026-09-13T22:44:08.422Z",
+    "usage": {
+      "prompt_tokens": 15235,
+      "completion_tokens": 28,
+      "total_tokens": 15263,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "finishReasons": [
+      "tool_calls"
+    ],
+    "model": "open-lm-qwen",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 21,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "00151a59815a7b0e8ead05e0f422a275ee6fdfcdd7e106d91ec2405a59d5644e",
+    "httpStatus": 200,
+    "firstChunkMs": 794,
+    "done": true,
+    "elapsedMs": 1363
+  },
+  {
+    "id": 9,
+    "startedAt": "2026-09-13T22:44:10.243Z",
+    "usage": null,
+    "finishReasons": [],
+    "model": "open-lm-qwen",
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 4096,
+    "messageCount": 23,
+    "toolNames": [
+      "bash",
+      "benchdata_get_contract",
+      "benchdata_get_examples",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "write"
+    ],
+    "requestHash": "8b2e2a573735899980f784a2b65fde96c11dc0a3f1d7bc9e8118227762b9bc4a",
+    "httpStatus": 200,
+    "firstChunkMs": 14005,
+    "error": "AbortError: This operation was aborted",
+    "elapsedMs": 72185
+  }
+]

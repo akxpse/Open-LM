@@ -1,0 +1,56 @@
+{
+  "label": "ornith-3",
+  "model": "open-lm-ornith",
+  "parentLabel": "ornith-2",
+  "taskHash": "77730f75f146eae2f344a322a6948c43c52827185c5d349a09e1b583eef31ebc",
+  "contractHash": "857ae1a4a3aa560de446e0bd24879848ac90c3e3c9b0756d9f60ef4fdf9353af",
+  "examplesHash": "3f117806e840c2a07c0613ac4f662bf26bf519a20d05a29d41a837b2f876d661",
+  "testHash": "da20d166025b0c00c0431a8d688d9130acf2a518d9cc6c4a019206836f48e0b6",
+  "starterHashes": {
+    "parser.mjs": "d25da8b6d17762b62487e69ec96df5dc07f5afee9a937ab0515eebf43ac0029b",
+    "planner.mjs": "04126d59421ca3536a69e4cfa607a97f392466ecd042ae1783982e5ae7df200b",
+    "cli.mjs": "8abec0b687d05baff10254f746297801fc3191a9496739965f5ad870655055bc"
+  },
+  "context": 32768,
+  "outputTokens": 4096,
+  "temperature": 0,
+  "top_p": 1,
+  "concurrency": 1,
+  "timeoutSeconds": 600,
+  "toolEventLimit": 24,
+  "auxiliaries": "disabled title/summary/compaction; verify actual requests",
+  "warmup": "none; model freshly loaded, fresh conversation",
+  "runtimeDefaultsNotControlled": [
+    "seed",
+    "top_k",
+    "KV dtype",
+    "batch size",
+    "flash attention",
+    "native reasoning/template"
+  ],
+  "telemetryIntervalSeconds": 5,
+  "stopCriteria": {
+    "criticalPressure": 4,
+    "swapGrowthMiB": 1024
+  },
+  "scope": "calibration, not confirmatory savings; shared fixture/setup and historical host planning attribution incomplete",
+  "parentStartingHashes": {
+    "parser.mjs": "c0979a151cfe24f2bd0b97cb4367c07bdb8fe48d258da6c4412958a522719bb4",
+    "planner.mjs": "6cab9cd5614dc1840065f5728d30070cf8a675a0173de65dbb844861d63d27fe",
+    "cli.mjs": "ea394f9c455acb6ca3d883fe951547366edd35dedd2fb8ffab857178351a768a",
+    "HANDOFF.md": "582a25bec974e36639350f0657d1fb4554555826666fc6cb87fba748f07f5b9a"
+  },
+  "attemptType": "frontier-targeted-repair",
+  "independentRepetitions": null,
+  "originalManifestRepetitionsField": null,
+  "finalCandidateHashes": {
+    "parser.mjs": "c0979a151cfe24f2bd0b97cb4367c07bdb8fe48d258da6c4412958a522719bb4",
+    "planner.mjs": "f047ee2e9ae494aa0d1dea949abf25fe144d37362238dd13b458f39f2d96c233",
+    "cli.mjs": "ea394f9c455acb6ca3d883fe951547366edd35dedd2fb8ffab857178351a768a",
+    "HANDOFF.md": "596d39defd6af482be351867888992b996b5745b392b11a3243df7aaeac67d52"
+  },
+  "handoffWhitespaceTokens": 190,
+  "missingCandidateFiles": [],
+  "initialState": "parent candidate; original starterHashes are not this repair starting state",
+  "finalSnapshotCaveat": "May include unauthorized self-repairs. Earlier test results do not necessarily correspond to final snapshot."
+}
