@@ -28,7 +28,7 @@ Use `node <skill-dir>/scripts/run-local.mjs <packet.json>` after reviewing the p
 
 Local developer sequence: read listed context -> implement -> run acceptance checks -> follow the packet's stop/repair rule -> review diff -> handoff -> stop. When a packet requires stopping after a failed check, do not self-repair in that attempt; the frontier diagnoses it and issues a separate correction. Successful checks do not authorize post-success edits or repeats. Do not repeat successful checks for reassurance. Stop on scope ambiguity, new authority requirements, exhausted budget, or repeated permission denial.
 
-Keep one heavy model active by default. Check RAM and swap growth, not just download size. Short context and sequential delegation usually beat a parallel swarm on constrained hardware. Autocomplete is a separate editor workload, not a test executor. Do not add another model unless it helps the task.
+Automatically perform [resource readiness](references/local-runtime.md#agent-managed-resource-readiness) before dispatch, between batches and after runtime/model changes. The frontier agent owns memory/residency checks, context selection, bounded monitoring and task batching; do not hand this checklist to the user or ask for routine RAM/context choices. Keep one heavy model resident for this loop and reserve headroom for the OS, editor, test processes and other workloads. Never stop an unrelated workload without authority. Autocomplete is a separate editor workload, not a test executor. If memory is constrained, reduce context and create smaller fresh-session packets within existing authority; never drop requirements or silently switch models. Check memory fit and actual tool-call compatibility independently.
 
 ## Context budget
 

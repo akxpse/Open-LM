@@ -36,7 +36,7 @@ Tested software stack: Node 22.23.2, OpenCode 1.17.15 and LM Studio 0.4.18+1. Mo
 
 | Component | Smaller-model starting point | Tested 30–35B Q4 workflow |
 | --- | --- | --- |
-| Memory | **16 GB RAM recommended** as a runtime starting point; choose a smaller tool-capable model and modest context | **32 GiB unified memory** on the benchmark Mac; one model loaded at a time |
+| Memory | **32 GB RAM recommended** as a runtime starting point; choose a smaller tool-capable model and modest context | **32 GiB unified memory** on the benchmark Mac; one model loaded at a time |
 | CPU / platform | Apple Silicon with macOS 14+, or a compatible Linux machine/runtime | Apple M5, macOS; M5 is the tested chip, not a minimum requirement |
 | GPU | Use acceleration supported by the runtime; dedicated VRAM and system RAM are separate budgets | Apple integrated GPU using shared unified memory |
 | Storage | Space for the chosen model, runtime, repository, dependencies and logs | Roughly **18–21 GB per model file** for the tested Qwen Coder, GLM and Ornith quantizations, plus workspace/runtime space |
@@ -46,7 +46,7 @@ LM Studio recommends 16 GB+ RAM on Mac and says 8 GB Macs may work with smaller 
 
 For the larger models in this repository, start from the **32 GiB tested configuration** and check memory pressure with the selected model and context. Those runs already had roughly 2.4–2.5 GiB of swap in use; allow more headroom for long sessions or a busy development environment. See [benchmark setup and memory observations](benchmarks/multi-step-2026-09-13/README.md).
 
-Longer context increases memory use. Keep one heavy model resident, leave room for the OS and editor, and batch oversized tasks instead of raising context beyond available memory. [Context and memory guidance](https://docs.ollama.com/context-length). Model fit and tool-call compatibility are separate checks.
+**With the skill applied, the frontier agent handles resource readiness automatically:** inspect model residency and memory pressure, reserve headroom for the OS and editor, choose a context that fits, keep heavy runs sequential, and split oversized tasks into chained packets. Routine checks and batching require no user input. Model fit and actual tool-call compatibility are checked separately. Actions outside existing authority—such as closing applications or unloading another workload—still require permission. This is agent-managed workflow, not a hard RAM limit enforced by the runner. [Resource-management procedure](references/local-runtime.md#agent-managed-resource-readiness) · [Context and memory guidance](https://docs.ollama.com/context-length).
 
 ### 2. Download and install
 
@@ -224,7 +224,7 @@ In this longer task, repaired Astra and Sol candidates passed the published func
 | Server completion tokens, including reasoning | **14,468** |
 | Model weights / tested memory | **21.17 GB GGUF / 32 GiB unified memory** |
 
-Choose Ornith first for further Open LM trials on this setup. Its initial run violated the stop-on-failure instruction and its final handoff exceeded the whitespace-count interpretation of the brevity cap, so retain cloud review and bounded repair rounds. This verdict prioritizes final functional quality; it is not a claim of lowest token usage, fastest time across unequal outcomes, or a universal model ranking. [Full results and repair evidence](benchmarks/multi-step-2026-09-13/README.md).
+Ornith is the first candidate for further Open LM trials on this setup. [Full results and repair evidence](benchmarks/multi-step-2026-09-13/README.md).
 
 Worker summaries omit auxiliary API usage. Server timing analysis found title requests outside the worker totals, so those counters are not full workflow usage. Local tokens are reported separately by tokenizer, not converted to cloud tokens supposedly saved.
 

@@ -10,6 +10,16 @@ Frontier-host responsibilities: actual runtime/model compatibility, RAM/context 
 
 Not supplied by v0: automatic full-context accounting or batch scheduler; hard token/RAM/CPU limits; an OS sandbox; automatic stall detection or disk recovery; guaranteed network isolation; exhaustive stream validation; or tested portability to Windows. No claim of uninterrupted execution after machine sleep, power loss or host shutdown.
 
+## Agent-managed resource readiness
+
+Run this procedure automatically as the frontier host when the skill is applied. Routine read-only checks, context budgeting and chained task preparation do not require user input. These are agent actions through available tools, not automatic protection supplied by the standalone runner.
+
+1. **Inspect before loading or dispatch.** Record the selected model/quantization, runtime version, actual context allocation, resident models, RAM/unified memory or dedicated VRAM, current memory pressure and swap usage. Distinguish available memory from total installed memory; model-file size alone is insufficient. Inspect other configured local runtimes for competing residency without changing unrelated services.
+2. **Choose a safe envelope.** Use runtime memory estimates where available and leave headroom for the OS, editor, test processes and existing workloads. Keep one heavy model resident for this loop and one inference request at a time. Adjust only task-owned model settings within existing authority. Do not unload another task's model, close applications, install models, or change global runtime settings without permission. If a safe allocation cannot be established, report the missing evidence rather than treating UNKNOWN as PASS.
+3. **Budget and batch automatically.** Budget system/tools, packet, planned reads, accumulated tool output, completion and safety margin against the verified runtime limit. If the packet will not fit the memory-safe context, create an ordered chain of smaller packets with all requirements preserved. Verify each predecessor before continuing in a fresh session. Do not ask the user to choose routine context sizes or approve each batch. Respect the existing parent repair and re-batching limits.
+4. **Validate and monitor.** After a model/runtime change, run a bounded compatibility smoke through the actual agent harness; confirm tool execution separately from successful loading. Sample memory pressure and swap before/after the smoke and each attempt; during long attempts, use bounded task-owned monitoring and retain compact observations. If critical pressure, allocation failure, or sustained swap growth with degraded progress appears, stop only the affected task-owned attempt safely, inspect partial work, then reduce context and re-batch. Record unavailable telemetry explicitly; do not infer memory safety from cumulative token counts.
+5. **Continue or escalate.** Continue ready batches without routine user intervention. Request input only for missing task decisions, exhausted recovery budgets, unavailable essential telemetry with no safe alternative, or actions beyond existing authority. Persist the chosen context, resource observations and batching decisions in the packet/chain ledger so a later frontier session can resume.
+
 ## Preflight and recovery matrix
 
 | Failure or edge case | Evidence/check | Safe response |
