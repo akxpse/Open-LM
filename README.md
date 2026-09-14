@@ -1,4 +1,4 @@
-# Open LM
+# Open LM Agent Skill
 
 Cloud strategy. Local implementation. Independent verification.
 
