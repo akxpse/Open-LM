@@ -6,7 +6,7 @@ Open LM is an experimental Agent Skill that pairs a frontier cloud planner and r
 
 **v0.0.0 · OpenCode + LM Studio or Ollama · macOS/Linux runner**
 
-Open LM keeps the frontier model focused on planning, review and verification, while local models handle implementation and test execution. Structured task packets give each handoff clear requirements and acceptance checks.
+Open LM assigns planning, review, and verification to the frontier model, while local models handle implementation and test execution. Structured task packets define requirements and acceptance checks, while batching and chaining organize work into focused, sequential tasks to improve workflow efficiency and keep context usage within the local model’s limits.
 
 [Quick Start](#quick-start-installation) · [Cost comparison](#cost-comparison) · [Benchmarks](#benchmark-evidence) · [Safety](#safety-and-limitations) · [Contributing](CONTRIBUTING.md)
 
