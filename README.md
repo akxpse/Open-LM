@@ -6,7 +6,7 @@ Open LM is an experimental Agent Skill that pairs a frontier cloud planner and r
 
 **v0.0.0 · MIT · OpenCode + LM Studio or Ollama · macOS/Linux runner**
 
-The goal is lower cloud usage without lowering the acceptance standard. **An end-to-end savings percentage has not yet been established.** Installing the skill alone does not save tokens; successful delegation minus supervision overhead determines the result.
+Open LM keeps your frontier model focused on planning, review and verification, while local models handle implementation and test execution. Structured task packets give each handoff clear requirements and acceptance checks.
 
 [Quick Start](#quick-start-installation) · [Cost comparison](#cost-comparison) · [Benchmarks](#benchmark-evidence) · [Safety](#safety-and-limitations) · [Contributing](CONTRIBUTING.md)
 
@@ -155,20 +155,24 @@ Compare the same accepted task and quality gate. The hybrid's cloud total includ
 
 Moving 90% of coding locally is **not** proof of 90% lower cloud cost. Verbose handoffs, repeated reviews, failures and long cloud history can erase savings.
 
-### Illustrative API cost table — NOT benchmark results
+### Illustrative cloud cost comparison
 
 This scenario holds token quantities constant across models to show price effects. **These token counts are hypothetical, not measured Open LM savings or predictions.**
 
 - Pure cloud: **100,000 input**, including **80,000 cached**, plus **5,000 output** tokens.
-- Hybrid cloud: **30,000 input**, including **20,000 cached**, plus **2,000 output** tokens covering all task-specific cloud phases listed above.
+- With Open LM skill applied (cloud portion only): **30,000 input**, including **20,000 cached**, plus **2,000 output** tokens covering all task-specific cloud phases listed above.
 - Same frontier model on both sides of each row. Output includes billable reasoning; do not add it twice.
 - Standard short-context rates; no separately billed cache writes, Fast mode, paid tools, regional uplift or taxes. Local compute and setup amortization are **excluded from this cloud-inference-only table**, not assumed free.
 
-| Frontier model | Input / cached input / output per 1M | Pure-cloud scenario | Open LM cloud portion | Illustrative cloud-cost reduction | Measured end-to-end saving |
-| --- | --- | ---: | ---: | ---: | --- |
-| Terra (`gpt-5.6-terra`) | $2.00 / $0.20 / $12.00 | $0.116 | $0.048 | 58.6% | Not established |
-| Sol (`gpt-5.6-sol`) | $4.00 / $0.40 / $20.00 | $0.212 | $0.088 | 58.5% | Not established |
-| Astra (`gpt-6-astra`) | $10.00 / $1.00 / $50.00 | $0.530 | $0.220 | 58.5% | Not established |
+| Frontier model | Pure-cloud cost, without local delegation | Cloud cost with Open LM skill applied | Cloud-cost reduction (%) |
+| --- | ---: | ---: | ---: |
+| Terra (`gpt-5.6-terra`) | $0.116 | $0.048 | 58.6% |
+| Sol (`gpt-5.6-sol`) | $0.212 | $0.088 | 58.5% |
+| Astra (`gpt-6-astra`) | $0.530 | $0.220 | 58.5% |
+
+*Hypothetical scenario based on assumed token usage—not measured benchmark savings.*
+
+“With Open LM skill applied” includes cloud planning, handoffs, review, verification, diagnosis, repair instructions and any cloud fallback while a local model handles implementation. Local hardware and electricity costs are excluded.
 
 USD, verified **2026-09-13** against [OpenAI pricing](https://developers.openai.com/api/docs/pricing). Sol's listed promotional rates are available at least through November 21, 2026; recheck when reproducing. Actual model usage, quality, cache behavior and latency differ. Repricing Terra tokens at Sol/Astra rates is a scenario, not a Sol/Astra benchmark.
 
