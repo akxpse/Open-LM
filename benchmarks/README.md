@@ -2,7 +2,7 @@
 
 ## Published evidence
 
-- [Longer multi-step native-tool/MCP comparison](multi-step-2026-09-13/README.md): all seven distinct local weight sets attempted; Astra/Sol/Terra cloud arms, failures and repair lineage.
+- [Longer multi-step native-tool/MCP comparison](multi-step-2026-09-13/README.md): five distinct local weight sets ran inference; Astra/Sol/Terra cloud arms, failures and repair lineage. Two additional load failures are retained in diagnostic notes.
 - [Cost methodology and observed partial accounting](COSTS.md), [explicitly hypothetical scenario](cost-scenario.json).
 - [Qwen / GLM exploratory result and verdict](GLM-QWEN-SMOKE.md), [worker and all-request accounting](GLM-QWEN-SMOKE.json).
 - [GLM slowdown RCA](GLM-SLOWDOWN-RCA.md), [server performance records](GLM-QWEN-PERFORMANCE.json).

@@ -2,7 +2,7 @@
 
 **JOBS-MCP-001 · September 13, 2026 · exploratory, one synthetic task.**
 
-This is an implementation-quality/runtime calibration, **not proof of end-to-end cloud-token or dollar savings**. All seven distinct installed local coding weight sets were scheduled sequentially. Astra, Sol and Terra used model-specific subagent controllers. Failed loads, incomplete runs, unsolicited repairs, reviewer errors and transport failures remain in the record.
+This is an implementation-quality/runtime calibration, **not proof of end-to-end cloud-token or dollar savings**. Five distinct local weight sets ran inference sequentially. Two additional weight sets failed to load before inference and are recorded in the diagnostic notes, outside the results table. Astra, Sol and Terra used model-specific subagent controllers. Failed loads, incomplete runs, unsolicited repairs, reviewer errors and transport failures remain in the record.
 
 ## Task and controls
 
@@ -27,8 +27,6 @@ Runner wall time excludes loading/frontier overhead. Server completion includes 
 | Qwen3-Coder 30B-A3B | 5/10 → 6/10 | 283.277 | ≥77,761 | ≥5,665 | Interrupted; failed, unauthorized self-repairs |
 | GLM-4.7-Flash | 0/1 module-load failure → 1/10 | 486.215 | ≥44,782 | ≥2,852 | Request timeout; failed |
 | Ornith 1.0 35B | 9/10 → 9/10 → 9/10 → 10/10 → 10/10 | 219.741 | 184,719 | 7,438 | Stop-rule violations and remaining source defects |
-| Gemma 4 8B | No inference | — | — | — | Backend failed to load |
-| Qwen3.6 35B-A3B | No inference | — | — | — | Backend failed to load |
 | Qwen3 14B | 0/10 | 600.031 | ≥31,489 | ≥5,359 | Wall timeout; unverified post-failure edits |
 | DeepSeek R1 14B | No test; only two MCP calls | 90.039 | ≥4,041 | ≥804 | Backend tool-grammar failure |
 

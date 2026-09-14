@@ -28,7 +28,25 @@ The cloud agent stays the product owner and verifier. The runner does not call a
 - A cloud host able to execute local commands: Codex or Claude Code. A hosted container's `localhost` is not your laptop.
 - Enough memory for the model **plus** runtime context/KV cache and other applications. Keep one heavy local model resident at a time.
 
-Tested local stack: Node 22.23.2, OpenCode 1.17.15, LM Studio 0.4.18+1, and Qwen3-Coder-30B-A3B-Instruct / GLM-4.7-Flash Q4_K_M GGUF on a 32 GiB Apple M5 Mac. This is an observed configuration, not a minimum-RAM guarantee. Model weights and third-party runtimes are separate downloads with their own licenses.
+Tested software stack: Node 22.23.2, OpenCode 1.17.15 and LM Studio 0.4.18+1. Model weights and third-party runtimes are separate downloads with their own licenses.
+
+#### Hardware requirements when running Open LM
+
+**The local model sets the hardware requirement.** Open LM runs the handoff and verification workflow; model weights, context memory and your development tools consume most of the RAM.
+
+| Component | Smaller-model starting point | Tested 30–35B Q4 workflow |
+| --- | --- | --- |
+| Memory | **16 GB RAM recommended** as a runtime starting point; choose a smaller tool-capable model and modest context | **32 GiB unified memory** on our benchmark Mac; one model loaded at a time |
+| CPU / platform | Apple Silicon with macOS 14+, or a compatible Linux machine/runtime | Apple M5, macOS; M5 is the tested chip, not a minimum requirement |
+| GPU | Use acceleration supported by your runtime; dedicated VRAM and system RAM are separate budgets | Apple integrated GPU using shared unified memory |
+| Storage | Space for the chosen model, runtime, repository, dependencies and logs | Roughly **18–21 GB per model file** for the tested Qwen Coder, GLM and Ornith quantizations, plus workspace/runtime space |
+| Context | Start with a context that fits memory; split larger tasks into chained packets | **32,768 tokens**, one concurrent request |
+
+LM Studio recommends 16 GB+ RAM on Mac and says 8 GB Macs may work with smaller models and modest context. **16 GB is a starting recommendation, not a measured Open LM minimum or a fit target for our 30–35B models.** See [runtime system requirements](https://lmstudio.ai/docs/app/system-requirements). The Open LM runner supports macOS/Linux, not native Windows.
+
+For the larger models in this repository, start from the **32 GiB tested configuration** and check memory pressure with your actual model and context. Those runs already had roughly 2.4–2.5 GiB of swap in use; allow more headroom for long sessions or a busy development environment. See [benchmark setup and memory observations](benchmarks/multi-step-2026-09-13/README.md).
+
+Longer context increases memory use. Keep one heavy model resident, leave room for the OS and editor, and batch oversized tasks instead of raising context beyond available memory. [Context and memory guidance](https://docs.ollama.com/context-length). Model fit and tool-call compatibility are separate checks.
 
 ### 2. Download and install
 
@@ -182,17 +200,31 @@ This scenario has **69.5% fewer unweighted cloud tokens**, but about **58.5% low
 
 ## Benchmark evidence
 
-The longer study covers seven distinct local weight sets and Astra/Sol/Terra cloud arms. It supports scoped quality/runtime observations, **not a general savings claim**.
+The longer study includes inference runs for five distinct local weight sets and Astra/Sol/Terra cloud arms. Two additional weight sets failed to load and are documented separately in the diagnostic record. It supports scoped quality/runtime observations, **not a general savings claim**.
 
 | Evidence | Observed result | Limitation |
 | --- | --- | --- |
-| Multi-step native-tool/MCP calibration | All seven local weight sets attempted; 13 cloud attempts including repairs | One synthetic task; failures and unmatched harness variables retained; full frontier overhead unknown |
+| Multi-step native-tool/MCP calibration | Five local weight sets ran inference; 13 cloud attempts including repairs | One synthetic task; failures and unmatched harness variables retained; full frontier overhead unknown |
 | Historical Terra-only baseline | 3 synthetic tasks passed; 6 recorded phases | Not matched to the current hybrid workflow; supervising/setup usage excluded |
 | Qwen + LM Studio utility smoke | 2/2 checks; native read/edit/bash; 20.753 s | Not long-task reliability or end-to-end savings |
 | GLM + LM Studio same utility | 2/2 checks; native read/edit/bash; 79.533 s | Defaults/cache/app conditions not fully matched; no general model ranking |
 | Final packaged regressions | 14/14 checks (8 runner + 6 historical fixture checks) | Mocks do not prove OS isolation or token savings |
 
 In this longer task, repaired Astra and Sol candidates passed the published functional gate. Ornith was the strongest local candidate and passed after two frontier corrections, with handoff/stop-discipline caveats. Terra's final candidate still failed the asynchronous-output check; other local models failed implementation, timed out or hit backend incompatibilities. These are **one-task observations**, not universal model rankings.
+
+### Best-performing local model
+
+**Ornith 1.0 35B Q4_K_M GGUF was the strongest local model in our multi-step coding/MCP benchmark.** It passed all 10 protected checks and the common post-hoc functional gate after two frontier-issued repair handoffs.
+
+| Measure | Recorded Ornith result |
+| --- | --- |
+| Final functional quality | Passed the published gate after two repairs |
+| Local agent wall time, initial attempt + repairs | **438.273 seconds (~7.3 minutes)**, excluding model loading and frontier overhead |
+| Server input tokens, initial attempt + repairs | **336,613** |
+| Server completion tokens, including reasoning | **14,468** |
+| Model weights / tested memory | **21.17 GB GGUF / 32 GiB unified memory** |
+
+Choose Ornith first for further Open LM trials on this setup. Its initial run violated the stop-on-failure instruction and its final handoff exceeded our whitespace-count interpretation of the brevity cap, so retain cloud review and bounded repair rounds. This verdict prioritizes final functional quality; it is not a claim of lowest token usage, fastest time across unequal outcomes, or a universal model ranking. [Full results and repair evidence](benchmarks/multi-step-2026-09-13/README.md).
 
 Worker summaries omit auxiliary API usage. Server timing analysis found title requests outside the worker totals, so those counters are not full workflow usage. Local tokens are reported separately by tokenizer, not converted to cloud tokens supposedly saved.
 
