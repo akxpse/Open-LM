@@ -1,6 +1,11 @@
 # Open LM benchmark protocol
 
-## Published evidence
+## Latest release evidence
+
+- [Simplified Ornith 1.0 pilot](simplified-pilot-2026-09-14/README.md): accepted two-file task, complete workflow counters, failed-attempt history and an explicitly unmatched cost comparison.
+- [Machine-readable pilot results](simplified-pilot-2026-09-14/results.json).
+
+## Historical published evidence
 
 - [Longer multi-step native-tool/MCP comparison](multi-step-2026-09-13/README.md): five distinct local weight sets ran inference; Astra/Sol/Terra cloud arms, failures and repair lineage. Two additional load failures are retained in diagnostic notes.
 - [Cost methodology and observed partial accounting](COSTS.md), [explicitly hypothetical scenario](cost-scenario.json).

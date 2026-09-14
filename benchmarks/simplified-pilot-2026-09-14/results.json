@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "publishedDate": "2026-09-14",
+  "classification": "exploratory-cross-revision-pilot",
+  "fixture": "multi-paths",
+  "caveats": [
+    "Not a completed matched study or model ranking.",
+    "Accepted local and cloud baseline runs used different corrected harness revisions.",
+    "Local compute cost is not monetized.",
+    "Pilot source and skill identity manifests are unavailable for the two compared direct arm launches.",
+    "Interactive harness development, audits, report preparation and failed attempts are excluded from the successful-workflow comparison, not assumed to have zero cloud usage."
+  ],
+  "rateScenario": {
+    "metric": "standard short-context API-equivalent inference cost",
+    "actualInvoice": false,
+    "terraUsdPerMillion": {
+      "input": 2,
+      "cachedInput": 0.2,
+      "cacheWriteInput": 2.5,
+      "output": 12
+    },
+    "provenanceSha256": "19568104e1e63aa36d0181341b453fba091b3188b92d569387df4dceb60e98c2"
+  },
+  "completed": {
+    "ornith10": {
+      "revisionLabel": "corrected-permissions-v4",
+      "accepted": true,
+      "independentTestGroups": {
+        "passed": 3,
+        "total": 3
+      },
+      "review": "ACCEPT",
+      "repairs": 0,
+      "local": {
+        "seconds": 60.949,
+        "promptTokens": 25001,
+        "completionTokens": 1548,
+        "totalTokens": 26549,
+        "accountingComplete": true
+      },
+      "cloudSupport": {
+        "phases": [
+          "plan",
+          "review"
+        ],
+        "inputTokens": 27029,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0,
+        "outputTokens": 291,
+        "accountingComplete": true,
+        "apiEquivalentUsd": 0.05755
+      },
+      "rawResultSha256": "9cd1515d09b24032ab93b13eefd855a6312a61f71d595d3b9157f9aad9f3a07d"
+    },
+    "terraCloudBaseline": {
+      "revisionLabel": "pilot-v2",
+      "accepted": true,
+      "independentTestGroups": {
+        "passed": 3,
+        "total": 3
+      },
+      "review": "ACCEPT",
+      "repairs": 0,
+      "cloud": {
+        "phases": [
+          "plan",
+          "implement",
+          "review"
+        ],
+        "secondsByPhase": {
+          "plan": 8.394,
+          "implement": 21.392,
+          "review": 6.964
+        },
+        "inputTokens": 83041,
+        "cacheReadTokens": 40192,
+        "cacheWriteTokens": 0,
+        "outputTokens": 1247,
+        "accountingComplete": true,
+        "apiEquivalentUsd": 0.1087004
+      },
+      "rawResultSha256": "4055604d047482d35b0571e92cee7d5e139ed5956bb677263cb6ad3bbf37307f"
+    }
+  },
+  "comparison": {
+    "label": "cross-revision exploratory cloud-inference comparison",
+    "cloudInferenceCostReductionPercent": 47.0563,
+    "numeratorScope": "Terra planning and review around accepted Ornith 1.0 local implementation",
+    "denominatorScope": "Terra planning, implementation, and review in earlier cloud baseline",
+    "matchedStudy": false
+  },
+  "retainedFailures": {
+    "ornith10": [
+      {
+        "revisionLabel": "pilot-v1",
+        "accepted": false,
+        "classification": "command-authorization mismatch",
+        "localAccountingComplete": true,
+        "promptTokens": 22707,
+        "completionTokens": 1158,
+        "totalTokens": 23865,
+        "rawResultSha256": "9cef0693de3ce5c34d97594f183d96c2419400fbc35dd838ba3c1a31ed74b10d",
+        "cloudSupport": {
+          "accountingComplete": true,
+          "inputTokens": 13220,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0,
+          "outputTokens": 225,
+          "apiEquivalentUsd": 0.02914
+        }
+      },
+      {
+        "revisionLabel": "pilot-v2",
+        "accepted": false,
+        "classification": "additional diagnostic outside reviewed allowlist",
+        "localAccountingComplete": true,
+        "promptTokens": 29475,
+        "completionTokens": 1712,
+        "totalTokens": 31187,
+        "rawResultSha256": "bef48294f8fee59f3d157976cf9176548eecc05b3a0a590977c0d5e6260c7076",
+        "cloudSupport": {
+          "accountingComplete": true,
+          "inputTokens": 13220,
+          "cacheReadTokens": 12032,
+          "cacheWriteTokens": 0,
+          "outputTokens": 226,
+          "apiEquivalentUsd": 0.0074944
+        }
+      },
+      {
+        "revisionLabel": "configuration-v3",
+        "accepted": false,
+        "classification": "malformed multiline command configuration before model request",
+        "localAccountingComplete": false,
+        "promptTokens": null,
+        "completionTokens": null,
+        "totalTokens": null,
+        "rawResultSha256": "3e9052ae34cbb5f9531a695f253fd98a3f09af12737eda5a5aab71023655bd0b",
+        "cloudSupport": {
+          "accountingComplete": true,
+          "inputTokens": 13224,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0,
+          "outputTokens": 272,
+          "apiEquivalentUsd": 0.029712
+        }
+      }
+    ]
+  }
+}

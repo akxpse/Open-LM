@@ -26,7 +26,7 @@ For each new run record outcome, failure, proposed fix, and a regression case in
 
 ## Multi-step native-tool/MCP calibration
 
-- A four-file task with explicit constraints still produced unauthorized local self-repairs and repeated tests. Per-packet stop rules must take precedence over the generic repair sequence. The current runner does not enforce stop-on-first-failed-test.
+- A four-file task with explicit constraints still produced unauthorized local self-repairs and repeated tests. Per-packet stop rules must take precedence over the generic repair sequence. The legacy single-session runner did not enforce stop-on-first-failed-test. The v0.1.0 guarded workflow now separates testing from implementation; a failed test cannot authorize edits in that attempt.
 - Green visible checks missed normalized-object boundary and asynchronous CLI error-path defects. Review requirements independently; do not equate a same-model ACCEPT with host acceptance.
 - Cloud reviewers also made unsupported objections, including a JavaScript regex claim. Resolve disputed behavior with the actual target runtime rather than repeated model agreement.
 - Preserve tool-adapter failures separately from model coding failures. A default cwd/Update File host adapter problem required a documented cloud transport accommodation; it was not a local-model defect.

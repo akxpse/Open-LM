@@ -4,11 +4,13 @@ Read before the first local run and revisit relevant rows after a failure or env
 
 ## Responsibility boundaries
 
-Runner-enforced today: basic packet validation, loopback inference URL restriction, installed-model preflight with a five-second fetch timeout, Git-root/control-directory checks, initial writable-symlink rejection, per-workspace lock, scoped client tool configuration, reactive wall/event/log limits, and review-required reports.
+For the simplified default, use a single coding session and independent checks against final source. Guarded phase/order/report requirements below describe the optional guarded path, not ordinary acceptance. Missing model narration or harmless tool ordering alone is not a code defect. Keep actual scope violations, runtime errors and incomplete measurement distinct.
+
+The [guarded workflow](guarded-runtime.md) additionally separates source implementation, one-shot testing and fresh reporting, with protected baselines and per-phase evidence. The legacy primitive provides basic packet validation, loopback inference URL restriction, installed-model preflight with a five-second fetch timeout, Git-root/control-directory checks, initial writable-symlink rejection, per-workspace lock, scoped client tool configuration (including optional exact reads), linked predecessor hash checks and raw handoff snapshots, reactive wall/event/log limits, and review-required reports.
 
 Frontier-host responsibilities: actual runtime/model compatibility, RAM/context budgeting, batching/chaining, effective-config review, environment and credential isolation, result validation, checkpoint recovery, and independent acceptance.
 
-Not supplied by v0: automatic full-context accounting or batch scheduler; hard token/RAM/CPU limits; an OS sandbox; automatic stall detection or disk recovery; guaranteed network isolation; exhaustive stream validation; or tested portability to Windows. No claim of uninterrupted execution after machine sleep, power loss or host shutdown.
+Not supplied by v0: automatic full-context accounting or batch scheduler; hard token/RAM/CPU limits; an OS sandbox; automatic stall detection or disk recovery; guaranteed network isolation; or tested portability to Windows. No claim of uninterrupted execution after machine sleep, power loss or host shutdown.
 
 ## Agent-managed resource readiness
 
@@ -44,7 +46,7 @@ Run this procedure automatically as the frontier host when the skill is applied.
 | Permission denial, missing noninteractive credentials, confirmation prompt | Inspect recorded denial or waiting command | Narrow/correct the packet if authorized. Do not use alternate tools to bypass denial, feed credentials, or wait indefinitely. |
 | Dependency registry offline, incompatible package manager, flaky test/external service | Record exact error, runtime, lockfile and repeatability evidence | Use packet-approved remedies only; no blind dependency upgrades or weakening tests. Mark unavailable checks explicitly. Retry only with evidence and within the parent budget. |
 | Exit zero with wrong output, fabricated tests, partial edits, changed tests | Independently inspect diff, command evidence and hidden/edge assertions | Keep review-ready distinct from ACCEPT. Failed tool calls and missing exit codes need resolution even when the overall process exits zero. |
-| Duplicate/out-of-order/missing tool events, malformed JSON, Unicode split across chunks | Compare compact report with local logs if inconsistent | Treat evidence as incomplete; do not infer successful execution. v0 may ignore malformed lines or retain an earlier tool event; no exhaustive protocol validation is claimed. |
+| Duplicate/out-of-order/missing tool events, malformed JSON, Unicode split across chunks | Compare compact report with local logs if inconsistent | Treat evidence as incomplete; do not infer successful execution. The v0.1.0 reducer retains terminal updates, rejects conflicting/unresolved calls and invalidates completion after later activity. Its fatal UTF-8/JSON stream decoder rejects malformed or truncated evidence. This validates the supported event contract, not every future client protocol. |
 | Non-idempotent command interrupted or timed out | Inspect observable effects before any repeat | Never automatically replay deployments, migrations, writes to external systems or payment operations. Obtain new authority where required. |
 | Failed prerequisite, dependency cycle, stale successor context, integration regression | Maintain the chain ledger and verified baseline per packet | Keep affected dependents pending; run unrelated ready packets if safe. Invalidate affected downstream checks after changes; require final parent integration checks. |
 | Frontier host unavailable or its context resets | Persist a compact local chain ledger and checkpoint without secrets | Resume in the next authorized host session. The local worker must not become its own final verifier or invoke an unapproved cloud API. |
@@ -57,8 +59,8 @@ Keep the parent task pending through recoverable failures rather than declaring 
 
 ## Validation gaps and release discipline
 
-The current automated suite exercises basic validation/routing/evidence and completion, timeout, event/log caps and launch failure. The live smoke test covers one Qwen edit/test task. Most matrix rows are host procedures, not fault-injection-tested guarantees.
+The v0.1.0 suite exercises validation/routing, completion and stop limits, preflight cancellation, child cleanup, scope and optional guarded/link behavior. The simplified Ornith 1.0 pilot passed independent tests and review. See [release evidence](validation-v010.md) for the private benchmark adapter's role and the shipped runtime boundary. Most matrix rows remain host procedures, not universal fault-injection-tested guarantees.
 
 Prioritize future tests for oversized context plus chained recovery, memory/service failures, disk/log-write failure cleanup, signal/orphan recovery, stream corruption and event updates, source drift and prerequisite invalidation. Add reproducible regression evidence when a new failure occurs; do not label an untested mitigation proven.
 
-The later LM Studio comparison adds authenticated catalog/routing tests and a direct read/edit/test smoke test. It does not cover every matrix row. Missing native calls, failed tools, and unjustified post-success actions still require host rejection even if the runner reports review-ready.
+The later LM Studio comparison adds authenticated catalog/routing tests and a direct read/edit/test smoke test. It does not cover every matrix row. Unresolved runtime/evidence errors or unauthorized actions require investigation even if the runner reports review-ready. An initial failed test followed by an evidenced correction and successful final verification is not itself a rejection reason in the simplified workflow; preserve both outcomes. Missing narration or harmless tool ordering is not a correctness gate.

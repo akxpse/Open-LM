@@ -1,5 +1,16 @@
 # Releases
 
+## 0.1.0 — 2026-09-14
+
+Default to one local coding session with independent frontier verification. Simplify the task and chain templates; remove mandatory handoff files, tool ordering, separate report sessions and once-only testing from ordinary coding. Keep scoped execution, evidence-led repairs and verified checkpoints.
+
+Add optional exact read lists, local workspace ownership, terminal event validation, interruption/normal-exit cleanup and optional predecessor snapshots. Preserve the guarded implementation/test/report runner as an opt-in compatibility mode. Add relocated-installation checks and macOS/Linux CI.
+
+Publish the successful Ornith 1.0 pilot: three independent test groups and frontier acceptance, zero repairs, 60.949 seconds of local execution. Preserve prior failed attempts and label the 47.1% cross-revision API-equivalent cost comparison exploratory, not matched savings.
+
+Automatic RAM readiness and setup diagnostics remain planned for v0.1.1. The private benchmark adapter's resource monitoring, model lifecycle and server-side token ledger are not bundled runtime automation.
+
+
 ## Unreleased — v0 development
 
 Added optional OpenCode -> LM Studio routing, authenticated model preflight using LM_API_TOKEN, explicit model selection and runtime evidence in summaries. Ollama remains the default. Added LM Studio adapter tests and same-weights Qwen tool-call investigation. This supplies a tested operational workaround, not a patch to Ollama's parser. Production changes were implemented locally by Qwen and independently reviewed; failed test hunks were rejected. No savings claim or new published version.

@@ -1,275 +1,173 @@
-# Open LM Agent Skill
+# Open LM
 
-Cloud strategy. Local implementation. Independent verification.
+Cloud planning. Local coding. Independent verification.
 
-Open LM is an experimental Agent Skill that pairs a frontier cloud planner and reviewer with a local coding agent. It moves bounded implementation and test/fix work to the local machine, then returns compact evidence for the cloud agent to verify. The [illustrative cost scenario](#illustrative-cloud-cost-comparison) shows over 58% lower cloud-inference costs using hypothetical token budgets.
+Open LM is a portable agent skill for delegating implementation to a local model while a frontier agent owns planning and final verification. Focused task briefs, batching and verified task chains keep context small and work reviewable.
 
-**v0.0.0 · OpenCode + LM Studio or Ollama · macOS/Linux runner**
+**v0.1.0 · OpenCode + LM Studio or Ollama · macOS/Linux · MIT**
 
-Open LM assigns planning, review, and verification to the frontier model, while local models handle implementation and test execution. Structured task packets define requirements and acceptance checks, while batching and chaining organize work into focused, sequential tasks to improve workflow efficiency and keep context usage within the local model’s limits.
+[Quick Start](#quick-start-installation) · [Latest results](#latest-ornith-10-results) · [Costs](#cost-comparison) · [Release notes](CHANGELOG.md) · [Roadmap](prd.md)
 
-[Quick Start](#quick-start-installation) · [Cost comparison](#cost-comparison) · [Benchmarks](#benchmark-evidence) · [Safety](#safety-and-limitations) · [Contributing](CONTRIBUTING.md)
+## What's new
 
-## How it works
+One local session can read, implement, test and correct its work. No mandatory MCP call order, once-only test rule, separate report session or model-written handoff file. The frontier checks the final source and supplies compact verified context to the next task.
 
-1. **Plan:** the current cloud agent provides interfaces, permitted files, edge cases, blocker hints, acceptance checks and budgets in a precise task packet.
-2. **Implement:** OpenCode uses one local model to read staged files, make changes and execute approved tests.
-3. **Review:** the cloud agent inspects the actual diff, recorded command results and specification compliance.
-4. **Repair or accept:** failures receive a root-cause analysis and a narrow correction packet. Only the frontier verifier can ACCEPT.
-
-The cloud agent stays the product owner and verifier. The runner does not call a frontier API, automatically promote changes, deploy, download models or purchase fallback inference.
+Scoped files and commands, protected acceptance tests, bounded execution and recorded usage remain. The older [guarded runner](references/guarded-runtime.md) is optional, not the default coding workflow. Automatic RAM gates and setup diagnostics are planned for v0.1.1; this release assigns resource checks to the host agent.
 
 ## Quick Start Installation
 
-### 1. Prerequisites
+### 1. Requirements
 
 - Node.js 22+, Git and an OpenCode CLI supporting `run --pure --format json`.
-- LM Studio or Ollama on the same machine, with an installed tool-capable model.
-- A cloud host able to execute local commands: Codex or Claude Code. A hosted container's `localhost` does not refer to the local laptop.
-- Enough memory for the model **plus** runtime context/KV cache and other applications. Keep one heavy local model resident at a time.
+- LM Studio or Ollama on the same machine, with a tool-capable local model already installed.
+- A frontier host with local command access, such as Codex or Claude Code.
+- Enough available memory for weights, runtime context and development tools.
 
-Tested software stack: Node 22.23.2, OpenCode 1.17.15 and LM Studio 0.4.18+1. Model weights and third-party runtimes are separate downloads with their own licenses.
+Tested stack: Node 22.23.2, OpenCode 1.17.15 and LM Studio 0.4.18+1 on macOS. Linux has regression-test coverage through CI; a Linux local-model workflow and Claude-hosted live execution have not been validated by the published pilot.
 
-#### Hardware requirements when running Open LM
-
-**The local model sets the hardware requirement.** Open LM runs the handoff and verification workflow; model weights, context memory and development tools consume most of the RAM.
-
-| Component | Smaller-model starting point | Tested 30–35B Q4 workflow |
-| --- | --- | --- |
-| Memory | **32 GB RAM recommended** as a runtime starting point; choose a smaller tool-capable model and modest context | **32 GiB unified memory** on the benchmark Mac; one model loaded at a time |
-| CPU / platform | Apple Silicon with macOS 14+, or a compatible Linux machine/runtime | Apple M5, macOS; M5 is the tested chip, not a minimum requirement |
-| GPU | Use acceleration supported by the runtime; dedicated VRAM and system RAM are separate budgets | Apple integrated GPU using shared unified memory |
-| Storage | Space for the chosen model, runtime, repository, dependencies and logs | Roughly **18–21 GB per model file** for the tested Qwen Coder, GLM and Ornith quantizations, plus workspace/runtime space |
-| Context | Start with a context that fits memory; split larger tasks into chained packets | **32,768 tokens**, one concurrent request |
-
-LM Studio recommends 16 GB+ RAM on Mac and says 8 GB Macs may work with smaller models and modest context. **16 GB is a starting recommendation, not a measured Open LM minimum or a fit target for the tested 30–35B models.** See [runtime system requirements](https://lmstudio.ai/docs/app/system-requirements). The Open LM runner supports macOS/Linux, not native Windows.
-
-For the larger models in this repository, start from the **32 GiB tested configuration** and check memory pressure with the selected model and context. Those runs already had roughly 2.4–2.5 GiB of swap in use; allow more headroom for long sessions or a busy development environment. See [benchmark setup and memory observations](benchmarks/multi-step-2026-09-13/README.md).
-
-**With the skill applied, the frontier agent handles resource readiness automatically:** inspect model residency and memory pressure, reserve headroom for the OS and editor, choose a context that fits, keep heavy runs sequential, and split oversized tasks into chained packets. Routine checks and batching require no user input. Model fit and actual tool-call compatibility are checked separately. Actions outside existing authority—such as closing applications or unloading another workload—still require permission. This is agent-managed workflow, not a hard RAM limit enforced by the runner. [Resource-management procedure](references/local-runtime.md#agent-managed-resource-readiness) · [Context and memory guidance](https://docs.ollama.com/context-length).
-
-### 2. Download and install
+### 2. Install the skill
 
 ```sh
 git clone https://github.com/akxpse/Open-LM.git
 cd Open-LM
 ```
 
-Place this complete folder at **one** of these locations, named `open-lm`:
+Place the complete skill folder at **one** location, named `open-lm`:
 
-| Host | Personal installation | Project-only installation | Invoke |
+| Host | Personal installation | Project installation | Invoke |
 | --- | --- | --- | --- |
 | Codex | `~/.agents/skills/open-lm/` | `.agents/skills/open-lm/` | `$open-lm` |
 | Claude Code | `~/.claude/skills/open-lm/` | `.claude/skills/open-lm/` | `/open-lm` |
 
-For example, from the downloaded checkout on macOS/Linux, install for Codex without overwriting an existing skill:
+For Codex, from the downloaded checkout:
 
 ```sh
 mkdir -p "$HOME/.agents/skills"
 test ! -e "$HOME/.agents/skills/open-lm" && (
   mkdir "$HOME/.agents/skills/open-lm" &&
-  cp -R SKILL.md VERSION LICENSE agents assets references scripts benchmarks "$HOME/.agents/skills/open-lm/"
+  cp -R SKILL.md VERSION LICENSE README.md CHANGELOG.md CONTRIBUTING.md SECURITY.md prd.md agents assets references scripts benchmarks "$HOME/.agents/skills/open-lm/"
 )
 ```
 
-For Claude Code instead:
+For Claude Code, use `$HOME/.claude/skills` in the same command. An existing installation is deliberately left untouched: review and replace its contents when upgrading. Keep `SKILL.md` directly inside `open-lm`, alongside `scripts/`, `references/` and `assets/`. Restart the host if discovery has not refreshed.
 
-```sh
-mkdir -p "$HOME/.claude/skills"
-test ! -e "$HOME/.claude/skills/open-lm" && (
-  mkdir "$HOME/.claude/skills/open-lm" &&
-  cp -R SKILL.md VERSION LICENSE agents assets references scripts benchmarks "$HOME/.claude/skills/open-lm/"
-)
-```
+Alternatively, ask the host to read this checkout's `SKILL.md` by absolute path. See [setup and portability](references/setup.md) for configuration details.
 
-If the destination exists, review it before updating; the copy above deliberately does nothing. `SKILL.md` must be directly inside `open-lm`, alongside `scripts/`, `references/` and `assets/`. Restart the host if discovery has not refreshed. See [Codex skills](https://learn.chatgpt.com/docs/build-skills) and [Claude Code skills](https://code.claude.com/docs/en/skills). Claude Code's installation format is supported, but a Claude-hosted live run is not yet validated here.
+### 3. Prepare the model
 
-To try without installing, ask the host to read this checkout's `SKILL.md` by absolute path.
-
-### 3. Prepare the local runtime
-
-**LM Studio, the tested Qwen workaround:** start its local server with authentication enabled and localhost-only access. Inspect installed and loaded models:
+For the tested LM Studio route, start a localhost-only server and inspect the installed model key:
 
 ```sh
 lms ls --json
 lms ps
 ```
 
-Load the chosen model with verified context allocation and concurrency one. This installation used:
+The successful Ornith 1.0 run used a 16K context, one concurrent request and no speculative draft model. Example for the tested installation:
 
 ```sh
-lms load qwen3-coder-30b --context-length 32768 --parallel 1 --gpu max --identifier open-lm-qwen --ttl 600 --yes
+lms load ornith-1.0-35b --context-length 16384 --parallel 1 --gpu max --no-speculative-draft-mtp --identifier open-lm-ornith10 --ttl 600 --yes
 ```
 
-The model key is installation-specific. Substitute the catalog's key and a context that fits the available hardware; this command does not download weights. Unload any other heavy model in its owning runtime first. The packet uses the server's **inference identifier**, which can differ from the catalog key.
+Substitute the model key from the local catalog; this command does not download weights. The packet uses the loaded **inference identifier**, which can differ from that key. Keep one heavy model resident. For authenticated LM Studio, supply `LM_API_TOKEN` using a trusted local secret loader—never in a packet, Git history or chat.
 
-For authenticated LM Studio, supply `LM_API_TOKEN` through a trusted local secret loader, limited to model listing and inference. Never place its value in a packet, repository, command argument or chat. The runner uses an environment placeholder in client configuration, but child tools inherit the environment: this is not credential isolation.
+Ollama is also supported and remains the runner's backward-compatible default. Select `runtime: "ollama"` with an installed local tag, or `runtime: "lmstudio"` with the LM Studio inference identifier. The host verifies actual model/tool compatibility before substantial work.
 
-**Ollama alternative:** verify its server, installed model and residency with `ollama list` and `ollama ps`. Use `runtime: "ollama"`, the exact installed tag, and `http://127.0.0.1:11434/v1`. Ollama remains the runner's backward-compatible default. The observed Qwen tool-format issue was worked around with LM Studio, not patched inside Ollama. See [runtime RCA](benchmarks/TOOL-CALL-RCA.md).
-
-### 4. Invoke the skill
-
-In Codex, use:
+### 4. Run a task
 
 ```text
-Use $open-lm for this task. Keep the frontier agent as planner and final verifier.
-Use OpenCode with LM Studio and the loaded local model for implementation
-and test execution. Read the skill and setup instructions, verify runtime
-and memory readiness, stage only required files, and give the local
-developer a bounded packet. Diagnose failures before issuing repairs.
-No paid fallback without approval. Report cloud planning, review and
-repair usage separately from local usage; leave unknown metrics null.
+Use $open-lm with OpenCode and the loaded Ornith 1.0 model in LM Studio.
+Keep the frontier agent as planner and independent verifier. Check memory
+and context readiness, stage the necessary files, and allow the local agent
+to implement, test and correct within that scope. Batch and chain larger
+tasks. Record cloud planning, review and repair usage separately from local
+usage. Do not use a paid fallback without approval.
 
-Task: [describe one concrete development outcome]
+Task: [one concrete development outcome]
 ```
 
-In Claude Code, use `/open-lm` with the same instructions. Open LM does not switch the host's selected model or make cloud planning free.
-
-### 5. Review and run a packet
-
-The host reads [setup](references/setup.md) and the [runtime checklist](references/local-runtime.md), fills [TASK.md](assets/TASK.md), and stages a secrets-free subset in a fresh Git root. Control files and logs stay outside the writable staging workspace.
-
-This is a complete **schema example**, not a ready-to-run fixture. Replace the paths, files, command and model; create the staging Git root and task brief first:
-
-```json
-{
-  "workspace": "/absolute/staging-work",
-  "task": "/absolute/control/TASK.md",
-  "output": "/absolute/control/run-001",
-  "runtime": "lmstudio",
-  "model": "open-lm-qwen",
-  "baseURL": "http://127.0.0.1:1234/v1",
-  "context": 32768,
-  "outputTokens": 4096,
-  "writeFiles": ["src/example.mjs", "HANDOFF.md"],
-  "commands": ["node --test tests/example.test.mjs"],
-  "timeoutSeconds": 600,
-  "maxToolEvents": 30,
-  "maxLogBytes": 8388608,
-  "disabledMcp": [],
-  "reviewedConfig": true
-}
-```
-
-Set `reviewedConfig: true` only after inspecting the **effective** OpenCode configuration in staging. List every unrelated inherited MCP server in `disabledMcp` and verify it is disabled; an empty list disables none. Inspect providers, auxiliary agents, plugins, permissions and instructions without pasting secret-bearing config into chat. `--pure` does not disable all inherited settings.
+Use `/open-lm` in Claude Code. The host reads [setup](references/setup.md), fills the short [task brief](assets/TASK.md), prepares the packet and runs:
 
 ```sh
 node /absolute/open-lm/scripts/run-local.mjs /absolute/control/packet.json
 ```
 
-Output: private `events.jsonl`, `stderr.log` and `summary.json`. Exit 0 / `review-ready` means **review required**, not acceptance. Verify actual edit/test execution and the resulting artifact. Preserve failures and use a new output directory for every repair.
+No npm dependency installation is needed for the runner. Control files and logs stay outside the worker's writable workspace. Exit 0 means **ready for independent review**, not accepted. The host checks final source, runs acceptance tests and records the verified checkpoint.
+
+## Hardware and context
+
+The local model is the bottleneck; the skill has no universal RAM minimum independent of model choice.
+
+| Successful Ornith 1.0 configuration | Value |
+| --- | --- |
+| Model | Ornith 1.0 35B Q4_K_M GGUF |
+| Machine | Apple M5, 32 GiB unified memory |
+| Model weights | Approximately 21 GB |
+| Runtime context / maximum output per request | 16,384 / 8,192 tokens |
+| Concurrency | One model, one request |
+| Pilot startup threshold | 21.5 GiB available before loading |
+| Observed memory pressure | Normal throughout; swap unchanged |
+
+Use the 32 GiB configuration as the tested starting point for these weights, not proof of a minimum for every model. Smaller models may need less memory. The host agent inspects residency, memory pressure and context fit, then batches oversized tasks rather than raising context beyond available memory. Closing unrelated apps or unloading another workload still requires authority. [Resource-readiness procedure](references/local-runtime.md#agent-managed-resource-readiness).
+
+## Latest Ornith 1.0 results
+
+The simplified two-file coding task completed with **3/3 independent test groups, frontier acceptance, zero repairs and zero failed tool calls**.
+
+| Measurement | Successful rerun |
+| --- | ---: |
+| Local execution, excluding loading and frontier phases | 60.949 seconds |
+| Local prompt / completion tokens | 25,001 / 1,548 |
+| Cloud planning + review input / output tokens | 27,029 / 291 |
+| Cloud cached input / cache-write tokens | 0 / 0 |
+
+The run used the shipped single-session runner plus a private benchmark adapter for resource monitoring, server-side usage capture and independent verification. Those adapter services are **not bundled runtime automation**. Earlier failed trials remain identified separately; the successful rerun does not replace them. [Results, failure history and machine-readable evidence](benchmarks/simplified-pilot-2026-09-14/README.md).
 
 ## Cost comparison
 
-Compare the same accepted task and quality gate. The hybrid's cloud total includes **planning, context/skill loading, handoffs, review, verification, failure diagnosis, repair instructions, orchestration and any authorized cloud fallback**. Count failed attempts too. Report setup separately with explicit amortization; do not hide task-specific troubleshooting as setup.
+This exploratory comparison uses the same task but **different command-policy revisions**. It compares successful runs, not total study expenditure or a controlled matched experiment.
 
-| Component | Pure frontier cloud | Open LM local/cloud |
-| --- | --- | --- |
-| Planning and requirements | Cloud | Cloud, including packet preparation |
-| Exploration, implementation and test/fix work | Cloud | Local where delegation succeeds |
-| Independent review and acceptance | Cloud | Cloud |
-| Diagnosis, corrections and fallback | All cloud usage counted | All cloud supervision/fallback counted; local retries separate |
-| Setup, hardware, energy and paid tools | Record separately | Record separately; local is not costless |
+| Metric | Terra only | Terra with Open LM + Ornith 1.0 | Reduction |
+| --- | ---: | ---: | ---: |
+| Cloud tokens, including cached input | 84,288 | 27,320 | 67.6% |
+| API-equivalent cloud cost | $0.10870 | $0.05755 | 47.1% |
 
-Moving 90% of coding locally is **not** proof of 90% lower cloud cost. Verbose handoffs, repeated reviews, failures and long cloud history can erase savings.
+Counts include each successful workflow's cloud planning and review; neither required repair. Actual cache counts are priced at the recorded Terra rate card. Earlier failed trials, interactive harness development, audits and report preparation are separate, not hidden inside a claim of complete savings. API-equivalent costs are not Codex subscription invoices. [Data and calculation scope](benchmarks/simplified-pilot-2026-09-14/README.md).
 
 ### Illustrative cloud cost comparison
 
-This scenario holds token quantities constant across models to show price effects. **These token counts are hypothetical, not measured Open LM savings or predictions.**
+The following retained scenario uses **hypothetical token budgets**, not measured savings for these models. Pure cloud assumes 100,000 input tokens (80,000 cached) and 5,000 output; the Open LM cloud portion assumes 30,000 input (20,000 cached) and 2,000 output covering planning, review and repairs.
 
-- Pure cloud: **100,000 input**, including **80,000 cached**, plus **5,000 output** tokens.
-- With Open LM skill applied (cloud portion only): **30,000 input**, including **20,000 cached**, plus **2,000 output** tokens covering all task-specific cloud phases listed above.
-- Same frontier model on both sides of each row. Output includes billable reasoning; do not add it twice.
-- Standard short-context rates; no separately billed cache writes, Fast mode, paid tools, regional uplift or taxes. Local compute and setup amortization are **excluded from this cloud-inference-only table**, not assumed free.
-
-| Frontier model | Pure-cloud cost, without local delegation | Cloud cost with Open LM skill applied | Cloud-cost reduction (%) |
+| Frontier model | Pure-cloud cost | Cloud cost with Open LM skill applied | Illustrative reduction |
 | --- | ---: | ---: | ---: |
-| Terra (`gpt-5.6-terra`) | $0.116 | $0.048 | 58.6% |
-| Sol (`gpt-5.6-sol`) | $0.212 | $0.088 | 58.5% |
-| Astra (`gpt-6-astra`) | $0.530 | $0.220 | 58.5% |
+| Terra | $0.116 | $0.048 | 58.6% |
+| Sol | $0.212 | $0.088 | 58.5% |
+| Astra | $0.530 | $0.220 | 58.5% |
 
-*Hypothetical scenario based on assumed token usage—not measured benchmark savings.*
+Same frontier model on both sides of each row; output includes reasoning and is not counted twice. [Scenario assumptions](benchmarks/cost-scenario.json) and [methodology](benchmarks/COSTS.md) retain the dated [pricing source](https://developers.openai.com/api/docs/pricing). A repeated, fully attributed savings study remains separate from release validation.
 
-“With Open LM skill applied” includes cloud planning, handoffs, review, verification, diagnosis, repair instructions and any cloud fallback while a local model handles implementation.
+## Scope and safety
 
-USD, verified **2026-09-13** against [OpenAI pricing](https://developers.openai.com/api/docs/pricing). Sol's listed promotional rates are available at least through November 21, 2026; recheck when reproducing. Actual model usage, quality, cache behavior and latency differ. Repricing Terra tokens at Sol/Astra rates is a scenario, not a Sol/Astra benchmark.
-
-This scenario has **69.5% fewer unweighted cloud tokens**, but about **58.5% lower cloud cost** because cache and output rates differ. See [methodology and formulas](benchmarks/COSTS.md) and [machine-readable assumptions](benchmarks/cost-scenario.json).
-
-**Subscriptions:** reducing tokens does not automatically reduce a fixed monthly Codex/ChatGPT or Claude bill. It may improve available capacity, but allowance consumption is not a simple token-to-dollar conversion. API-equivalent values are not invoices. [Codex usage and pricing](https://learn.chatgpt.com/docs/pricing).
-
-## Benchmark evidence
-
-The longer study includes inference runs for five distinct local weight sets and Astra/Sol/Terra cloud arms. Two additional weight sets failed to load and are documented separately in the diagnostic record. It supports scoped quality/runtime observations, **not a general savings claim**.
-
-| Evidence | Observed result | Limitation |
-| --- | --- | --- |
-| Multi-step native-tool/MCP calibration | Five local weight sets ran inference; 13 cloud attempts including repairs | One synthetic task; failures and unmatched harness variables retained; full frontier overhead unknown |
-| Historical Terra-only baseline | 3 synthetic tasks passed; 6 recorded phases | Not matched to the current hybrid workflow; supervising/setup usage excluded |
-| Qwen + LM Studio utility smoke | 2/2 checks; native read/edit/bash; 20.753 s | Not long-task reliability or end-to-end savings |
-| GLM + LM Studio same utility | 2/2 checks; native read/edit/bash; 79.533 s | Defaults/cache/app conditions not fully matched; no general model ranking |
-| Final packaged regressions | 14/14 checks (8 runner + 6 historical fixture checks) | Mocks do not prove OS isolation or token savings |
-
-In this longer task, repaired Astra and Sol candidates passed the published functional gate. Ornith was the strongest local candidate and passed after two frontier corrections, with handoff/stop-discipline caveats. Terra's final candidate still failed the asynchronous-output check; other local models failed implementation, timed out or hit backend incompatibilities. These are **one-task observations**, not universal model rankings.
-
-### Best-performing local model
-
-**Ornith 1.0 35B Q4_K_M GGUF was the strongest local model in the multi-step coding/MCP benchmark.** It passed all 10 protected checks and the common post-hoc functional gate after two frontier-issued repair handoffs.
-
-| Measure | Recorded Ornith result |
-| --- | --- |
-| Final functional quality | Passed the published gate after two repairs |
-| Local agent wall time, initial attempt + repairs | **438.273 seconds (~7.3 minutes)**, excluding model loading and frontier overhead |
-| Server input tokens, initial attempt + repairs | **336,613** |
-| Server completion tokens, including reasoning | **14,468** |
-| Model weights / tested memory | **21.17 GB GGUF / 32 GiB unified memory** |
-
-Ornith is the first candidate for further Open LM trials on this setup. [Full results and repair evidence](benchmarks/multi-step-2026-09-13/README.md).
-
-Worker summaries omit auxiliary API usage. Server timing analysis found title requests outside the worker totals, so those counters are not full workflow usage. Local tokens are reported separately by tokenizer, not converted to cloud tokens supposedly saved.
-
-See the [benchmark index](benchmarks/README.md), [Qwen/GLM observations](benchmarks/GLM-QWEN-SMOKE.md), [slowdown RCA](benchmarks/GLM-SLOWDOWN-RCA.md), and [controlled protocol](benchmarks/CONTROLLED-PROTOCOL.md). The [longer native-tool/MCP results](benchmarks/multi-step-2026-09-13/README.md) are archived with candidate snapshots, actual tests, API counters and RCA. A fully attributed repeated cloud/hybrid savings study remains **uncompleted**.
-
-## Context, chains and long tasks
-
-The frontier host budgets system/tools, packet, reads, history, output and headroom against the **actual runtime context**. v0 declares client limits but does not tokenize the full request or enforce the server allocation.
-
-Oversized tasks return to the frontier for batching rather than abandonment. [CHAIN.md](assets/CHAIN.md) maps parent requirements and dependencies to smaller packets and verified checkpoints. Each successor uses a fresh local session. The standalone runner does not schedule this automatically.
-
-For long tasks, monitor memory pressure, swap growth and sustained throughput—not cumulative local tokens alone. Keep one heavy model resident and never bypass runtime memory guardrails.
-
-## Safety and limitations
-
-- OpenCode permissions are **not an OS sandbox**. Use reviewed, secrets-free staging and stronger isolation when needed. Allowed test commands execute project code.
-- Loopback inference is not complete network isolation. Child tools inherit the environment; global config and credentials require review. Never publish unreviewed transcripts/configuration.
-- `review-ready` can accompany insufficient or failed tool evidence. Printed tool-looking text is not execution. Only the frontier verifier can ACCEPT.
-- Wall/log/event limits bound attempts, but event caps are reactive. No hard RAM/token limits, automatic full-context accounting, stall detector or automatic batch scheduler are supplied.
-- Diagnose before retrying. At most two verifier repair rounds, then escalate or take over with authority. Keep all attempts in the ledger.
-- macOS live runs are recorded. Linux portability and Claude-hosted execution are not yet live-validated here. Windows process-tree cleanup is unsupported; the runner rejects Windows.
-
-Read the [runtime failure matrix](references/local-runtime.md). It is an operational checklist, not a claim that every edge case has been tested.
+- OpenCode permissions are not an OS sandbox. Use reviewed, secrets-free staging; allowed test commands execute project code and child processes inherit the environment.
+- The host supplies the needed exact, single-line commands before dispatch, including equivalent path forms and reviewed diagnostics. Wildcard shell access is not required. See [packet configuration](references/setup.md#default-single-session-packet-json).
+- The runner supplies local routing, scoped client permissions, per-workspace ownership, bounded process/log/event handling and private summaries. It does not install models, call a frontier API, schedule batches, promote code or deploy.
+- Resource checks and context budgeting are host responsibilities in v0.1.0. Hard RAM limits, full-context tokenization, automatic setup diagnosis and adaptive token budgets are not shipped.
+- Model reports are untrusted claims. Preserve failures, diagnose before retries, and require independent acceptance. Windows process-tree cleanup is unsupported.
 
 ## Repository guide
 
-| File | Purpose |
+| Resource | Purpose |
 | --- | --- |
-| [SKILL.md](SKILL.md) | Strategist/developer/verifier contract |
-| [assets/TASK.md](assets/TASK.md) | Complete packet template, constraints and blocker hints |
-| [assets/CHAIN.md](assets/CHAIN.md) | Batches, dependencies and checkpoints |
-| [assets/FAILURE.md](assets/FAILURE.md) | Root-cause analysis before retry |
-| [assets/REVIEW.md](assets/REVIEW.md) | Review decision and measurement ledger |
-| [scripts/run-local.mjs](scripts/run-local.mjs) | Bounded local OpenCode runner |
-| [references/](references/) | Setup, runtime risks, lessons and v0 validation |
-| [benchmarks/](benchmarks/) | Redacted evidence, protocols and cost accounting |
+| [SKILL.md](SKILL.md) | Portable host instructions |
+| [TASK.md](assets/TASK.md) / [CHAIN.md](assets/CHAIN.md) | Focused briefs and verified task chains |
+| [Setup](references/setup.md) | Runtime configuration and packet schema |
+| [Release validation](references/validation-v010.md) | Tested scope and remaining work |
+| [Benchmark index](benchmarks/README.md) | Current pilot and historical evidence |
+| [Roadmap](prd.md) | Released, planned and future work |
 
-## Development and releases
-
-No project npm dependency install is needed for the runner. Run its Node regression suite with:
+## Development
 
 ```sh
-node --test scripts/run-local.test.mjs scripts/run-local-lmstudio.test.mjs
+node --test --test-concurrency=1 scripts/*.test.mjs benchmarks/validate-fixtures.test.mjs
 ```
 
-Tests use fixtures/mocks. Repeat a real isolated tool smoke when changing runtime, client or model. Keep compatibility, output-quality and savings experiments separate.
-
-Open LM remains experimental v0.0.0. Improvements should come from recorded failures and reproducible tests. See [CONTRIBUTING.md](CONTRIBUTING.md), [CHANGELOG.md](CHANGELOG.md), and [MIT license](LICENSE). See [SECURITY.md](SECURITY.md) for safe reporting. Never attach unreviewed private evidence to an issue. This project does not distribute model weights or grant rights to third-party runtimes/models.
+Tests cover the runner and a relocated installation without model downloads. Real-model smoke tests, output-quality experiments and savings studies remain distinct. See [contributing](CONTRIBUTING.md), [security reporting](SECURITY.md), [release notes](CHANGELOG.md) and the [MIT license](LICENSE). Model weights and third-party runtimes are not distributed here.

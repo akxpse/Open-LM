@@ -14,9 +14,11 @@ Check `opencode --version`, the selected server's version/catalog/residency (`ol
 
 Use a fresh staging Git repository (run `git init` in the staging copy, not an unrelated directory) or a reviewed worktree root, with only approved files, no secrets/symlinks/unreviewed project config. The runner is orchestration, not OS isolation: use host sandboxing or a reviewed container for stronger boundaries. Allowed shell commands can execute project code and lifecycle scripts; review them. Permissions/file limits are OpenCode policy, not a guarantee against an exploited child process. Environment filtering and isolation from global credentials are not supplied by this runner.
 
-## Packet JSON
+## Default single-session packet JSON
 
-Create control files OUTSIDE the staging workspace. All paths below must be absolute except entries in `writeFiles`, which are exact workspace-relative files. Example (replace sample paths before running):
+Use this single-session runner for ordinary coding. Read, edit, test and make bounded corrections in the same session; the frontier tests the final source independently. No handoff file or prescribed tool order is required. Use the optional [guarded runner](guarded-runtime.md) only when a task specifically needs phase-separated permissions.
+
+Create control files OUTSIDE the staging workspace. All paths below must be absolute except entries in `readFiles`, `writeFiles` and predecessor `sourceHashes`, which are exact workspace-relative files. Example (replace sample paths before running):
 
 ```json
 {
@@ -28,7 +30,9 @@ Create control files OUTSIDE the staging workspace. All paths below must be abso
   "baseURL": "http://127.0.0.1:11434/v1",
   "context": 32768,
   "outputTokens": 4096,
-  "writeFiles": ["src/example.mjs", "HANDOFF.md"],
+  "packetId": "example",
+  "readFiles": ["src/example.mjs", "tests/example.test.mjs"],
+  "writeFiles": ["src/example.mjs"],
   "commands": ["node --test tests/example.test.mjs"],
   "timeoutSeconds": 600,
   "maxToolEvents": 30,
@@ -67,7 +71,7 @@ The runner passes `context` and `outputTokens` as client model metadata. It does
 
 Before launch, record the actual runtime context and choose a client limit no larger. Account for system/tool definitions + packet + expected file reads + tool results/history + output reserve + safety margin. As an initial heuristic, reserve at least 20% of the verified window for uncertainty, in addition to output; this is not a guarantee or a measured model-specific optimum. If overhead or expected reads cannot be estimated confidently, use a smaller task and test the budget before a substantial run. Do not infer fit from packet length alone.
 
-Request targeted source excerpts and bounded failure output. Split by independently testable outcomes, not arbitrary token chunks that lose interfaces or requirements. For corrections, start a fresh session with the original contract, current file baseline, selected diff, failed checks and remaining work. Keep detailed logs outside the prompt. On truncation/context errors, return control to the frontier strategist for smaller chained packets, preserving and reviewing partial changes first. Do not abandon the parent task or simply increase context without checking RAM. Future automatic budgeting needs tokenizer-aware accounting of the complete request plus runtime telemetry and overflow tests.
+Request targeted source excerpts and bounded failure output. Split by independently testable outcomes, not arbitrary token chunks that lose interfaces or requirements. For frontier-issued repairs after a session ends or context is exhausted, start a fresh session with the original contract, current file baseline, selected diff, failed checks and remaining work. Ordinary bounded test/fix iterations may remain in the current session. Keep detailed logs outside the prompt. On truncation/context errors, return control to the frontier strategist for smaller chained packets, preserving and reviewing partial changes first. Do not abandon the parent task or simply increase context without checking RAM. Future automatic budgeting needs tokenizer-aware accounting of the complete request plus runtime telemetry and overflow tests.
 
 
 ## Host-coordinated batching and chaining
@@ -105,3 +109,42 @@ A generic "Runtime model preflight failed" can indicate expired/missing credenti
 To reuse existing GGUF weights, LM Studio's import command defaults to moving the source. Use its documented --hard-link or --copy option when the source must be preserved; inspect filesystem support and disk capacity first. The Qwen comparison used identical hard-linked weights, not a replacement quantization.
 
 Sources: [LM Studio authentication](https://lmstudio.ai/docs/developer/core/authentication), [model import](https://lmstudio.ai/docs/cli/local-models/import), [OpenCode environment substitution](https://dev.opencode.ai/docs/config/). The tested direct route needs no catalog translator, tracing proxy, global OpenCode config edit, or text-to-tool converter.
+
+## Exact read scope (v0.1.0)
+
+When a task permits only named inputs, include `readFiles` as exact workspace-relative file paths. The runner creates a deny-by-default read policy allowing those paths only and disables `glob` and `grep` discovery. An empty array permits no native reads. Omission preserves the legacy staging-workspace read/discovery behavior; the host must not omit it while promising an exact read allowlist.
+
+Provide the entire authorized input list, including visible test modules imported by a test entry point. Do not instruct the worker to discover files or read unlisted project instructions. The frontier reads applicable instructions before dispatch and relays their relevant constraints. Read limits remain client policy: approved shell commands can read other files, so this is not OS isolation.
+
+The preflight must verify the effective global and worker policy matches the packet before dispatch. A benchmark that audits exact reads must use the same list for runner permissions and evidence review. Keep past attempts immutable when changing this policy and tag new calibration runs separately. [OpenCode permission rules](https://opencode.ai/docs/permissions/).
+
+## Optional file-backed linked handoffs (v0.1.0)
+
+The default simplified workflow uses frontier-owned source checkpoints and compact context in the next task brief. It does not require this optional `predecessor` descriptor or a model-written report. The following schema remains available for existing file-backed integrations.
+
+In the legacy primitive, a HANDOFF snapshot alone does not prove a current-attempt native write. Use [guarded reporting](guarded-runtime.md#evidence-and-chaining) when fresh provenance is required. When HANDOFF.md exists, the primitive validates a regular, nonsymlink UTF-8 report of at most 16 KiB and preserves its raw text and hash metadata in the attempt's private output directory. The snapshot is explicitly unverified; the runner never accepts the worker's claims. Independent review and acceptance checks must pass first.
+
+The frontier then builds the successor packet with an explicit link:
+
+```json
+{
+  "packetId": "report",
+  "readFiles": ["ids.mjs", "report.mjs", "verify.test.mjs"],
+  "predecessor": {
+    "packetId": "parser",
+    "nextPacketId": "report",
+    "verified": true,
+    "handoffPath": "/absolute/previous-output/HANDOFF.md",
+    "handoffSha256": "<actual SHA-256 from handoff.json>",
+    "sourceHashes": {"ids.mjs": "<actual verified SHA-256>"}
+  }
+}
+```
+
+This is a fragment, not a complete runnable packet. Use actual IDs, paths and hashes, not the placeholders. verified=true is a frontier attestation issued only after independent checks; it is not proof produced by a model report or by the helper.
+
+Before starting OpenCode, the runner rejects wrong successor IDs, self-links, unverified predecessors, missing/changed handoff text, source-hash drift and path/symlink escapes. It embeds the compact predecessor evidence into the prompt. The worker does not need to find Git history or a handoff file that the next attempt replaces. The frontier remains responsible for the full dependency ledger, cycles and multi-parent verification; this link supports sequential handoffs.
+
+For a report-only HANDOFF correction, do not pass the read-authorizing `predecessor` descriptor to the correction runner. Give that fresh packet `readFiles: []`, `writeFiles: ["HANDOFF.md"]`, no commands, and include only the compact, independently reviewed predecessor metadata needed for the report in its task text. Its snapshot intentionally has an empty `sourceHashes` map because the correction had no source-write authority; do not promote that empty map as a successor link. After independently verifying the corrected report and confirming that the previously accepted source baseline is unchanged, build the successor descriptor from the corrected snapshot's raw `handoffPath` and `handoffSha256` plus freshly checked source hashes from that accepted baseline. This frontier action neither self-approves the report nor mutates or replaces the original attempt artifacts.
+
+Use fresh output directories, and never overwrite an existing snapshot. On failure, preserve the original attempt, perform root-cause analysis and link a new repair attempt. Do not reset parent repair/resource budgets. A snapshot failure leaves the attempt unreviewable rather than silently advancing the chain.

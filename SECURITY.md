@@ -1,6 +1,6 @@
 # Security
 
-Open LM v0.0.0 is experimental. Its runner configures agent permissions; it is not an OS sandbox or a credential-isolation boundary. Use secrets-free staging and review the effective client configuration and executable test code before running it.
+Open LM is experimental. Its runner configures agent permissions; it is not an OS sandbox or a credential-isolation boundary. Use secrets-free staging and review the effective client configuration and executable test code before running it.
 
 ## Reporting a vulnerability
 

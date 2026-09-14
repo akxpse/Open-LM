@@ -5,59 +5,35 @@ description: Offload bounded development tasks to a local coding agent while the
 
 # Open LM
 
-Keep the current host as strategist and final verifier. Use a local agent as a junior developer with a precise contract, not as an autonomous product owner. This skill does not switch the host's model or make host inference free.
+The frontier agent plans and independently verifies; a local agent implements and tests. Use short outcome-focused tasks, not a prescribed sequence of tool calls. This skill does not switch the frontier model or make its inference free.
 
-## Start
+## Prepare
 
-Version: 0.0.0 (experimental). See [validation evidence](references/validation-v0.md) for tested behavior and limitations.
+Version: 0.1.0. The single-session workflow was validated with Ornith 1.0; see [release validation](references/validation-v010.md). Historical guarded results describe their own workflow revisions.
 
-Read [setup and runner contract](references/setup.md) and [local runtime failure/recovery contract](references/local-runtime.md) before the first run or when changing clients/models. Read [lessons](references/lessons.md) when designing acceptance checks or improving the loop. Use [packet template](assets/TASK.md) for each new task.
+Read [setup](references/setup.md) before the first run or a runtime change. The default is a single session using `scripts/run-local.mjs`. Use [TASK.md](assets/TASK.md) for the brief. The [guarded runner](references/guarded-runtime.md) remains an opt-in compatibility path for a task that genuinely needs phase-separated permissions; do not apply its ordering, nonce or report requirements to ordinary coding.
 
-Honor user-selected models. Keep fallback choices explicit and task-specific; do not change the current host's model implicitly. Never silently use a paid fallback. Default local adapter: OpenCode -> Ollama. The runner also supports OpenCode -> LM Studio; select it with runtime=lmstudio and verify its exact model ID and authentication. Repeat a compatibility smoke test when changing the runtime or model.
+Honor the selected local model and runtime. Inspect project instructions and preserve existing user changes. Stage a secrets-free subset or reviewed worktree; keep logs, credentials and verifier-owned acceptance tests outside the worker's writable files. Supply the required interfaces, behavior, relevant context, editable files and permitted development commands. Ordinary read/search within that staged scope is appropriate; use exact read lists only when needed. Client permissions are not an OS sandbox.
 
-## Strategist contract
+Perform [resource readiness](references/local-runtime.md#agent-managed-resource-readiness) as the frontier agent, without asking the user for routine settings. Keep one heavy model resident, verify actual context and tool compatibility, and leave memory headroom. Preserve agreed runtime stop thresholds. Do not close unrelated apps or unload another task's model without authority. No paid fallback or remote mutation without authorization.
 
-1. Inspect the current project and its instructions. Preserve dirty changes. Select one outcome small enough to review as a coherent diff.
-2. Supply interfaces, permitted files, relevant context, edge cases, known blockers with permitted fixes, non-goals, and exact acceptance commands. Distinguish observed blockers from guesses. Do not dump the whole conversation or unnecessary skills into the packet.
-3. Stage an explicit, secrets-free subset in a fresh directory or reviewed worktree. Keep control files/logs outside the agent's writable work. One writer per file. Inspect effective OpenCode configuration before granting execution authority; its permissions are not an OS sandbox.
-4. Give the developer at most two repair rounds. A correction gets its own narrow packet; report-only corrections get no shell permission. Never interpret the skill invocation as approval for deployment, purchases, credentials, or broader changes.
+## Run and verify
 
-## Local run
+1. Give the local agent one coherent task and a bounded time/context budget. Allow reading, implementation, testing and evidence-led corrections in the same session. Tests may be repeated after changes or to investigate a failure. No mandatory MCP call order, once-only test rule, separate report session, report word-count gate or HANDOFF.md requirement.
+2. Inspect the actual diff and recorded execution. A brief final summary helps but its formatting is not an acceptance criterion. Missing narration is not a code failure; narration alone is not proof of implementation. The controller records checkpoints from artifacts and verification, rather than requiring the worker to manufacture provenance.
+3. Independently run acceptance tests against the final source, including relevant edge cases. Local edits after a local test are allowed; the final verifier tests the resulting state. Protect acceptance tests from worker changes and review any worker-authored tests.
+4. Accept verified changes only after checking baseline drift. If tests fail, diagnose from evidence and issue a focused repair within the existing parent budget (normally at most two frontier repair rounds). Distinguish code defects, runtime failures and incomplete measurement. Do not reject otherwise verified code solely for harmless tool ordering or a missing report.
 
-Use `node <skill-dir>/scripts/run-local.mjs <packet.json>` after reviewing the packet and effective configuration as described in setup. It runs one bounded attempt and saves logs plus summary; it does not promote changes, install models, or execute acceptance checks independently.
+Stop for unauthorized access, destructive/external actions, exhausted budgets, critical resource conditions, or missing task decisions. A simpler workflow does not grant broader authority. Preserve raw failures and never invent test results or token counts.
 
-Local developer sequence: read listed context -> implement -> run acceptance checks -> follow the packet's stop/repair rule -> review diff -> handoff -> stop. When a packet requires stopping after a failed check, do not self-repair in that attempt; the frontier diagnoses it and issues a separate correction. Successful checks do not authorize post-success edits or repeats. Do not repeat successful checks for reassurance. Stop on scope ambiguity, new authority requirements, exhausted budget, or repeated permission denial.
+## Batch and chain
 
-Automatically perform [resource readiness](references/local-runtime.md#agent-managed-resource-readiness) before dispatch, between batches and after runtime/model changes. The frontier agent owns memory/residency checks, context selection, bounded monitoring and task batching; do not hand this checklist to the user or ask for routine RAM/context choices. Keep one heavy model resident for this loop and reserve headroom for the OS, editor, test processes and other workloads. Never stop an unrelated workload without authority. Autocomplete is a separate editor workload, not a test executor. If memory is constrained, reduce context and create smaller fresh-session packets within existing authority; never drop requirements or silently switch models. Check memory fit and actual tool-call compatibility independently.
+Budget system/tool overhead, source reads, history and output against the actual runtime context. If the task will not fit, split by independently testable outcomes rather than raising context past available memory. Keep detailed logs out of subsequent prompts.
 
-## Context budget
-
-Before dispatch, verify the model's actual runtime context and use no higher client limit. Budget for system/tool instructions, the task packet, planned file reads, tool results/history, and output together. Keep a safety margin; split a task if its required context cannot fit without dropping constraints. Use targeted reads and bounded test output. Start correction packets in fresh sessions with the contract, current baseline, relevant diff and failure evidence rather than replaying the entire run.
-
-v0 exposes context/output settings but does not tokenize the full request, measure remaining context live, or enforce inference-server runtime allocation. Do not claim automatic overflow protection. Record the budget and its estimation uncertainty in the task packet. See [context limitations](references/setup.md#context-budget-v0).
-
-## Batching and task chains
-
-Context overflow is a request to re-batch, not a reason to abandon the parent task. Before dispatch, the frontier strategist splits a packet that will not fit. During a run, the local agent returns NEEDS_BATCHING with completed work, remaining requirement IDs, context evidence and a checkpoint; if overflow prevents a handoff, the strategist reconstructs it from the diff and recorded results. Pause only the affected attempt and inspect partial changes before resuming.
-
-Use [batch/chain plan](assets/CHAIN.md) to map every parent requirement to an ordered, independently verifiable packet. Keep interfaces and cross-cutting constraints explicit. Execute ready batches sequentially in fresh local sessions; each gets only its required context, verified predecessor baseline and compact handoff. The current frontier host coordinates this loop through ordinary tool calls; the standalone runner does not call a frontier API or schedule dependents.
-
-Verify each batch before unlocking its dependents. Continue ready tasks within existing authority without asking the user to approve routine batching. Failed or unverified prerequisites keep dependents pending; unrelated ready tasks may proceed. A final integration packet checks the whole parent contract before parent ACCEPT. Do not reset repair/resource budgets indefinitely by splitting: retain parent accounting, and escalate after two re-batching attempts without a verified batch or a demonstrably smaller context requirement.
-
-## Failure analysis before retry
-
-For every failed or incomplete attempt, the frontier host performs [failure analysis](assets/FAILURE.md) before reissuing work. Establish expected versus observed behavior, inspect raw evidence and partial effects, identify the confirmed cause and label deeper causes UNKNOWN when unproven. Select a targeted correction and a check that demonstrates recovery; never substitute blind retries or speculative explanations. The current frontier host remains planner, reviewer and final verifier; the local worker executes implementation/tests but cannot approve itself.
-
-## Verification gate
-
-Read the compact runner summary, relevant diff, and handoff first. For action-required packets, require actual matching edit/test evidence; normal model termination or printed tool syntax is not execution. Reject narration-only results even if the runner says review-ready. Inspect full logs only for discrepancies or diagnosis. Treat model reports as untrusted claims: command statuses come from recorded events, and missing exit codes remain unknown.
-
-Independently run acceptance checks in a clean environment where feasible, and check specification cases not covered by agent-visible tests. Review auth, payments, ownership, secrets, migrations, and dependencies proportionately to risk. Never let local models approve their own security or deployment.
-
-Decide ACCEPT / REWORK / BLOCKED. ACCEPT only the verified files after confirming the source has not changed since staging. A zero runner exit means review-ready, not correctness. Use a targeted correction packet for REWORK; at most two verifier returns before escalating or taking over. Report remaining verification gaps explicitly.
+Use [CHAIN.md](assets/CHAIN.md) for multiple batches. The frontier verifies each prerequisite, records the source checkpoint and passes only relevant interfaces/context to the next fresh session. A model-written handoff file is optional; the frontier can build the compact checkpoint from the diff, tests and logs. Keep incomplete prerequisites pending and run final integration checks after the chain. Carry repair costs and failures forward; batching must not reset budgets indefinitely.
 
 ## Learn and measure
 
-Keep project-local `.local-loop/lessons.md` and a run ledger using [review template](assets/REVIEW.md). Record what worked, failed, and the narrow rule/test that would prevent recurrence. Update this skill only when authorized; do not turn one project's workaround into a global rule.
+Record confirmed failure causes and useful remedies in project-local `.local-loop/lessons.md`; avoid adding a universal rule for each one-off mistake. Use [failure analysis](assets/FAILURE.md) when diagnosis needs structure and [review record](assets/REVIEW.md) for evidence.
 
-Treat cloud-token savings as an unvalidated design goal, not an expected percentage. Compare equivalent cloud-only and hybrid tasks including planning, review, and rework. Track local input/output/cache separately; repeated-context totals are not unique generated tokens. Track latency and defects too. Preserve verbose logs locally instead of repeatedly polling them into cloud context.
+Compare equivalent cloud-only and hybrid tasks, including cloud planning, review and repairs. Preserve actual input, cached input and output counts; report local usage separately. Keep workflow revisions and failed attempts identifiable. Do not pool old guarded runs with simplified runs or claim measured savings before the comparison is complete.
