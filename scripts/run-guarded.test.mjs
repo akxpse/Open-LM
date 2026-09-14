@@ -48,7 +48,8 @@ function fakeRunner(fixture, mode = {}) {
         event('write', 'source-write', {filePath: source, content: 'export const value = 1;\n'}), finish('implement-stop')];
     } else if (metadata.phase === 'test') {
       const command = p.commands[0];
-      const executed = spawnSync('/bin/zsh', ['-c', command], {cwd: p.workspace, encoding: 'utf8'});
+      const executed = spawnSync('/bin/sh', ['-c', command], {cwd: p.workspace, encoding: 'utf8'});
+      assert.ifError(executed.error);
       if (mode.shimTamper === 'bytes') fs.appendFileSync(path.join(p.workspace, '.open-lm-test'), '// changed\n');
       if (mode.shimTamper === 'mode') fs.chmodSync(path.join(p.workspace, '.open-lm-test'), 0o600);
       events = [event('read', 'test-read', {filePath: path.join(p.workspace, 'verify.test.mjs')}),
