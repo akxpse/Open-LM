@@ -8,18 +8,18 @@ OpenCode 1.17.15, Ollama 0.33.3, qwen3-coder:30b Q4_K_M (digest prefix 06c1097ef
 
 The prior run-002 and run-004 regression repair logs contain an attempted read in assistant text, beginning with a function block and ending with the closing tool-call tag, but missing the opening tool-call tag. They contain zero native tool events and no edits. The runner incorrectly called these review-ready, although accepted remained false and the frontier rejected both.
 
-Ollama's version-pinned parser requires the opening tag before it collects a function call. Without it, it emits content. This mechanism matches the observed text and upstream reproductions. We have not captured pre-parser generation for the original failures, so the model's exact reason for omitting the tag remains unknown. Do not blame RAM, context overflow, quantization, or the OpenCode SDK without additional evidence.
+Ollama's version-pinned parser requires the opening tag before it collects a function call. Without it, it emits content. This mechanism matches the observed text and upstream reproductions. Pre-parser generation was not captured for the original failures, so the model's exact reason for omitting the tag remains unknown. Do not blame RAM, context overflow, quantization, or the OpenCode SDK without additional evidence.
 
 ## Primary-source findings
 
 - [Ollama issue 16686](https://github.com/ollama/ollama/issues/16686): same missing-opening symptom, including the same model digest prefix; open when checked. Its system-prompt workaround is explicitly probabilistic.
 - [Ollama PR 16693](https://github.com/ollama/ollama/pull/16693): proposed bare-function fallback with streaming tests; still open, not a shipped fix when checked.
 - [Ollama issue 12751](https://github.com/ollama/ollama/issues/12751): reproduction with multiple tools; reporter says debug output confirms the model omits the opener. Open when checked.
-- [Qwen3-Coder issue 475](https://github.com/QwenLM/Qwen3-Coder/issues/475): reporter improved behavior with stronger native-wrapper instructions, particularly addressing calls after prose. This is a reported mitigation, not our measured reliability result.
+- [Qwen3-Coder issue 475](https://github.com/QwenLM/Qwen3-Coder/issues/475): reporter improved behavior with stronger native-wrapper instructions, particularly addressing calls after prose. This is a reported mitigation, not a measured reliability result from this study.
 - [Installed-version parser source](https://raw.githubusercontent.com/ollama/ollama/v0.33.3/model/parsers/qwen3coder.go): opening-tag requirement and first-closing-tag collection. The latter makes literal protocol delimiters inside tool arguments another relevant edge case.
 - [llama.cpp PR 26252](https://github.com/ggml-org/llama.cpp/pull/26252): merged August 2, 2026, with a missing-wrapper workaround. [Issue 26987](https://github.com/ggml-org/llama.cpp/issues/26987) reports a further unhandled case where both start markers are absent. Not installed or tested here.
 - [OpenCode issue 4255](https://github.com/anomalyco/opencode/issues/4255): older LM Studio empty-array hang report, closed; closure alone does not establish a released fix. It is not the observed stack or failure pattern here.
-- [Ollama issue 17636](https://github.com/ollama/ollama/issues/17636): some Hugging Face GGUF imports lack native renderer/parser assignment. Our installed library model already has both. Switching GGUFs alone is not an established remedy for our failure.
+- [Ollama issue 17636](https://github.com/ollama/ollama/issues/17636): some Hugging Face GGUF imports lack native renderer/parser assignment. The installed library model already has both. Switching GGUFs alone is not an established remedy for the observed failure.
 
 ## Controlled probes and failed repair attempts
 

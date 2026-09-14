@@ -2,9 +2,9 @@
 
 ## Install the folder
 
-Keep this folder intact. Codex: copy or symlink it as `open-lm` under your personal `.agents/skills/` directory, or project `.agents/skills/`. Claude Code: personal `.claude/skills/` or project `.claude/skills/`. Never overwrite an existing skill without reviewing it. Reload/start a new session if discovery does not refresh.
+Keep this folder intact. Codex: copy or symlink it as `open-lm` under the personal `.agents/skills/` directory, or project `.agents/skills/`. Claude Code: personal `.claude/skills/` or project `.claude/skills/`. Never overwrite an existing skill without reviewing it. Reload/start a new session if discovery does not refresh.
 
-Invoke `$open-lm` in Codex or `/open-lm` in Claude Code. You can also ask the host to read this SKILL.md by absolute path. Standard name/description frontmatter is portable; `agents/openai.yaml` is optional Codex UI metadata. Claude Code installation format is documented, but a Claude-hosted live run has not been tested here. Hosted agents need access to the local machine or an explicitly secured remote connection; localhost in a cloud container is not your Mac.
+Invoke `$open-lm` in Codex or `/open-lm` in Claude Code. Alternatively, ask the host to read this SKILL.md by absolute path. Standard name/description frontmatter is portable; `agents/openai.yaml` is optional Codex UI metadata. Claude Code installation format is documented, but a Claude-hosted live run has not been tested here. Hosted agents need access to the local machine or an explicitly secured remote connection; localhost in a cloud container does not refer to the local Mac.
 
 Prerequisites: Node 22+, Git, OpenCode CLI with `run --pure --format json`, Ollama or LM Studio running locally, and an already installed tool-capable model. Ollama normally needs no token; authenticated LM Studio requires LM_API_TOKEN in the launch environment. Do not install/download/quit apps without task authority.
 
@@ -88,7 +88,7 @@ Use the same packet fields and boundaries with these overrides:
 }
 ```
 
-This is a fragment, not a complete packet. Replace the example model with the exact ID exposed by your server's /v1/models catalog. The CLI modelKey used by lms load can differ from the inference identifier. Inspect lms ls --json and lms ps rather than guessing.
+This is a fragment, not a complete packet. Replace the example model with the exact ID exposed by the server's /v1/models catalog. The CLI modelKey used by lms load can differ from the inference identifier. Inspect lms ls --json and lms ps rather than guessing.
 
 On the tested installation, this loaded the existing Qwen model with a stable inference identifier:
 

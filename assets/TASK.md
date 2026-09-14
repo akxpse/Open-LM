@@ -107,6 +107,6 @@ Escalate on missing information/authority, scope expansion, repeated denial, exh
 - Exact checks performed; reference runner evidence. Missing exit codes are unknown, not zero.
 - Unverified items and known risks, explicitly including skipped security/runtime checks.
 - Dependencies or migration effects, if any.
-- Repair attempts and blockers; no fabricated success or reviewer checks claimed as your own.
+- Repair attempts and blockers; no fabricated success or reviewer checks attributed to the local agent.
 - On failure, return exact evidence and partial effects for frontier root-cause analysis before another attempt; label hypotheses and unknowns.
 - Handoff must be factual and concise. Command/exit-code truth comes from logs, not recollection.

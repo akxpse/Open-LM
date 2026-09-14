@@ -76,7 +76,7 @@ reduction = 1 - 0.048 / 0.116 = 58.6207%
 
 ## Local compute and break-even
 
-Your own genuinely local inference has no provider per-token charge, but uses hardware, energy and time. Keep local usage separate by tokenizer; never price Qwen/GLM tokens as cloud tokens allegedly avoided.
+Genuinely local inference has no provider per-token charge, but uses hardware, energy and time. Keep local usage separate by tokenizer; never price Qwen/GLM tokens as cloud tokens allegedly avoided.
 
 ```text
 energy cost = measured incremental average watts / 1,000

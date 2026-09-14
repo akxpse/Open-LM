@@ -2,11 +2,11 @@
 
 Cloud strategy. Local implementation. Independent verification.
 
-Open LM is an experimental Agent Skill that pairs a frontier cloud planner and reviewer with a local coding agent. It moves bounded implementation and test/fix work to your machine, then returns compact evidence for the cloud agent to verify.
+Open LM is an experimental Agent Skill that pairs a frontier cloud planner and reviewer with a local coding agent. It moves bounded implementation and test/fix work to the local machine, then returns compact evidence for the cloud agent to verify.
 
 **v0.0.0 · MIT · OpenCode + LM Studio or Ollama · macOS/Linux runner**
 
-Open LM keeps your frontier model focused on planning, review and verification, while local models handle implementation and test execution. Structured task packets give each handoff clear requirements and acceptance checks.
+Open LM keeps the frontier model focused on planning, review and verification, while local models handle implementation and test execution. Structured task packets give each handoff clear requirements and acceptance checks.
 
 [Quick Start](#quick-start-installation) · [Cost comparison](#cost-comparison) · [Benchmarks](#benchmark-evidence) · [Safety](#safety-and-limitations) · [Contributing](CONTRIBUTING.md)
 
@@ -25,26 +25,26 @@ The cloud agent stays the product owner and verifier. The runner does not call a
 
 - Node.js 22+, Git and an OpenCode CLI supporting `run --pure --format json`.
 - LM Studio or Ollama on the same machine, with an installed tool-capable model.
-- A cloud host able to execute local commands: Codex or Claude Code. A hosted container's `localhost` is not your laptop.
+- A cloud host able to execute local commands: Codex or Claude Code. A hosted container's `localhost` does not refer to the local laptop.
 - Enough memory for the model **plus** runtime context/KV cache and other applications. Keep one heavy local model resident at a time.
 
 Tested software stack: Node 22.23.2, OpenCode 1.17.15 and LM Studio 0.4.18+1. Model weights and third-party runtimes are separate downloads with their own licenses.
 
 #### Hardware requirements when running Open LM
 
-**The local model sets the hardware requirement.** Open LM runs the handoff and verification workflow; model weights, context memory and your development tools consume most of the RAM.
+**The local model sets the hardware requirement.** Open LM runs the handoff and verification workflow; model weights, context memory and development tools consume most of the RAM.
 
 | Component | Smaller-model starting point | Tested 30–35B Q4 workflow |
 | --- | --- | --- |
-| Memory | **16 GB RAM recommended** as a runtime starting point; choose a smaller tool-capable model and modest context | **32 GiB unified memory** on our benchmark Mac; one model loaded at a time |
+| Memory | **16 GB RAM recommended** as a runtime starting point; choose a smaller tool-capable model and modest context | **32 GiB unified memory** on the benchmark Mac; one model loaded at a time |
 | CPU / platform | Apple Silicon with macOS 14+, or a compatible Linux machine/runtime | Apple M5, macOS; M5 is the tested chip, not a minimum requirement |
-| GPU | Use acceleration supported by your runtime; dedicated VRAM and system RAM are separate budgets | Apple integrated GPU using shared unified memory |
+| GPU | Use acceleration supported by the runtime; dedicated VRAM and system RAM are separate budgets | Apple integrated GPU using shared unified memory |
 | Storage | Space for the chosen model, runtime, repository, dependencies and logs | Roughly **18–21 GB per model file** for the tested Qwen Coder, GLM and Ornith quantizations, plus workspace/runtime space |
 | Context | Start with a context that fits memory; split larger tasks into chained packets | **32,768 tokens**, one concurrent request |
 
-LM Studio recommends 16 GB+ RAM on Mac and says 8 GB Macs may work with smaller models and modest context. **16 GB is a starting recommendation, not a measured Open LM minimum or a fit target for our 30–35B models.** See [runtime system requirements](https://lmstudio.ai/docs/app/system-requirements). The Open LM runner supports macOS/Linux, not native Windows.
+LM Studio recommends 16 GB+ RAM on Mac and says 8 GB Macs may work with smaller models and modest context. **16 GB is a starting recommendation, not a measured Open LM minimum or a fit target for the tested 30–35B models.** See [runtime system requirements](https://lmstudio.ai/docs/app/system-requirements). The Open LM runner supports macOS/Linux, not native Windows.
 
-For the larger models in this repository, start from the **32 GiB tested configuration** and check memory pressure with your actual model and context. Those runs already had roughly 2.4–2.5 GiB of swap in use; allow more headroom for long sessions or a busy development environment. See [benchmark setup and memory observations](benchmarks/multi-step-2026-09-13/README.md).
+For the larger models in this repository, start from the **32 GiB tested configuration** and check memory pressure with the selected model and context. Those runs already had roughly 2.4–2.5 GiB of swap in use; allow more headroom for long sessions or a busy development environment. See [benchmark setup and memory observations](benchmarks/multi-step-2026-09-13/README.md).
 
 Longer context increases memory use. Keep one heavy model resident, leave room for the OS and editor, and batch oversized tasks instead of raising context beyond available memory. [Context and memory guidance](https://docs.ollama.com/context-length). Model fit and tool-call compatibility are separate checks.
 
@@ -95,13 +95,13 @@ lms ls --json
 lms ps
 ```
 
-Load your chosen model with verified context allocation and concurrency one. This installation used:
+Load the chosen model with verified context allocation and concurrency one. This installation used:
 
 ```sh
 lms load qwen3-coder-30b --context-length 32768 --parallel 1 --gpu max --identifier open-lm-qwen --ttl 600 --yes
 ```
 
-The model key is installation-specific. Substitute your catalog's key and a context that fits your hardware; this command does not download weights. Unload any other heavy model in its owning runtime first. The packet uses the server's **inference identifier**, which can differ from the catalog key.
+The model key is installation-specific. Substitute the catalog's key and a context that fits the available hardware; this command does not download weights. Unload any other heavy model in its owning runtime first. The packet uses the server's **inference identifier**, which can differ from the catalog key.
 
 For authenticated LM Studio, supply `LM_API_TOKEN` through a trusted local secret loader, limited to model listing and inference. Never place its value in a packet, repository, command argument or chat. The runner uses an environment placeholder in client configuration, but child tools inherit the environment: this is not credential isolation.
 
@@ -112,8 +112,8 @@ For authenticated LM Studio, supply `LM_API_TOKEN` through a trusted local secre
 In Codex, use:
 
 ```text
-Use $open-lm for this task. Keep yourself as planner and final verifier.
-Use OpenCode with LM Studio and my loaded local model for implementation
+Use $open-lm for this task. Keep the frontier agent as planner and final verifier.
+Use OpenCode with LM Studio and the loaded local model for implementation
 and test execution. Read the skill and setup instructions, verify runtime
 and memory readiness, stage only required files, and give the local
 developer a bounded packet. Diagnose failures before issuing repairs.
@@ -214,7 +214,7 @@ In this longer task, repaired Astra and Sol candidates passed the published func
 
 ### Best-performing local model
 
-**Ornith 1.0 35B Q4_K_M GGUF was the strongest local model in our multi-step coding/MCP benchmark.** It passed all 10 protected checks and the common post-hoc functional gate after two frontier-issued repair handoffs.
+**Ornith 1.0 35B Q4_K_M GGUF was the strongest local model in the multi-step coding/MCP benchmark.** It passed all 10 protected checks and the common post-hoc functional gate after two frontier-issued repair handoffs.
 
 | Measure | Recorded Ornith result |
 | --- | --- |
@@ -224,7 +224,7 @@ In this longer task, repaired Astra and Sol candidates passed the published func
 | Server completion tokens, including reasoning | **14,468** |
 | Model weights / tested memory | **21.17 GB GGUF / 32 GiB unified memory** |
 
-Choose Ornith first for further Open LM trials on this setup. Its initial run violated the stop-on-failure instruction and its final handoff exceeded our whitespace-count interpretation of the brevity cap, so retain cloud review and bounded repair rounds. This verdict prioritizes final functional quality; it is not a claim of lowest token usage, fastest time across unequal outcomes, or a universal model ranking. [Full results and repair evidence](benchmarks/multi-step-2026-09-13/README.md).
+Choose Ornith first for further Open LM trials on this setup. Its initial run violated the stop-on-failure instruction and its final handoff exceeded the whitespace-count interpretation of the brevity cap, so retain cloud review and bounded repair rounds. This verdict prioritizes final functional quality; it is not a claim of lowest token usage, fastest time across unequal outcomes, or a universal model ranking. [Full results and repair evidence](benchmarks/multi-step-2026-09-13/README.md).
 
 Worker summaries omit auxiliary API usage. Server timing analysis found title requests outside the worker totals, so those counters are not full workflow usage. Local tokens are reported separately by tokenizer, not converted to cloud tokens supposedly saved.
 
