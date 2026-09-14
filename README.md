@@ -4,7 +4,7 @@ Cloud strategy. Local implementation. Independent verification.
 
 Open LM is an experimental Agent Skill that pairs a frontier cloud planner and reviewer with a local coding agent. It moves bounded implementation and test/fix work to the local machine, then returns compact evidence for the cloud agent to verify. The [illustrative cost scenario](#illustrative-cloud-cost-comparison) shows over 58% lower cloud-inference costs using hypothetical token budgets.
 
-**v0.0.0 · MIT · OpenCode + LM Studio or Ollama · macOS/Linux runner**
+**v0.0.0 · OpenCode + LM Studio or Ollama · macOS/Linux runner**
 
 Open LM keeps the frontier model focused on planning, review and verification, while local models handle implementation and test execution. Structured task packets give each handoff clear requirements and acceptance checks.
 
