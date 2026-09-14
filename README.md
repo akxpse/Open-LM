@@ -172,7 +172,7 @@ This scenario holds token quantities constant across models to show price effect
 
 *Hypothetical scenario based on assumed token usage—not measured benchmark savings.*
 
-“With Open LM skill applied” includes cloud planning, handoffs, review, verification, diagnosis, repair instructions and any cloud fallback while a local model handles implementation. Local hardware and electricity costs are excluded.
+“With Open LM skill applied” includes cloud planning, handoffs, review, verification, diagnosis, repair instructions and any cloud fallback while a local model handles implementation.
 
 USD, verified **2026-09-13** against [OpenAI pricing](https://developers.openai.com/api/docs/pricing). Sol's listed promotional rates are available at least through November 21, 2026; recheck when reproducing. Actual model usage, quality, cache behavior and latency differ. Repricing Terra tokens at Sol/Astra rates is a scenario, not a Sol/Astra benchmark.
 
